@@ -1,20 +1,20 @@
-# DevPoint Labs Fall 2014
+# DevPoint Labs Fall 2014  
 
 ## Capstone Project Name:
-Codeschool Student Portal
-Codename: Better Beakr or Beakr 2.0
+Codeschool Student Portal  
+Codename: Better Beakr or Beakr 2.0  
 
 ## Team Members:
-Alex
-Curtis
-Rocio
-Ryan
+Alex  
+Curtis  
+Rocio  
+Ryan  
 
 ## Objective:
 Create a student portal for code schools.
 
 ## Description:
-### Create a fully functional student portal for code schools with these characteristics:
+Create a fully functional student portal for code schools with these characteristics:
 - Transition from public website to student portal flawlessly.
 - Web 2.0, utilize modern technology, tools and design.
 - Develop a cohesive, dynamic and interactive web portal.
@@ -24,7 +24,7 @@ Create a student portal for code schools.
 
 ## Requirements/Use Cases:
 
-### As a student I can:
+As a student I can:
 - Update profile and account settings
 - View dashboard with announcements, events and progress relevant to the student
 - Submit assignments for staff approval
@@ -39,7 +39,7 @@ Create a student portal for code schools.
 - View leader board for cohort
 - Github API. Github integration throughout student portal, user profiles, coursework and project manager. Github organization quick view page.
 
-### As a staff I can:
+As a staff I can:
 - Have all the same access as student plus the following:
 - Assign new assignments, quizzes, homework and projects.
 - Add or delete students to a cohort
@@ -52,34 +52,35 @@ Create a student portal for code schools.
 - Upload files
 - View, edit and delete from the Project Manager
 
-### Phase 0 (pre-project setup):
-[✓] Create blank application.
-[✓] Prepare Repo (https://github.com/cmckee-dev/DPL-Capstone)
+## Roadmap/Milestones
+Phase 0 (pre-project setup):
+- [✓] Create blank application.
+- [✓] Prepare Repo (https://github.com/cmckee-dev/DPL-Capstone)  
 
-### Phase 1 - Oct 8th (project basics setup):
-[] Set up all models and controllers.
-[] Implement users and roles using Devise
-[] Routes
-[] Dashboard setup
-[] UI done and integrated
+Phase 1 - Oct 8th (project basics setup):
+- [] Set up all models and controllers.
+- [] Implement users and roles using Devise
+- [] Routes
+- [] Dashboard setup
+- [] UI done and integrated  
 
-### Phase 2 - Oct 22nd (MVP project features):
-[] Look into API integration
-[] Coursework and assignments framework/functionallity
-[] Project Manager
-[] Github API integration
-[] Gicgo- badges
+Phase 2 - Oct 22nd (MVP project features):
+- [] Look into API integration
+- [] Coursework and assignments framework/functionallity
+- [] Project Manager
+- [] Github API integration
+- [] Gicgo- badges  
 
-### Phase 3 - Oct 30th (Extras):
-[] Refactoring code
-[] Testing
-[] Adding extras
+Phase 3 - Oct 30th (Extras):
+- [] Refactoring code
+- [] Testing
+- [] Adding extras
   - [] Slack API
   - [] Google API
   - [] UI theming conventions
   - [] File upload manager
   - [] Discussion board
-  - [] Web resources
+  - [] Web resources  
 
 # Requirements
 
