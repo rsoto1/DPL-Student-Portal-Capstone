@@ -1,5 +1,5 @@
 require 'factory_girl_rails'
- 
+require 'capybara/rspec' 
 require 'simplecov'
 SimpleCov.start "rails" do
   add_filter '/spec/'
