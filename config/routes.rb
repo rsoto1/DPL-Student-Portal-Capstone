@@ -2,10 +2,20 @@ Rails.application.routes.draw do
   get 'site/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  devise_for :users,
+             controllers: { registrations: 'registrations' },
+             path_names: {sign_in: 'login', sign_out: 'logout'}
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'site#index'
+
+  # Split site in to separate sections for staff and all other users (students)
+  namespace :dashboard do
+    resources :users, only: [:index]
+  end
+
+  namespace :staff do
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
