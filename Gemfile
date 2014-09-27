@@ -27,9 +27,25 @@ group :development, :test do
   gem 'rails_panel'
   # Supporting gem for Rails Panel (Google Chrome extension for Rails development).
   gem 'meta_request'
+  gem 'pry-rails'
+  gem 'pry-nav'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  # Database Cleaner provides auto cleaning of test db after running tests
+  gem 'database_cleaner'
+  # Provides a nice set of should methods for use in specs
+  gem 'shoulda-matchers'
+  # Provides metrics for test coverage
+  gem 'simplecov', require: false
 end
 
 group :production do
+  # Added for asset precompilation and support for Heroku deployment
+  gem 'rails_12factor'
 end
 
 group :doc do
