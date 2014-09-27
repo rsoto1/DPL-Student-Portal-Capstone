@@ -59,7 +59,8 @@ Phase 0 (pre-project setup):
 
 Phase 1 - Oct 8th (project basics setup):
 - [] Set up all models and controllers.
-- [] Implement users and roles using Devise
+- [] Implement users using Devise
+- [] Implement roles using Pundit
 - [] Routes
 - [] Dashboard setup
 - [] UI done and integrated  
