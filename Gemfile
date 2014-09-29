@@ -11,6 +11,8 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass'
 # add browser vendor prefixes automatically.
 gem 'autoprefixer-rails'
+# font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
+gem "font-awesome-rails"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
