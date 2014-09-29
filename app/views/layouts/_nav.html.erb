@@ -34,7 +34,8 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="index.html"><i class="fa fa-fw fa-desktop"></i> Dashboard</a>
+                        <%= link_to content_tag(:i, nil, :class=>"fa fa-fw fa-desktop") + ' Dashboard', root_path %>
+                        <!-- <a href="index.html"><i class="fa fa-fw fa-desktop"></i> Dashboard</a> -->
                     </li>
                     <li>
                         <a href="charts.html"><i class="fa fa-fw fa-envelope"></i> Messages</a>
