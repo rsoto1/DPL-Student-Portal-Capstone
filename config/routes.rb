@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get 'site/index'
+  # namespace :dashboard do
+    
+  # end
+
+  # get 'site/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   devise_for :users,
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
 
   # Split site in to separate sections for staff and all other users (students)
   namespace :dashboard do
+    get '/' => 'base#index'
     resources :users, only: [:index]
   end
 

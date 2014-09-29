@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+if Rails.env.development?
+  seed_file = Rails.root.join('db', 'seeds.yml')
+  seed_data = YAML::load_file(seed_file)
+
+  seed_data['users'].each do |user_name, user_data|
+    User.create!(user_data)
+  end
+end
