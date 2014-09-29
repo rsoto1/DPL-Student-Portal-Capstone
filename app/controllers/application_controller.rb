@@ -5,13 +5,13 @@ class ApplicationController < ActionController::Base
   
   layout :layout_by_resource
 
-  def after_sign_in_path_for(user)
-    if user.staff?
-      staff_path
-    else
-      dashboard_path
-    end
-  end
+  # def after_sign_in_path_for(user)
+  #   if user.staff?
+  #     staff_path
+  #   else
+  #     dashboard_path
+  #   end
+  # end
 
   protected
 
