@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   namespace :staff do
+    resources :locations
   end
 
   # Example of regular route:
