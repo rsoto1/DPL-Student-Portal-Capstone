@@ -7,6 +7,8 @@ gem 'rails', '4.1.5'
 gem 'pg'
 # Ruby on Rails stylesheet engine for Sass
 gem 'sass-rails', '~> 4.0.3'
+# Bootstrap Sass gem
+gem 'bootstrap-sass'
 # add browser vendor prefixes automatically.
 gem 'autoprefixer-rails'
 # Use Uglifier as compressor for JavaScript assets
