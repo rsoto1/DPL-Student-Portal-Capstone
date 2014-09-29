@@ -4,12 +4,8 @@ default_passwords: &default_passwords
 
 users:
   bill:
-    name: 'Bill'
     email: 'bill@email.com'
     <<: *default_passwords
-    phone: 1111111111
   ted:
-    name: 'Ted'
     email: 'ted@email.com'
     <<: *default_passwords
-    phone: 2222222222
