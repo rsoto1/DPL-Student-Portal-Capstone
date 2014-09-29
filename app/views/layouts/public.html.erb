@@ -7,20 +7,8 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
-    <div id="wrapper"> <!-- body wrapper -->
-
-      <%= render '/layouts/nav' %>
-
-      <div id="page-wrapper"> <!-- Main content wrapper -->
-        <div class="container-fluid">
-
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-          <%= yield %>
-
-      </div>
-    </div>
-  </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
   </body>
 </html>
