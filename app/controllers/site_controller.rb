@@ -2,6 +2,8 @@ class SiteController < ApplicationController
   before_action :authenticate_user!
   before_action :route_user
 
+  layout 'public'
+
   def index
   end
 
