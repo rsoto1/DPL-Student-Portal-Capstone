@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   namespace :staff do
+    get '/' => 'base#index'
     resources :locations
   end
 
