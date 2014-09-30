@@ -6,6 +6,8 @@ users:
   bill:
     email: 'bill@email.com'
     <<: *default_passwords
+    role: 0
   ted:
     email: 'ted@email.com'
     <<: *default_passwords
+    role: 1
