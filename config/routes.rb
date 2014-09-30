@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   # Split site in to separate sections for staff and all other users (students)
   namespace :dashboard do
     get '/' => 'base#index'
-    # resources :users, only: [:profile]
     get '/profile' => 'users#profile'
   end
 
