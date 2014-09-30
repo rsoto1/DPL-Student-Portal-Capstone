@@ -4,10 +4,14 @@ default_passwords: &default_passwords
 
 users:
   bill:
+    first_name: 'Bill'
+    last_name: 'Preston'
     email: 'bill@email.com'
     <<: *default_passwords
     role: 0
   ted:
+    first_name: 'Ted'
+    last_name: 'Logan'
     email: 'ted@email.com'
     <<: *default_passwords
     role: 1
