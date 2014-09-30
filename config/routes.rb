@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # The priority is based upon order of creation: first created -> highest priority.
   root to: 'site#index'
 
@@ -18,6 +19,25 @@ Rails.application.routes.draw do
     resources :locations
   end
 
+  namespace :dashboard do
+    get 'notifications/index'
+  end
+
+  namespace :dashboard do
+    get 'events/index'
+  end
+
+  namespace :dashboard do
+    get 'attendances/index'
+  end 
+
+  namespace :dashboard do
+    get 'announcements/index'
+  end 
+
+  namespace :dashboard do
+    get 'assignments/index'  
+  end 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -66,4 +86,161 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  # namespace :dashboard do
+  # get 'notifications/index'
+  # end
+
+  # namespace :dashboard do
+  # get 'notifications/edit'
+  # end
+
+  # namespace :dashboard do
+  # get 'notifications/update'
+  # end
+
+  # namespace :dashboard do
+  # get 'notifications/new'
+  # end
+
+  # namespace :dashboard do
+  # get 'notifications/create'
+  # end
+
+  # namespace :dashboard do
+  # get 'notifications/show'
+  # end
+
+  # namespace :dashboard do
+  # get 'notifications/destroy'
+  # end
+
+  # namespace :dashboard do
+  # get 'events/index'
+  # end
+
+  # namespace :dashboard do
+  # get 'events/edit'
+  # end
+
+  # namespace :dashboard do
+  # get 'events/update'
+  # end
+
+  # namespace :dashboard do
+  # get 'events/new'
+  # end
+
+  # namespace :dashboard do
+  # get 'events/create'
+  # end
+
+  # namespace :dashboard do
+  # get 'events/show'
+  # end
+
+  # namespace :dashboard do
+  # get 'events/destroy'
+  # end
+
+  # namespace :dashboard do
+  # get 'attendances/index'
+  # end
+
+  # namespace :dashboard do
+  # get 'attendances/edit'
+  # end
+
+  # namespace :dashboard do
+  # get 'attendances/update'
+  # end
+
+  # namespace :dashboard do
+  # get 'attendances/new'
+  # end
+
+  # namespace :dashboard do
+  # get 'attendances/create'
+  # end
+
+  # namespace :dashboard do
+  # get 'attendances/show'
+  # end
+
+  # namespace :dashboard do
+  # get 'attendances/destroy'
+  # end
+
+  # namespace :dashboard do
+  # get 'announcements/index'
+  # end
+
+  # namespace :dashboard do
+  # get 'announcements/edit'
+  # end
+
+  # namespace :dashboard do
+  # get 'announcements/update'
+  # end
+
+  # namespace :dashboard do
+  # get 'announcements/new'
+  # end
+
+  # namespace :dashboard do
+  # get 'announcements/create'
+  # end
+
+  # namespace :dashboard do
+  # get 'announcements/show'
+  # end
+
+  # namespace :dashboard do
+  # get 'announcements/destroy'
+  # end
+
+  # namespace :dashboard do
+  # get 'assignments/index'
+  # end
+
+  # namespace :dashboard do
+  # get 'assignments/edit'
+  # end
+
+  # namespace :dashboard do
+  # get 'assignments/update'
+  # end
+
+  # namespace :dashboard do
+  # get 'assignments/new'
+  # end
+
+  # namespace :dashboard do
+  # get 'assignments/create'
+  # end
+
+  # namespace :dashboard do
+  # get 'assignments/show'
+  # end
+
+  # namespace :dashboard do
+  # get 'assignments/destroy'
+  # end
+
+  # get 'dashboard/Assignments'
+
+  # get 'dashboard/index'
+
+  # get 'dashboard/edit'
+
+  # get 'dashboard/update'
+
+  # get 'dashboard/new'
+
+  # get 'dashboard/create'
+
+  # get 'dashboard/show'
+
+  # get 'dashboard/destroy'
+
 end
+
