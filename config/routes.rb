@@ -5,10 +5,10 @@ Rails.application.routes.draw do
              singular: :user,
              controllers: { registrations: 'registrations' },
              path: '',
-             path_names: {sign_in: 'login',
-                          sign_out: 'logout',
-                          sign_up: 'register',
-                          edit: 'edit/profile'}
+             path_names: { sign_in: 'login',
+                           sign_out: 'logout',
+                           sign_up: 'register',
+                           edit: 'edit/profile' }
 
   # Split site in to separate sections for staff and all other users (students)
   namespace :dashboard do
