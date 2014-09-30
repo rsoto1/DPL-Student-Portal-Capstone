@@ -2,14 +2,19 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   root 'site#index'
   devise_for :users,
+             singular: :user,
              controllers: { registrations: 'registrations' },
-             path_names: {sign_in: 'login', sign_out: 'logout'}
-
+             path: '',
+             path_names: {sign_in: 'login',
+                          sign_out: 'logout',
+                          sign_up: 'register',
+                          edit: 'edit/profile'}
 
   # Split site in to separate sections for staff and all other users (students)
   namespace :dashboard do
     get '/' => 'base#index'
-    resources :users, only: [:index]
+    # resources :users, only: [:profile]
+    get '/profile' => 'users#profile'
   end
 
   namespace :staff do

@@ -1,8 +1,9 @@
 <h1>My Profile</h1>
-<h3><%= @user.name %></h3>
+<h3><%= @user.first_name + ' ' + @user.last_name %></h3>
 <h4><%= @user.email %></h4>
-<p>
-
-</p>
-
-<%= button_to 'Edit Profile', root_path, class: "btn btn-primary", method: :get%>
+<p>Hometown: <%= @user.hometown %></p>
+<p>GitHub: <%= @user.github_username %></p>
+<br>
+<%= button_to 'Edit Profile', edit_user_registration_path,
+                              class: "btn btn-primary",
+                              method: :get%>
