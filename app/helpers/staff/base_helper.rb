@@ -1,0 +1,2 @@
+module Staff::BaseHelper
+end
