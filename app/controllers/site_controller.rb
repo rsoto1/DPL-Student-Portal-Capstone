@@ -10,10 +10,10 @@ class SiteController < ApplicationController
   private
 
   def route_user
-    if current_user #&& current_user.student?
+    if current_user && current_user.student?
       redirect_to dashboard_path
-    #elsif current_user && current_user.staff?
-    #  redirect_to staff_path
+    elsif current_user && current_user.staff?
+     redirect_to staff_path
     end
   end
 end
