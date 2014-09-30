@@ -19,8 +19,24 @@ Rails.application.routes.draw do
   end
 
   namespace :dashboard do
-    get 'announcements/index'
+    get 'notifications/index'
+  end
 
+  namespace :dashboard do
+    get 'events/index'
+  end
+
+  namespace :dashboard do
+    get 'attendances/index'
+  end 
+
+  namespace :dashboard do
+    get 'announcements/index'
+  end 
+
+  namespace :dashboard do
+    get 'assignments/index'  
+  end 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -226,3 +242,4 @@ Rails.application.routes.draw do
   # get 'dashboard/destroy'
 
 end
+
