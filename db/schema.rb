@@ -16,6 +16,29 @@ ActiveRecord::Schema.define(version: 20140930175818) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "announcements", force: true do |t|
+    t.text     "text"
+    t.string   "posted_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "assignments", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.integer  "cohort_id"
+    t.text     "description"
+    t.date     "due_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "attendances", force: true do |t|
+    t.boolean  "present"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "cohorts", force: true do |t|
     t.string   "name"
     t.datetime "starts_at"
@@ -27,9 +50,44 @@ ActiveRecord::Schema.define(version: 20140930175818) do
 
   add_index "cohorts", ["location_id"], name: "index_cohorts_on_location_id", using: :btree
 
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "all_day"
+    t.text     "description"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "locations", force: true do |t|
     t.string   "name"
     t.string   "time_zone_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "names", force: true do |t|
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "all_day"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "user_id"
+    t.boolean  "read"
+    t.text     "message"
+    t.string   "sender_name"
+    t.string   "sender_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_managers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
