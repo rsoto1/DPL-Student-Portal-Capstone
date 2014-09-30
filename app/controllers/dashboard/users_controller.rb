@@ -8,12 +8,19 @@ class Dashboard::UsersController < ApplicationController
   end
 
   def update
+    if current_user.update_info(user_params)
+      sign_in current_user, bypass: true
+      redirect_to dashboard_path, notice: 'User profile updated!'
+    else
+      alert_and_render('Could not update your profile...', :edit)
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name,
+    params.require(:user).permit(:first_name,
+                                 :last_name,
                                  :email,
                                  :password,
                                  :password_confirmation,
