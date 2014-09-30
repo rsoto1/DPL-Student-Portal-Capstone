@@ -54,9 +54,9 @@
   </ul>
 
   <!-- Render side navigation menu based on roles -->
-  <% if user.role? :admin %>
-    <%= render '/layouts/admin_nav' else %>
+  <% if user.staff? %>
+    <%= render '/layouts/staff_nav' else %>
   <% else %>
-    <%= render '/layouts/user_nav' %>
+    <%= render '/layouts/student_nav' %>
   <% end %>
 </nav>
