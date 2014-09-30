@@ -1,4 +1,160 @@
 Rails.application.routes.draw do
+  namespace :dashboard do
+  get 'notifications/index'
+  end
+
+  namespace :dashboard do
+  get 'notifications/edit'
+  end
+
+  namespace :dashboard do
+  get 'notifications/update'
+  end
+
+  namespace :dashboard do
+  get 'notifications/new'
+  end
+
+  namespace :dashboard do
+  get 'notifications/create'
+  end
+
+  namespace :dashboard do
+  get 'notifications/show'
+  end
+
+  namespace :dashboard do
+  get 'notifications/destroy'
+  end
+
+  namespace :dashboard do
+  get 'events/index'
+  end
+
+  namespace :dashboard do
+  get 'events/edit'
+  end
+
+  namespace :dashboard do
+  get 'events/update'
+  end
+
+  namespace :dashboard do
+  get 'events/new'
+  end
+
+  namespace :dashboard do
+  get 'events/create'
+  end
+
+  namespace :dashboard do
+  get 'events/show'
+  end
+
+  namespace :dashboard do
+  get 'events/destroy'
+  end
+
+  namespace :dashboard do
+  get 'attendance/index'
+  end
+
+  namespace :dashboard do
+  get 'attendance/edit'
+  end
+
+  namespace :dashboard do
+  get 'attendance/update'
+  end
+
+  namespace :dashboard do
+  get 'attendance/new'
+  end
+
+  namespace :dashboard do
+  get 'attendance/create'
+  end
+
+  namespace :dashboard do
+  get 'attendance/show'
+  end
+
+  namespace :dashboard do
+  get 'attendance/destroy'
+  end
+
+  namespace :dashboard do
+  get 'announcements/index'
+  end
+
+  namespace :dashboard do
+  get 'announcements/edit'
+  end
+
+  namespace :dashboard do
+  get 'announcements/update'
+  end
+
+  namespace :dashboard do
+  get 'announcements/new'
+  end
+
+  namespace :dashboard do
+  get 'announcements/create'
+  end
+
+  namespace :dashboard do
+  get 'announcements/show'
+  end
+
+  namespace :dashboard do
+  get 'announcements/destroy'
+  end
+
+  namespace :dashboard do
+  get 'assignments/index'
+  end
+
+  namespace :dashboard do
+  get 'assignments/edit'
+  end
+
+  namespace :dashboard do
+  get 'assignments/update'
+  end
+
+  namespace :dashboard do
+  get 'assignments/new'
+  end
+
+  namespace :dashboard do
+  get 'assignments/create'
+  end
+
+  namespace :dashboard do
+  get 'assignments/show'
+  end
+
+  namespace :dashboard do
+  get 'assignments/destroy'
+  end
+
+  get 'dashboard/Assignments'
+
+  get 'dashboard/index'
+
+  get 'dashboard/edit'
+
+  get 'dashboard/update'
+
+  get 'dashboard/new'
+
+  get 'dashboard/create'
+
+  get 'dashboard/show'
+
+  get 'dashboard/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   root 'site#index'
   devise_for :users,
