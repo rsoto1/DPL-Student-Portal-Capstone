@@ -1,6 +1,6 @@
 class Dashboard::UsersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
   end
 
@@ -16,6 +16,10 @@ class Dashboard::UsersController < ApplicationController
     end
   end
 
+  def profile
+    @user = current_user
+  end
+
   private
 
   def user_params
@@ -26,5 +30,5 @@ class Dashboard::UsersController < ApplicationController
                                  :password_confirmation,
                                  :hometown,
                                  :github_username)
-  end 
+  end
 end
