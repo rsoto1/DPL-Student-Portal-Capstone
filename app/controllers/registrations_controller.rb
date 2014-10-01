@@ -36,8 +36,4 @@ class RegistrationsController < Devise::RegistrationsController
                                  :password_confirmation,
                                  :current_password)
   end
-
-  def ensure_staff!
-    redirect_to root_path unless current_user && current_user.staff?
-  end
 end
