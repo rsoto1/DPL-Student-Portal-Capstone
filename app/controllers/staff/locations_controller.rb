@@ -1,8 +1,11 @@
 class Staff::LocationsController < ApplicationController
-  before_action :set_location, only: [:edit, :update, :destroy]
- 
+  before_action :set_location, only: [:show, :edit, :update, :destroy]
+
   def index
     @locations = Location.all
+  end
+
+  def show
   end
 
   def new
