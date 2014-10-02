@@ -1,7 +1,11 @@
 class Staff::CohortsController < ApplicationController
-before_action :set_cohort, only: [:edit, :update, :destroy]
+  before_action :set_cohort, only: [:show, :edit, :update, :destroy]
 
   def index
+    @cohorts = Cohort.all
+  end
+
+  def show
   end
 
   def new
@@ -45,5 +49,4 @@ before_action :set_cohort, only: [:edit, :update, :destroy]
                                    :name,
                                    :location_id)
   end
-
 end
