@@ -1,15 +1,25 @@
 Rails.application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   root 'site#index'
   devise_for :users,
+             singular: :user,
              controllers: { registrations: 'registrations' },
-             path_names: {sign_in: 'login', sign_out: 'logout'}
-
+             path: '',
+             path_names: { sign_in: 'login',
+                           sign_out: 'logout',
+                           sign_up: 'register',
+                           edit: 'edit/profile' }
 
   # Split site in to separate sections for staff and all other users (students)
   namespace :dashboard do
     get '/' => 'base#index'
-    resources :users, only: [:index]
+    get '/profile' => 'users#profile'
+    # resources :notifications
+    # resources :events
+    # resources :attendances
+    # resources :announcements
+    # resources :assignments
   end
 
   namespace :staff do
@@ -23,7 +33,7 @@ Rails.application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
+  # Example resource route(maps HTTP verbs to controller actions automatically):
   #   resources :products
 
   # Example resource route with options:
@@ -65,4 +75,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end
