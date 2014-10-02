@@ -68,6 +68,15 @@ ActiveRecord::Schema.define(version: 20140930175818) do
     t.datetime "updated_at"
   end
 
+  create_table "names", force: true do |t|
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "all_day"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "notifications", force: true do |t|
     t.integer  "user_id"
     t.boolean  "read"
