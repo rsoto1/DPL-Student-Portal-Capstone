@@ -1,0 +1,32 @@
+.Welcome {
+  color: #ccc;
+  text-align: center;
+}
+
+.background {
+  background-image: image-url('classroom.jpg');
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+}
+
+.Copyright {
+  font-size: 1em;
+  text-align: center;
+  clear: both;
+  color: #ccc;
+}
+
+.form-container {
+  margin:auto;
+  max-width: 40%;
+  .panel-heading {
+    text-align:center;
+  }
+}
+
+.alert {
+  text-align:center;
+  color:white;
+}
