@@ -1,0 +1,30 @@
+<h1>Staff::Cohorts#index</h1>
+<p>This is just a temporary view. This will become the cohorts index page for staff.</p>
+<p>Staff can come here to view a list of all current cohorts, add new ones, delete or edit current existing cohorts.</p>
+
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th>Cohort Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cohorts.each do |cohort| %>
+      <tr>
+        <td><%= cohort.name %></td>
+        <td><%= cohort.starts_at %></td>
+        <td><%= cohort.ends_at %></td>
+        <td><%= link_to 'View', [:staff, cohort], class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Edit', edit_staff_cohort_path(cohort), class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Delete', [:staff, cohort], class: 'btn btn-xs btn-default', method: :delete, 
+                                            data: { 
+                                                  confirm: 'Are you sure you ' \
+                                                           'want to delete this cohort?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

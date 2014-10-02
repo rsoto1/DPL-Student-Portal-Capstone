@@ -1,0 +1,56 @@
+<!-- form_for([:staff, @season]) do |f|
+  .form-group
+    = f.label(:branch_id, 'Branch')
+    = f.select(:branch_id, options_for_select(Branch.all.collect {|b| [b.name, b.id]}, @season.branch_id))
+  .form-group
+    = f.label(:name)
+    = f.text_field(:name, class: 'form-control')
+  .form-group
+    = f.label(:starts_at)
+    = f.date_select(:starts_at, order: [:month, :day, :year])
+  .form-group
+    = f.label(:ends_at)
+    = f.date_select(:ends_at, order: [:month, :day, :year])
+  .form-group
+    = f.submit('Save', class: 'btn btn-primary')
+    span &nbsp;
+    a href="#{staff_path}" class="btn btn-danger btn-xs" cancel
+
+    :starts_at, :ends_at, :name, :location_id
+ -->
+ <%= form_for [:staff, @cohort] do |f| %>
+  <!-- Check if there were any errors saving cohort and display them if so -->
+  <% if @cohort.errors.any? %>
+    <div id='error_explanation'>
+      <h2><%= pluralize(@cohort.errors.count, "error") %> prohibited
+          this cohort from being saved:</h2>
+      <ul>
+        <% @cohort.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Begin rendering the form -->
+  <div class= 'form-group'>
+    <%= f.label :location_id, 'Location:' %><br>
+    <%= f.select :location_id, Location.all.collect {|l| [l.name, l.id]} %>
+  </div>  
+  <div class= 'form-group'>
+    <%= f.label :name, 'Cohort Name:' %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class= 'form-group'>
+    <%= f.label :starts_at, 'Cohort Start Date:' %><br>
+    <%= f.date_select :starts_at, order: [:month, :day, :year], class: 'form-control' %>
+  </div>
+  <div class= 'form-group'>
+    <%= f.label :ends_at, 'Cohort End Date:' %><br>
+    <%= f.date_select :ends_at, order: [:month, :day, :year], class: 'form-control' %>
+  </div>
+  
+  <%= f.submit 'Submit', class: 'btn btn-primary' %> 
+  
+  <%= link_to 'Back', staff_locations_path, class: 'btn btn-default' %>
+<% end %>
