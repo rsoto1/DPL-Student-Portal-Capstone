@@ -1,4 +1,5 @@
 class Staff::CohortsController < ApplicationController
+  include SetCohort
   before_action :set_cohort, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -38,10 +39,6 @@ class Staff::CohortsController < ApplicationController
   end
 
   private
-
-  def set_cohort
-    @cohort = Cohort.find(params[:id])
-  end
 
   def cohort_params
     params.require(:cohort).permit(:starts_at,
