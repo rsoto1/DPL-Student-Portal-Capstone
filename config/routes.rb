@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :locations
     resources :cohorts do
       get '/students/new' => 'users#new', as: :new_student
+      resources :users, path: 'students'
     end
   end
 
