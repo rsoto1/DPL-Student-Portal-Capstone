@@ -27,4 +27,14 @@ class ApplicationController < ActionController::Base
   def ensure_staff!
     redirect_to root_path unless current_user && current_user.staff?
   end
+
+  def current_cohort
+    @current_cohort ||= current_user.cohort if current_user.student?
+  end
+  helper_method :current_cohort
+
+  def current_location
+    @current_location ||= current_cohort.location if current_cohort?
+  end
+  helper_method :current_location
 end
