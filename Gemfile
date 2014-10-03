@@ -37,6 +37,7 @@ group :development, :test do
   gem 'meta_request'
   gem 'pry-rails'
   gem 'pry-nav'
+  gem 'binding_of_caller'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
