@@ -33,9 +33,10 @@ Rails.application.routes.draw do
 
   namespace :staff do
     get '/' => 'base#index'
-    get '/students/new' => 'users#new', as: :new_student
     resources :locations
-    resources :cohorts
+    resources :cohorts do
+      get '/students/new' => 'users#new', as: :new_student
+    end
   end
 
   # Example of regular route:
