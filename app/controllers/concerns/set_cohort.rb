@@ -4,6 +4,6 @@ module SetCohort
   private
 
   def set_cohort
-    @cohort = Cohort.find(params[:id])
+    @cohort = Cohort.find(params[:cohort_id])
   end
 end
