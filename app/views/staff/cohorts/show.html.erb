@@ -1,0 +1,11 @@
+<h1><%= @cohort.location.name + ' ' + @cohort.name %></h1>
+<h4><%= @cohort.starts_at %></h4>
+<h4><%= @cohort.ends_at %></h4>
+<br>
+<%= link_to 'Edit Cohort', edit_staff_cohort_path,
+                              class: "btn btn-primary",
+                              method: :get%>
+
+<%= link_to 'Add Student', staff_cohort_new_student_path(@cohort),
+                              class: "btn btn-primary",
+                              method: :get%>
