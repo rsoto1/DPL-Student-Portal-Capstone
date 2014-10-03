@@ -18,8 +18,8 @@
     <% location.cohorts.each do |cohort| %>
       <tr>
         <td><%= cohort.name %></td>
-        <td><%= cohort.starts_at %></td>
-        <td><%= cohort.ends_at %></td>
+        <td><%= cohort.starts_at.to_date.to_s(:long_ordinal) %></td>
+        <td><%= cohort.ends_at.to_date.to_s(:long_ordinal) %></td>
         <td><%= link_to 'View', [:staff, cohort], class: 'btn btn-xs btn-default' %></td>
         <td><%= link_to 'Edit', edit_staff_cohort_path(cohort), class: 'btn btn-xs btn-default' %></td>
         <td><%= link_to 'Delete', [:staff, cohort], class: 'btn btn-xs btn-default', method: :delete, 
