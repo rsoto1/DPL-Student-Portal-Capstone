@@ -8,7 +8,7 @@ class SiteController < ApplicationController
   end
 
   private
-
+  
   def route_user
     if current_user && current_user.student?
       redirect_to dashboard_path
