@@ -26,11 +26,10 @@ class Staff::UsersController < ApplicationController
   end
 
   def update
-    if current_user.update_info(user_params)
-      sign_in current_user, bypass: true
-      redirect_to dashboard_path, notice: 'User profile updated!'
+    if @student.update_info(user_params)
+      redirect_to staff_cohort_path(@cohort), notice: 'Student updated!'
     else
-      alert_and_render('Could not update your profile...', :edit)
+      alert_and_render('Could not update student', :edit)
     end
   end
 
