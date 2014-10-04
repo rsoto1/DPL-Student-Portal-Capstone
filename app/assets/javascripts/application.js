@@ -12,7 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
-//= require bootstrap-sprockets 
-//= require turbolinks
+//= require bootstrap-sprockets
+//= require jquery-ui/sortable
 //= require_tree .
+
+$(function() {
+  $( "#sortable" ).sortable();
+  $( "#sortable" ).disableSelection();
+  $( "#sortable2" ).sortable();
+  $( "#sortable2" ).disableSelection();
+});

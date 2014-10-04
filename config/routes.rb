@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
-  root 'site#index'
+  root to: 'site#index'
+
   devise_for :users,
              singular: :user,
              controllers: { registrations: 'registrations' },
