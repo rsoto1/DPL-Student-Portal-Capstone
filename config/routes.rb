@@ -16,12 +16,16 @@ Rails.application.routes.draw do
   namespace :dashboard do
     get '/' => 'base#index'
     get '/profile' => 'users#profile'
+    get '/webresources' => 'base#resources'
     # resources :notifications
     # resources :events
     # resources :attendances
     # resources :announcements
     # resources :assignments
   end
+
+
+
 
   # scope :staff do
   #   devise_for :users,
