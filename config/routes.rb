@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  namespace :staff do
+  get 'courses/index'
+  end
+
+  namespace :staff do
+  get 'courses/edit'
+  end
+
+  namespace :staff do
+  get 'courses/new'
+  end
+
+  namespace :staff do
+  get 'courses/show'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   root to: 'site#index'
 
