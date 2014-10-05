@@ -1,0 +1,6 @@
+<h1><%= @location.name %></h1>
+<h4><%= @location.time_zone_name %></h4>
+<br>
+<%= button_to 'Edit Location', edit_staff_location_path,
+                              class: "btn btn-primary",
+                              method: :get%>
