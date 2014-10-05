@@ -40,7 +40,7 @@ class Staff::CoursesController < ApplicationController
   private
 
   def set_course
-    @course = @course.find(params[:id])
+    @course = Course.find(params[:id])
   end
 
   def course_params
