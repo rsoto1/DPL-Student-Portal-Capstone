@@ -23,7 +23,7 @@
   </div>
   <div class= 'form-group'>
     <%= f.label :duration, 'Course Duration:' %><br>
-    <%= f.select :duration, {['Months', 'months'], ['Weeks', 'weeks']}, class: 'form-control' %>
+    <%= f.select :duration, options_for_select(%w[months weeks]), class: 'form-control' %>
   </div>
   <div class= 'form-group'>
     <%= f.label :price, 'Course Price:' %><br>
