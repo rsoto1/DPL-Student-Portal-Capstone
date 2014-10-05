@@ -10,7 +10,7 @@ Rails.application.routes.draw do
              path_names: { sign_in: 'login',
                            sign_out: 'logout',
                            sign_up: 'register',
-                           edit: 'edit/profile' }
+                           edit: 'dashboard/profile/edit' }
 
   # Split site in to separate sections for staff and all other users (students)
   namespace :dashboard do
