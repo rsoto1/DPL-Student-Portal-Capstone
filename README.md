@@ -1,14 +1,7 @@
-# DevPoint Labs Fall 2014  
-
-## Capstone Project Name:
-Codeschool Student Portal  
-Codename: Better Beakr or Beakr 2.0  
+# DevPoint Labs Fall 2014 Capstone Project: Codeschool Student Portal
 
 ## Team Members:
-Alex  
-Curtis  
-Rocio  
-Ryan  
+Alex, Curtis, Rocio, Ryan  
 
 ## Objective:
 Create a student portal for code schools.
@@ -58,19 +51,21 @@ Phase 0 (pre-project setup):
 - [✓] Prepare Repo (https://github.com/cmckee-dev/DPL-Capstone)  
 
 Phase 1 - Oct 8th (project basics setup):
-- [] Set up all models and controllers.
-- [] Implement users using Devise
-- [] Implement roles using Pundit
-- [] Routes
-- [] Dashboard setup
-- [] UI done and integrated  
+- [✓] Set up all models and controllers.
+- [✓] Implement users using Devise
+- [✓] Implement roles
+- [✓] Basic routes setup
+- [✓] Dashboard setup
+- [✓] UI done and integrated  
+- [✓] Heroku app setup
 
 Phase 2 - Oct 22nd (MVP project features):
+- [] Oauth integration
 - [] Look into API integration
 - [] Coursework and assignments framework/functionallity
 - [] Project Manager
 - [] Github API integration
-- [] Gicgo- badges  
+- [] Gamification  
 
 Phase 3 - Oct 30th (Extras):
 - [] Refactoring code
@@ -81,7 +76,13 @@ Phase 3 - Oct 30th (Extras):
   - [] UI theming conventions
   - [] File upload manager
   - [] Discussion board
-  - [] Web resources  
+  - [] Web resources
+  - [] Finance payment portal
+  - [] Statistics on students and classes
+  - [] Social networking aspect
+  - [] Mentor sign-up sheet
+  - [] Internal SEO
+  - [] Internal Chat
 
 # Requirements
 
