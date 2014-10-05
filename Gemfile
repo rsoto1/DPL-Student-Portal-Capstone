@@ -24,7 +24,7 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # Use Devise for user authentication and registration
-gem 'devise'
+gem 'devise', '~> 3.3.0'
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
