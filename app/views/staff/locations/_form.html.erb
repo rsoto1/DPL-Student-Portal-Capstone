@@ -1,0 +1,29 @@
+<%= form_for [:staff, @location] do |f| %>
+  <!-- Check if there were any errors saving location and display them if so -->
+  <% if @location.errors.any? %>
+    <div id='error_explanation'>
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited
+          this location from being saved:</h2>
+      <ul>
+        <% @location.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Begin rendering the form -->
+  <div class= 'form-group'>
+    <%= f.label :name, 'Location Name:' %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class= 'form-group'>
+    <%= f.label :time_zone_name, 'Time Zone:' %><br>
+    <%= f.time_zone_select :time_zone_name, ActiveSupport::TimeZone.us_zones,
+                                            class: 'form-control' %>
+  </div>
+  
+  <%= f.submit 'Submit', class: 'btn btn-primary' %> 
+  
+  <%= link_to 'Back', staff_locations_path, class: 'btn btn-default' %>
+<% end %>

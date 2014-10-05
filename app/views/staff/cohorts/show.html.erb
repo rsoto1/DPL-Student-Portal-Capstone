@@ -1,0 +1,41 @@
+<h1><%= @cohort.location.name + ' ' + @cohort.name %></h1>
+<h4><%= @cohort.starts_at.to_date.to_s(:long_ordinal) %> 
+through 
+<%= @cohort.ends_at.to_date.to_s(:long_ordinal) %></h4>
+<br>
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th colspan="3">Student List</th>
+    </tr>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cohort.users.each do |student| %>
+      <tr>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.email %></td>
+        <td><%= link_to 'View', [:staff, @cohort, student], class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Edit', edit_staff_cohort_user_path(@cohort, student), class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Delete', [:staff, @cohort, student], class: 'btn btn-xs btn-default', method: :delete, 
+                                            data: { 
+                                                  confirm: 'Are you sure you ' \
+                                                           'want to delete this student?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Edit Cohort', edit_staff_cohort_path,
+                              class: "btn btn-primary",
+                              method: :get%>
+
+<%= link_to 'Add Student', new_staff_cohort_user_path(@cohort),
+                              class: "btn btn-primary",
+                              method: :get%>

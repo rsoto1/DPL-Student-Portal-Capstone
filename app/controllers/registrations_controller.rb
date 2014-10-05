@@ -1,6 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :ensure_staff!, only: [:new, :create]
 
+  def new
+  end
+
+  def create
+  end
+
   def after_update_path_for(resource)
     case resource
     when :user, User
@@ -29,9 +35,5 @@ class RegistrationsController < Devise::RegistrationsController
                                  :password,
                                  :password_confirmation,
                                  :current_password)
-  end
-
-  def ensure_staff!
-    redirect_to dashboard_path unless current_user && current_user.staff?
   end
 end

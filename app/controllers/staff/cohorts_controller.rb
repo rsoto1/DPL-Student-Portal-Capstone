@@ -1,7 +1,11 @@
 class Staff::CohortsController < ApplicationController
-before_action :set_cohort, only: [:edit, :update, :destroy]
+  before_action :set_cohort, only: [:show, :edit, :update, :destroy]
 
   def index
+    @cohorts = Cohort.all
+  end
+
+  def show
   end
 
   def new
@@ -35,10 +39,6 @@ before_action :set_cohort, only: [:edit, :update, :destroy]
 
   private
 
-  def set_cohort
-    @cohort = Cohort.find(params[:id])
-  end
-
   def cohort_params
     params.require(:cohort).permit(:starts_at,
                                    :ends_at,
@@ -46,4 +46,7 @@ before_action :set_cohort, only: [:edit, :update, :destroy]
                                    :location_id)
   end
 
+  def set_cohort
+    @cohort = Cohort.find(params[:id])
+  end
 end
