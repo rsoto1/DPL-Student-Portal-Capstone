@@ -1,21 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :staff do
-  get 'courses/index'
-  end
-
-  namespace :staff do
-  get 'courses/edit'
-  end
-
-  namespace :staff do
-  get 'courses/new'
-  end
-
-  namespace :staff do
-  get 'courses/show'
-  end
-
   # The priority is based upon order of creation: first created -> highest priority.
   root to: 'site#index'
 
@@ -55,6 +39,7 @@ Rails.application.routes.draw do
   namespace :staff do
     get '/' => 'base#index'
     resources :locations
+    resources :courses
     resources :cohorts do
       get '/students/new' => 'users#new', as: :new_student
       resources :users, path: 'students'
