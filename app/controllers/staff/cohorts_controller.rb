@@ -43,7 +43,8 @@ class Staff::CohortsController < ApplicationController
     params.require(:cohort).permit(:starts_at,
                                    :ends_at,
                                    :name,
-                                   :location_id)
+                                   :location_id,
+                                   :course_id)
   end
 
   def set_cohort
