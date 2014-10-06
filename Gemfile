@@ -25,6 +25,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # Use Devise for user authentication and registration
 gem 'devise', '~> 3.3.0'
+# Omniauth Github support for devise
+gem 'omniauth-github'
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
@@ -39,7 +41,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
-
+  gem 'dotenv-rails'
 end
 
 group :test do
