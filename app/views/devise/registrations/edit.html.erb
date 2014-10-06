@@ -46,10 +46,10 @@
         <br>
           <div class="panel-footer">
             <div class="btn-group">
-              <%= f.submit "Update", class: "btn-sm btn-primary" %>&nbsp
+              <%= link_to "Back", dashboard_profile_path, class: "btn-sm btn-danger" %>
             </div>
             <div class="btn-group">
-              <%= button_to "Back", class: "btn-sm" %>
+              <%= f.submit "Update", class: "btn-sm btn-primary" %>&nbsp
             </div>
          </div>
        <% end %>
