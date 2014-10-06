@@ -18,7 +18,5 @@
 
 $(function() {
   $( "#sortable" ).sortable();
-  $( "#sortable" ).disableSelection();
   $( "#sortable2" ).sortable();
-  $( "#sortable2" ).disableSelection();
 });
