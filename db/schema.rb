@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 20141006015342) do
   create_table "courses", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer   "duration"
+    t.integer  "duration"
     t.string   "duration_unit"
-    t.decimal  "price",       precision: 8, scale: 2
+    t.decimal  "price",         precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
