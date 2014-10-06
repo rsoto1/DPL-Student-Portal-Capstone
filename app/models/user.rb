@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :cohort
+  has_many :attendances, dependent: :destroy
+  has_many :announcements, dependent: :destroy
+  has_many :notifications, dependent: :destroy
+  belongs_to :cohort
 
   enum role: [:student, :staff]
 
