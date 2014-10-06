@@ -1,4 +1,5 @@
 class Staff::LocationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -15,7 +16,7 @@ class Staff::LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      redirect_to staff_path, notice: 'Welcome to the family!'
+      redirect_to staff_locations_path, notice: 'Welcome to the family!'
     else
       alert_and_render('Could not save location info', :new)
     end
