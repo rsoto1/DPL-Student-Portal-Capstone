@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 3.3.0'
 # Omniauth Github support for devise
 gem 'omniauth-github'
+# HTTParty gem for api usage
+gem 'httparty'
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
