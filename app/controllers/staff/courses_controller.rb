@@ -48,6 +48,7 @@ class Staff::CoursesController < ApplicationController
     params.require(:course).permit(:name,
                                  :description,
                                  :duration,
+                                 :duration_unit,
                                  :price)
   end
 end
