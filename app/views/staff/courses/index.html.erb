@@ -14,8 +14,8 @@
     <% @courses.each do |course| %>
       <tr>
         <td><%= course.name %></td>
-        <td><%= course.duration %></td>
-        <td>$ <%= course.price %></td>
+        <td><%= "#{course.duration} #{course.duration_unit}" %></td>
+        <td>$<%= course.price %></td>
         <td><%= link_to 'View', [:staff, course], class: 'btn btn-xs btn-default' %></td>
         <td><%= link_to 'Edit', edit_staff_course_path(course), class: 'btn btn-xs btn-default' %></td>
         <td><%= link_to 'Delete', [:staff, course], class: 'btn btn-xs btn-default', method: :delete, 
