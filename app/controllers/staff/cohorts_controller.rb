@@ -17,7 +17,7 @@ class Staff::CohortsController < ApplicationController
 
   def update
     if @cohort.update_attributes(cohort_params)
-      redirect_to staff_path, notice: 'Cohort updated!'
+      redirect_to staff_cohort_path, notice: 'Cohort updated!'
     else
       alert_and_render('Could not update', :edit)
     end
@@ -26,7 +26,7 @@ class Staff::CohortsController < ApplicationController
   def create
     @cohort = Cohort.new(cohort_params)
     if @cohort.save
-      redirect_to staff_path, notice: 'New cohort added'
+      redirect_to staff_cohort_path, notice: 'New cohort added'
     else
       alert_and_render('Could not save cohort', :new)
     end
@@ -34,7 +34,7 @@ class Staff::CohortsController < ApplicationController
 
   def destroy
     @cohort.destroy
-    redirect_to staff_path, notice: 'Cohort Removed'
+    redirect_to staff_cohorts_path, notice: 'Cohort Removed'
   end
 
   private
