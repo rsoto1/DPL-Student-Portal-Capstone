@@ -26,7 +26,7 @@ class Staff::CohortsController < ApplicationController
   def create
     @cohort = Cohort.new(cohort_params)
     if @cohort.save
-      redirect_to staff_cohort_path, notice: 'New cohort added'
+      redirect_to staff_cohort_path(@cohort), notice: 'New cohort added'
     else
       alert_and_render('Could not save cohort', :new)
     end
