@@ -7,3 +7,33 @@
 <%= link_to 'Back', staff_courses_path,
                               class: "btn btn-default",
                               method: :get%>
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th colspan="3">Cohort List</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th>Name</th>
+      <th>Dates</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @course.cohorts.each do |cohort| %>
+      <tr>
+        <td><%= cohort.location.name %></td>
+        <td><%= cohort.name %></td>
+        <td><%= cohort.starts_at.to_date.to_s(:long_ordinal) %> 
+          - <%= cohort.ends_at.to_date.to_s(:long_ordinal) %></td>
+        <td><%= link_to 'View', [:staff, cohort], class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Edit', edit_staff_cohort_path(cohort), class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Delete', [:staff, cohort], class: 'btn btn-xs btn-default', method: :delete, 
+                                            data: { 
+                                                  confirm: 'Are you sure you ' \
+                                                           'want to delete this student?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>                              
