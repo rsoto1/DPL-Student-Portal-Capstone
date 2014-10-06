@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users,
              singular: :user,
-             controllers: { registrations: 'registrations' },
+             controllers: { registrations: 'registrations', :omniauth_callbacks => 'apis' },
              path: '',
              path_names: { sign_in: 'login',
                            sign_out: 'logout',
