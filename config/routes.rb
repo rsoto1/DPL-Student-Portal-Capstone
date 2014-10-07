@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-
-  get 'about/index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   root to: 'site#index'
+  get '/about' => 'static_pages#about'
+  get '/contact' => 'static_pages#contact'
 
   devise_for :users,
              singular: :user,

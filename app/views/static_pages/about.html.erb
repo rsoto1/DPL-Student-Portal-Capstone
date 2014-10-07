@@ -1,2 +1,13 @@
-<h1>StaticPages#about</h1>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+<h1>About Page</h1>
+<p>Here is some info about us and our application. We are people which did stuff
+with things at places to produce functionality.</p>
+
+<h3>Stats About Our App</h3>
+<h4>Has Many Relationships</h4>
+<%= get_has_many_assocations() %>
+<hr>
+<h4>Total Lines of Code</h4>
+<%= get_loc_count() %>
+<hr>
+<h4>Files Sorted by Lines of Code</h4>
+<%= get_loc_sorted() %>
