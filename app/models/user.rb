@@ -33,11 +33,22 @@ class User < ActiveRecord::Base
     super.tap do |user|
       if data = session["devise.github_data"] && session["devise.github_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
-        user.name = data['first_name']
+        user.first_name = data['name']
         user.github_username = data['login']
         user.github_access_token = session["devise.github_data"]['credentials']['token']
         user.github_state = 'completed'
       end
+    end
+  end
+
+  def self.from_omniauth(auth)
+    where("email = ? OR provider = ? AND uid = ? ", auth.info.email, auth.provider, auth.uid).first_or_create do |user|
+    # where(email: auth.info.email).where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.first_name = auth.info.name   # assuming the user model has a name
+      # user.image = auth.info.image # assuming the user model has an image
     end
   end
 end
