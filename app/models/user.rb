@@ -5,10 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:github]
   belongs_to :cohort
-  has_many :attendances, dependent: :destroy
-  has_many :announcements, dependent: :destroy
-  has_many :notifications, dependent: :destroy
-  belongs_to :cohort
+  # has_many :attendances, dependent: :destroy
+  # has_many :announcements, dependent: :destroy
+  # has_many :notifications, dependent: :destroy
 
   enum role: [:student, :staff]
 
@@ -33,7 +32,7 @@ class User < ActiveRecord::Base
     super.tap do |user|
       if data = session["devise.github_data"] && session["devise.github_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
-        user.first_name = data['name']
+        user.first_name, user.last_name = data['name'].split(' ')
         user.github_username = data['login']
         user.github_access_token = session["devise.github_data"]['credentials']['token']
         user.github_state = 'completed'
@@ -44,11 +43,13 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     where("email = ? OR provider = ? AND uid = ? ", auth.info.email, auth.provider, auth.uid).first_or_create do |user|
     # where(email: auth.info.email).where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.first_name = auth.info.name   # assuming the user model has a name
-      user.github_username = auth.info.username
+      user.first_name, user.last_name = auth.info.name.split(' ')   # assuming the user model has a name
+      user.last_name = '' if user.last_name == nil # shit breaks if last_name is nil
+      user.github_username = auth.extra.raw_info.login
+      user.github_access_token = auth.credentials.token
+      user.github_state = 'completed'
       # user.image = auth.info.image # assuming the user model has an image
     end
   end
