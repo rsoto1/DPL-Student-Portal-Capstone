@@ -18,3 +18,14 @@
 @import "font-awesome";
 @import "sb-admin";
 @import "jquery-ui/sortable";
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto 13em;
+}
+
+.footer, .push {
+  height: -13m;
+}

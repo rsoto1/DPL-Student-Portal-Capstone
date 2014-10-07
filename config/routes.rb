@@ -25,9 +25,6 @@ Rails.application.routes.draw do
     # resources :assignments
   end
 
-
-
-
   # scope :staff do
   #   devise_for :users,
   #              controllers: { registrations: 'registrations' },
