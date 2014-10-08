@@ -41,7 +41,8 @@ class User < ActiveRecord::Base
   # end
 
   def self.get_and_update_from_omniauth(auth)
-    user = where("email = ? OR provider = ? AND uid = ? ",
+    user = where("email = ? OR github_email = ? OR provider = ? AND uid = ? ",
+                 auth.info.email,
                  auth.info.email,
                  auth.provider,
                  auth.uid).first
@@ -50,6 +51,8 @@ class User < ActiveRecord::Base
     user.github_username = auth.extra.raw_info.login
     user.github_access_token = auth.credentials.token
     user.github_state = 'completed'
+    user.provider = auth.provider
+    user.uid = auth.uid
     user
     # user.email = auth.info.email
     # user.password = Devise.friendly_token[0,20]
