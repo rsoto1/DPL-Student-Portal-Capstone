@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-
   # The priority is based upon order of creation: first created -> highest priority.
   root to: 'site#index'
+  get '/about' => 'static_pages#about', as: :about
+  get '/contact' => 'static_pages#contact', as: :contact
 
   devise_for :users,
              singular: :user,
@@ -23,9 +24,6 @@ Rails.application.routes.draw do
     # resources :announcements
     # resources :assignments
   end
-
-
-
 
   # scope :staff do
   #   devise_for :users,
