@@ -50,6 +50,7 @@ class User < ActiveRecord::Base
     user.github_username = auth.extra.raw_info.login
     user.github_access_token = auth.credentials.token
     user.github_state = 'completed'
+    user
     # user.email = auth.info.email
     # user.password = Devise.friendly_token[0,20]
     # user.image = auth.info.image # assuming the user model has an image
