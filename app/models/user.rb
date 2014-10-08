@@ -46,8 +46,8 @@ class User < ActiveRecord::Base
                  auth.info.email,
                  auth.provider,
                  auth.uid).first
-    user.first_name, user.last_name = auth.info.name.split(' ')
-    user.last_name = '' if user.last_name.nil? # shit breaks if last_name is nil
+    # user.first_name, user.last_name = auth.info.name.split(' ')
+    # user.last_name = '' if user.last_name.nil? # shit breaks if last_name is nil
     user.github_username = auth.extra.raw_info.login
     user.github_access_token = auth.credentials.token
     user.github_state = 'completed'
@@ -57,7 +57,5 @@ class User < ActiveRecord::Base
     # user.email = auth.info.email
     # user.password = Devise.friendly_token[0,20]
     # user.image = auth.info.image # assuming the user model has an image
-    # where("email = ? OR provider = ? AND uid = ? ", auth.info.email, auth.provider, auth.uid).first_or_create do |user|
-    # where(email: auth.info.email).where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
   end
 end
