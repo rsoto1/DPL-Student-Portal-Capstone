@@ -29,6 +29,10 @@ class Dashboard::UsersController < ApplicationController
                                  :password,
                                  :password_confirmation,
                                  :hometown,
-                                 :github_username)
+                                 :github_username,
+                                 :github_state,
+                                 :github_access_token,
+                                 :provider,
+                                 :uid)
   end
 end
