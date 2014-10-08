@@ -55,6 +55,7 @@ class Staff::UsersController < ApplicationController
                                  :password,
                                  :password_confirmation,
                                  :hometown,
-                                 :github_username)
+                                 :github_username,
+                                 :github_email)
   end
 end

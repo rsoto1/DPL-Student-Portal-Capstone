@@ -30,6 +30,7 @@ class Dashboard::UsersController < ApplicationController
                                  :password_confirmation,
                                  :hometown,
                                  :github_username,
+                                 :github_email,
                                  :github_state,
                                  :github_access_token,
                                  :provider,
