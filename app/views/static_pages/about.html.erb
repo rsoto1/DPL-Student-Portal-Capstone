@@ -7,10 +7,10 @@ with things at places to produce functionality.</p>
   <%= link_to 'CSV Export', about_path(format: :csv), class: 'btn btn-xs btn-default' %>
 </h3>
 <h4>Has Many Relationships</h4>
-<%= get_has_many_assocations() %>
+<%= get_has_many_assocations(format: true) %>
 <hr>
 <h4>Total Lines of Code</h4>
-<%= get_loc_count() %>
+<%= get_loc_count(format: true) %>
 <hr>
 <h4>Files Sorted by Lines of Code</h4>
-<%= get_loc_sorted() %>
+<%= get_loc_sorted(format: true) %>
