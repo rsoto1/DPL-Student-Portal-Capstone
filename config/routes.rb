@@ -15,13 +15,17 @@ Rails.application.routes.draw do
   # Split site in to separate sections for staff and all other users (students)
   namespace :dashboard do
     get '/' => 'base#index'
-    get '/profile' => 'users#profile'
     get '/webresources' => 'base#resources'
+    get '/FAQ' => 'base#FAQ'
+    get '/profile' => 'users#profile'
+    get '/coursework' => 'assignments#index'
+    get '/calendar' => 'events#index'
+
     # resources :notifications
-    # resources :events
+     resources :events
     # resources :attendances
     # resources :announcements
-    # resources :assignments
+     resources :assignments
   end
 
 
