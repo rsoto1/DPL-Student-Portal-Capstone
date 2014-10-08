@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/vidkun/app_stats.git
+  revision: ca54d756451b1fc30a91b1d44c6e43584dd9b881
+  specs:
+    app_stats (0.1.5)
+      rails (~> 4.1.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -225,6 +232,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  app_stats!
   autoprefixer-rails
   better_errors
   binding_of_caller

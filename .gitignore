@@ -16,5 +16,6 @@
 /tmp
 
 .idea
+.env
 coverage
 .env
