@@ -2,7 +2,10 @@
 <p>Here is some info about us and our application. We are people which did stuff
 with things at places to produce functionality.</p>
 
-<h3>Stats About Our App</h3>
+<h3>
+  Stats About Our App
+  <%= link_to 'CSV Export', about_path(format: :csv), class: 'btn btn-xs btn-default' %>
+</h3>
 <h4>Has Many Relationships</h4>
 <%= get_has_many_assocations() %>
 <hr>
