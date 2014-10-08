@@ -28,30 +28,32 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.github_data"] && session["devise.github_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
-        user.first_name, user.last_name = data['name'].split(' ')
-        user.github_username = data['login']
-        user.github_access_token = session["devise.github_data"]['credentials']['token']
-        user.github_state = 'completed'
-      end
-    end
-  end
+  # def self.new_with_session(params, session)
+  #   super.tap do |user|
+  #     if data = session["devise.github_data"] && session["devise.github_data"]["extra"]["raw_info"]
+  #       user.email = data["email"] if user.email.blank?
+  #       user.first_name, user.last_name = data['name'].split(' ')
+  #       user.github_username = data['login']
+  #       user.github_access_token = session["devise.github_data"]['credentials']['token']
+  #       user.github_state = 'completed'
+  #     end
+  #   end
+  # end
 
-  def self.from_omniauth(auth)
-    where("email = ? OR provider = ? AND uid = ? ", auth.info.email, auth.provider, auth.uid).first do |user|
+  def self.get_and_update_from_omniauth(auth)
+    user = where("email = ? OR provider = ? AND uid = ? ",
+                 auth.info.email,
+                 auth.provider,
+                 auth.uid).first
+    user.first_name, user.last_name = auth.info.name.split(' ')
+    user.last_name = '' if user.last_name.nil? # shit breaks if last_name is nil
+    user.github_username = auth.extra.raw_info.login
+    user.github_access_token = auth.credentials.token
+    user.github_state = 'completed'
+    # user.email = auth.info.email
+    # user.password = Devise.friendly_token[0,20]
+    # user.image = auth.info.image # assuming the user model has an image
     # where("email = ? OR provider = ? AND uid = ? ", auth.info.email, auth.provider, auth.uid).first_or_create do |user|
     # where(email: auth.info.email).where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.first_name, user.last_name = auth.info.name.split(' ')   # assuming the user model has a name
-      user.last_name = '' if user.last_name == nil # shit breaks if last_name is nil
-      user.github_username = auth.extra.raw_info.login
-      user.github_access_token = auth.credentials.token
-      user.github_state = 'completed'
-      # user.image = auth.info.image # assuming the user model has an image
-    end
   end
 end
