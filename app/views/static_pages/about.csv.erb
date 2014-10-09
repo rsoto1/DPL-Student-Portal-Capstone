@@ -1,0 +1,15 @@
+<%- hma_headers = %w(Count File) -%>
+<%= CSV.generate_line hma_headers %>
+<%- get_has_many_assocations.each do |hma| -%>
+<%- line = hma.split(' ') -%>
+<%= CSV.generate_line( [ line[0], line[1] ] ) %>
+<%- end -%>
+
+<%= CSV.generate_line( [ 'Total LoC:', get_loc_count.first ] ) %>
+
+<%- loc_headers = %w(Count File) -%>
+<%= CSV.generate_line loc_headers %>
+<%- get_loc_sorted.each do |loc| -%>
+<%- line = loc.split(' ') -%>
+<%= CSV.generate_line( [ line[0], line[1] ] ) %>
+<%- end -%>

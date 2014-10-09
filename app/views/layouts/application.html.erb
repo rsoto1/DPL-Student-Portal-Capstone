@@ -9,8 +9,10 @@
   <body>
     <div id="wrapper"> <!-- body wrapper -->
       <%= render '/layouts/nav' %>
-      <div id="page-wrapper"> <!-- Main content wrapper -->
+      <div class="page-wrapper-header"> <!-- Header main content wrapper -->
         <%= render '/layouts/breadcrumbs' %>
+      </div>
+      <div class="page-wrapper"> <!-- Main content wrapper -->
         <div class="container-fluid">
 
           <%= yield %>
