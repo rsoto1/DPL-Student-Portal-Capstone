@@ -40,6 +40,7 @@
         <li>
           <% if current_user.staff? %>
             <%= link_to content_tag(:i, nil, :class=>"fa fa-fw fa-user") + ' Profile', root_path %>
+            <%= link_to content_tag(:i, nil, :class=>"fa fa-fw fa-suitcase") + ' Admin', root_path %>
           <% else %>
             <%= link_to content_tag(:i, nil, :class=>"fa fa-fw fa-user") + '  Profile', dashboard_profile_path %>
           <% end %>
