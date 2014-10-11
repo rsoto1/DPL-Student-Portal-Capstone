@@ -11,6 +11,10 @@ class Staff::LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create

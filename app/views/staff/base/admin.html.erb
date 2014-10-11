@@ -10,10 +10,8 @@
          </div>
          <div class="panel-body">
            
-            <!-- Button trigger modal -->
-           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Locations">
-             Add Location
-           </button><br><br>
+           <%= button_to "Add Location", new_staff_location_path, method: 'get', remote: true, class: 'btn btn-primary btn-sm' %>
+           <br><br>
            <li>Salt Lake City</li>
            <li>Las Vegas</li>
          </div>
@@ -21,23 +19,6 @@
    </div>  
 
 <!-- Modal -->
-<div class="modal fade" id="Locations" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add a New Location</h4>
-      </div>
-      <div class="modal-body">
-        <%= render 'staff/locations/form' %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary pull-right">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-             
 
   <div class="col-md-4">
       <div class="panel panel-default">
@@ -57,8 +38,12 @@
       </div>
    </div>   
 
+<div id='modalDiv'>
+
+</div>
+             
    <!-- Modal -->
-<div class="modal fade" id="Courses" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="Courses" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -73,7 +58,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
    <div class="col-md-4">
       <div class="panel panel-default">
@@ -94,6 +79,7 @@
    </div>
 
       <!-- Modal -->
+      <!-- 
 <div class="modal fade" id="Courses" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -111,3 +97,4 @@
   </div>
 </div>
 
+ -->
