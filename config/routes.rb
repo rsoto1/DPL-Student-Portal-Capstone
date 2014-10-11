@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/apis/github/link' => 'apis#github_callback', as: :github_callback
   end
+  resource :github_webhooks, only: :create,
+                             defaults: { formats: :json }
 
   # Split site in to separate sections for staff and all other users (students)
   namespace :dashboard do
