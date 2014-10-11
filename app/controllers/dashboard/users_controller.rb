@@ -18,6 +18,7 @@ class Dashboard::UsersController < ApplicationController
 
   def profile
     @user = current_user
+    @user.generate_github_state! unless @user.github_state == 'linked'
   end
 
   private
