@@ -46,13 +46,34 @@
                Courses
             </h3>
          </div>
-         <div class="panel-body">    
-            <%= link_to 'Add Course', new_staff_course_path %>
+         <div class="panel-body">  
+             <!-- Button trigger modal -->
+           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Locations">
+             Add Course
+           </button><br><br>  
             <li>Ruby on Rails</li>
             <li>IOS Development</li>
          </div>
       </div>
    </div>   
+
+   <!-- Modal -->
+<div class="modal fade" id="Courses" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add a New Course</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'staff/courses/form' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary pull-right">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
    <div class="col-md-4">
       <div class="panel panel-default">
@@ -62,10 +83,31 @@
             </h3>
          </div>
          <div class="panel-body">    
-            <%= link_to 'Add Staff', root_path %>
+           <!-- Button trigger modal -->
+           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Locations">
+             Add Staff
+           </button><br><br>  
             <li>Ted</li>
             <li>Kim</li>
          </div>
       </div>
    </div>
+
+      <!-- Modal -->
+<div class="modal fade" id="Courses" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Staff Members</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'staff/courses/form' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary pull-right">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
