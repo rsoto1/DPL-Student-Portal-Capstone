@@ -1,12 +1,24 @@
 <div class="row">
   <div class="col-md-4">
     <h2><%= @user.first_name + ' ' + @user.last_name %></h2>
+    <%= image_tag @user.github_profile.image, { width: 200,
+                                                height: 200 } %>
     <h4><%= @user.email %></h4>
     <p>Hometown: <%= @user.hometown %></p>
-    <p>GitHub Username: <%= @user.github_username %></p>
-    <p>GitHub Email: <%= @user.github_email %></p>
+    <p>GitHub Username: <%= @user.github_profile.username %></p>
+    <p>GitHub Email: <%= @user.github_profile.email %></p>
   </div>
   <div class="col-md-8">
-    <%= button_to 'Edit Profile', edit_user_registration_path, class: "btn btn-primary pull-right", method: :get%>
+    <%= button_to 'Edit Profile', edit_user_registration_path,
+                                  class: "btn btn-primary pull-right",
+                                  method: :get%>
+    <% unless @user.github_authorized? %>
+      <% authorize_url = Octokit.authorize_url(ENV['GITHUB_CLIENT_ID'],
+                                               scope: 'repo,user',
+                                               redirect_uri: github_callback_url,
+                                               state: @user.github_state) %>
+      <%= link_to("Connect to GitHub", authorize_url,
+                                       class: 'btn btn-primary') %>
+    <% end %>
   </div>
 </div>
