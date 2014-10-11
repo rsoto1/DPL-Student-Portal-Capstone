@@ -1,4 +1,9 @@
-<%= link_to 'Add Cohort', new_staff_cohort_path, class: 'btn btn-primary'%><br><br>
+
+<%= button_to "Add Cohort", new_staff_cohort_path, method: 'get', remote: true, class: 'btn btn-primary btn-sm' %><br><br>
+
+   <div id='modalDiv'>
+
+   </div>
 
 
 <div class="row">
