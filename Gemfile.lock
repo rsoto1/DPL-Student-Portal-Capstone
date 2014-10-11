@@ -87,6 +87,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
+    github_webhook (0.2.0)
+      activesupport (~> 4)
     hashie (3.3.1)
     hike (1.2.3)
     httparty (0.13.1)
@@ -250,6 +252,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   font-awesome-rails
+  github_webhook
   httparty
   jbuilder (~> 2.0)
   jquery-rails

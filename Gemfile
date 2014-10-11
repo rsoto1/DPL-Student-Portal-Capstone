@@ -33,7 +33,8 @@ gem 'omniauth-github'
 gem 'octokit', '~> 3.0'
 # HTTParty gem for api usage
 gem 'httparty'
-
+# For handling github webhooks
+gem 'github_webhook'
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
