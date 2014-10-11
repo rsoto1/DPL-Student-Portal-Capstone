@@ -6,12 +6,18 @@ Rails.application.routes.draw do
 
   devise_for :users,
              singular: :user,
-             controllers: { registrations: 'registrations', :omniauth_callbacks => 'apis' },
+             controllers: { registrations: 'registrations',
+                            omniauth_callbacks: 'apis' },
              path: '',
              path_names: { sign_in: 'login',
                            sign_out: 'logout',
                            sign_up: 'register',
                            edit: 'dashboard/profile/edit' }
+
+  # Routes for Github API
+  devise_scope :user do
+    get '/apis/github/link' => 'apis#github_callback', as: :github_callback
+  end
 
   # Split site in to separate sections for staff and all other users (students)
   namespace :dashboard do
