@@ -33,8 +33,7 @@ module Apis
     def self.get_user_information(user)
       self.headers 'Authorization' => "token #{user.github_access_token}", 'User-Agent' => Rails.application.class.parent_name
           # self.headers 'Accept' => 'application/json'
-      response = self.get(AUTHENTICATED_USER_URL)
-      response['login']
+      self.get(AUTHENTICATED_USER_URL)
     end
   end
 end
