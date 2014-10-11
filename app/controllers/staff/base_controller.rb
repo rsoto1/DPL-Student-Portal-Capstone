@@ -4,6 +4,7 @@ class Staff::BaseController < ApplicationController
     @cohorts = Cohort.all
   end
   def admin
+    @location = Location.new
   end
 
 end

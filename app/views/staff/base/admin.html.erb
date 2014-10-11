@@ -9,14 +9,19 @@
             </h3>
          </div>
          <div class="panel-body">
-            <%= link_to 'Add Location', new_staff_location_path %>
+           
             <!-- Button trigger modal -->
-<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Location">
-  Add Location
-</button><br><br>
+           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Locations">
+             Add Location
+           </button><br><br>
+           <li>Salt Lake City</li>
+           <li>Las Vegas</li>
+         </div>
+      </div>
+   </div>  
 
 <!-- Modal -->
-<div class="modal fade" id="Location" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="Locations" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -24,19 +29,15 @@
         <h4 class="modal-title" id="myModalLabel">Add a New Location</h4>
       </div>
       <div class="modal-body">
-       ...
+        <%= render 'staff/locations/form' %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary pull-right">Save changes</button>
       </div>
     </div>
   </div>
 </div>
-            <li>Salt Lake City</li>
-            <li>Las Vegas</li>
-         </div>
-      </div>
-   </div>   
+             
 
   <div class="col-md-4">
       <div class="panel panel-default">
@@ -64,7 +65,7 @@
             <%= link_to 'Add Staff', root_path %>
             <li>Ted</li>
             <li>Kim</li>
-            <li>Jeff</li>
          </div>
       </div>
    </div>
+
