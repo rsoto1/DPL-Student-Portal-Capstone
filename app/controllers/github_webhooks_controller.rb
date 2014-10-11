@@ -1,4 +1,5 @@
 class GithubWebhooksController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
   include GithubWebhook::Processor
 
   def push(payload)
