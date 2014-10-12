@@ -20,14 +20,14 @@ Rails.application.routes.draw do
     get '/webresources' => 'base#resources'
     get '/FAQ' => 'base#FAQ'
     get '/profile' => 'users#profile'
-    get '/coursework' => 'assignments#index'
+    # get '/coursework' => 'assignments#index'
     get '/calendar' => 'events#index'
 
+    resources :events
+    resources :assignments, path: 'coursework'
     # resources :notifications
-     resources :events
     # resources :attendances
     # resources :announcements
-     resources :assignments
   end
 
   # scope :staff do
@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     resources :cohorts do
       get '/students/new' => 'users#new', as: :new_student
       resources :users, path: 'students'
+      resources :assignments, path: 'coursework'
     end
   end
 
