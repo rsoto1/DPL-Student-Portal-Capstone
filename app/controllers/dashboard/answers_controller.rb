@@ -16,6 +16,7 @@ class Dashboard::AnswersController < ApplicationController
 
   def update
     respond_to do |format|
+      @answer.user = current_user
       if @answer.update(answer_params)
         format.html { redirect_to dashboard_assignment_url(@assignment),
                                   notice: 'Answer was successfully updated.' }
@@ -33,7 +34,7 @@ class Dashboard::AnswersController < ApplicationController
 
   def create
     @answer = @assignment.answers.build(answer_params)
-
+    @answer.user = current_user
     respond_to do |format|
       if @answer.save
         format.html { redirect_to dashboard_assignment_url(@assignment),
