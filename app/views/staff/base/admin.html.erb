@@ -11,8 +11,9 @@
          <div class="panel-body">           
            <%= button_to "Add Location", new_staff_location_path, method: 'get', remote: true, class: 'btn btn-primary btn-sm' %>
            <br><br>
-           <li>Salt Lake City</li>
-           <li>Las Vegas</li>
+              <% @locations.each do |location| %>
+              <li><%= link_to "#{location.name}", staff_location_path(location) %></li>
+            <% end %>
          </div>
       </div>
    </div>  
@@ -32,8 +33,10 @@
          <!-- Button trigger modal --> 
            <%= button_to "Add Course", new_staff_course_path, method: 'get', remote: true, class: 'btn btn-primary btn-sm' %> 
             <br><br>
-            <li>Ruby on Rails</li>
-            <li>IOS Development</li>
+            <% @courses.each do |course| %>
+            <li><%= link_to "#{course.name}", staff_courses_path(course) %></li>
+            <% end %>
+            
          </div>
       </div>
    </div>   
@@ -48,9 +51,8 @@
          </div>
          <div class="panel-body">    
            <!-- Button trigger modal -->
-           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Staff">
-             Add Staff
-           </button><br><br>  
+           <%= button_to "Add Staff", root_path, method: 'get', remote: true, class: 'btn btn-primary btn-sm' %> 
+            <br><br> 
             <li>Ted</li>
             <li>Kim</li>
          </div>

@@ -7,6 +7,8 @@ class Staff::BaseController < ApplicationController
   def admin
     @location = Location.new
     @course = Course.new
+    @locations = Location.all
+    @courses = Course.all
   end
 
 end

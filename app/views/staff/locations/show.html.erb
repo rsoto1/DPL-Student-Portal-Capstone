@@ -4,3 +4,7 @@
 <%= button_to 'Edit Location', edit_staff_location_path,
                               class: "btn btn-primary",
                               method: :get%>
+
+<%= button_to 'Delete Location', staff_location_path(@location),
+                              class: "btn btn-primary",
+                              method: :delete%>
