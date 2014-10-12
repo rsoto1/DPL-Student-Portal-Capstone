@@ -17,12 +17,15 @@
         <td><%= assignment.name %></td>
         <td><%= assignment.category %></td>
         <td><%= assignment.due_date.to_s(:long_ordinal) %></td>
-        <td><%= link_to 'View', [:staff, assignment], class: 'btn btn-xs btn-default' %></td>
-        <td><%= link_to 'Edit', edit_staff_assignment_path(assignment), class: 'btn btn-xs btn-default' %></td>
-        <td><%= link_to 'Delete', [:staff, assignment], class: 'btn btn-xs btn-default', method: :delete, 
-                                            data: { 
-                                                    confirm: 'Are you sure you want to '\
-                                                             'delete this assignment?' } %></td>
+        <td><%= link_to 'View', [:staff, @cohort, assignment],
+                                class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Edit', edit_staff_cohort_assignment_path(@cohort, assignment),
+                                class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Delete', [:staff, @cohort, assignment],
+                                  class: 'btn btn-xs btn-default', method: :delete, 
+                                        data: { 
+                                                confirm: 'Are you sure you want to '\
+                                                         'delete this assignment?' } %></td>
       </tr>
     <% end %>
   </tbody>
