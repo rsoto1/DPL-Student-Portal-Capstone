@@ -7,14 +7,13 @@
       <th>Assignment</th>
       <th>Category</th>
       <th>Due Date</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= link_to assignment.name, [:dashboard, @cohort, assignment] %></td>
+        <td><%= link_to assignment.name, dashboard_assignment_path(assignment) %></td>
         <td><%= assignment.category %></td>
         <td><%= assignment.due_date.to_s(:long_ordinal) %></td>
       </tr>
