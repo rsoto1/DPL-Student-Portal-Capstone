@@ -1,2 +1,11 @@
-<h1>Dashboard::Assignments#show</h1>
-<p>Find me in app/views/dashboard/assignments/show.html.erb</p>
+<h1><%= @assignment.name %></h1>
+<h5>
+Category: <%= @assignment.category %> | 
+Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
+</h5>
+<br>
+<h4>Assignment Description:</h4>
+<p><%= @assignment.description %></p>
+<%= link_to 'Submit Answer', edit_dashboard_assignment_path(@assignment),
+                               class: 'btn btn-primary btn-sm' %>
+<%= link_to 'Back', dashboard_assignments_path, class: 'btn btn-sm btn-danger'%>
