@@ -24,7 +24,10 @@ Rails.application.routes.draw do
     get '/calendar' => 'events#index'
 
     resources :events
-    resources :assignments, path: 'coursework', only: [:show, :index]
+    resources :assignments, path: 'coursework',
+                            only: [:show, :index] do
+    # resources :answers
+    end
     # resources :notifications
     # resources :attendances
     # resources :announcements
