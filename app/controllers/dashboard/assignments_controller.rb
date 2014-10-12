@@ -1,5 +1,5 @@
 class Dashboard::AssignmentsController < ApplicationController
-  # include SetCohort
+  include SetCohort
   before_action :authenticate_user!
   before_action :set_cohort
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
@@ -59,9 +59,9 @@ class Dashboard::AssignmentsController < ApplicationController
 
   private
 
-  def set_cohort
-    @cohort = current_user.cohort
-  end
+  # def set_cohort
+  #   @cohort = current_user.cohort
+  # end
 
   def set_assignment
     @assignment = @cohort.assignments.find(params[:id])
