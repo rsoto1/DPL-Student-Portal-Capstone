@@ -1,4 +1,4 @@
-<h1><%= @assignment.name %></h1>
+<%- page_header @assignment.name %>
 <h5>
 Category: <%= @assignment.category %> | 
 Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
@@ -9,3 +9,15 @@ Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
 <%= link_to 'Edit Assignment', edit_staff_cohort_assignment_path(@cohort, @assignment),
                                class: 'btn btn-primary btn-sm' %>
 <%= link_to 'Back', staff_cohort_assignments_path, class: 'btn btn-sm btn-danger'%>
+
+<h4>Answers:</h4>
+<% @assignment.answers.each do |answer| %>
+  <div>
+    <strong>
+      <%= answer.user.first_name %> <%= answer.user.last_name %> - <%= answer.title %>
+    </strong>
+    <br>
+    <%= answer.body %>
+  </div>
+  <hr> <!-- this needs to be replaced with CSS line bordering -->
+<% end %>
