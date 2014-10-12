@@ -18,6 +18,8 @@ Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
     </strong>
     <br>
     <%= answer.body %>
+    <br>
+    Accepted: <%= check_box answer.accepted, nil %>
   </div>
   <hr> <!-- this needs to be replaced with CSS line bordering -->
 <% end %>
