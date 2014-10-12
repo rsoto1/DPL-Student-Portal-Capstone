@@ -42,6 +42,15 @@ class Staff::UsersController < ApplicationController
     @user = current_user
   end
 
+  def show
+    if User.find_by(id: params[:id]).student?
+      set_student
+      render 'student'
+    else
+      render 'show'
+    end
+  end
+
   private
 
   def set_student
