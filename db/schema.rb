@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 20141012232425) do
     t.text     "body"
     t.string   "link"
     t.boolean  "mergeable"
+    t.boolean  "merged"
     t.string   "sha"
     t.string   "action"
     t.datetime "created_at"

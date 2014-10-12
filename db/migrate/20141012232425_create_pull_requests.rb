@@ -9,6 +9,7 @@ class CreatePullRequests < ActiveRecord::Migration
       t.text :body
       t.string :link
       t.boolean :mergeable
+      t.boolean :merged
       t.string :sha
       t.string :action
 
