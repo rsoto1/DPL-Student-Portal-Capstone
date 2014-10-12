@@ -3,6 +3,7 @@
 Category: <%= @assignment.category %> | 
 Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
 </h5>
+<br>
 <h4>Assignment Description:</h4>
 <p><%= @assignment.description %></p>
 <%= link_to 'Edit Assignment', edit_staff_cohort_assignment_path(@cohort, @assignment),
