@@ -9,3 +9,15 @@ Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
 <%= link_to 'Submit Answer', new_dashboard_assignment_answer_path(@assignment),
                              class: 'btn btn-primary btn-sm' %>
 <%= link_to 'Back', dashboard_assignments_path, class: 'btn btn-sm btn-danger'%>
+
+<h4>Answers:</h4>
+<% @assignment.answers.each do |answer| %>
+  <div>
+    <strong>
+      <%= answer.user.first_name %> <%= answer.user.last_name %> - <%= answer.title %>
+    </strong>
+    <br>
+    <%= answer.body %>
+  </div>
+  <hr> <!-- this needs to be replaced with CSS line bordering -->
+<% end %>
