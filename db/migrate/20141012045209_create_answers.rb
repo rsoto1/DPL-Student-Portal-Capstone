@@ -5,6 +5,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.belongs_to :assignment, index: true
       t.string :title
       t.text :body
+      t.boolean :accepted
 
       t.timestamps
     end
