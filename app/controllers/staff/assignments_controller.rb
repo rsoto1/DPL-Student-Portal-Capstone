@@ -67,7 +67,7 @@ class Staff::AssignmentsController < ApplicationController
   def assignment_params
     params.require(:assignment).permit(:name,
                                        :description,
-                                       :type,
+                                       :category,
                                        :due_date,
                                        :cohort_id)
   end

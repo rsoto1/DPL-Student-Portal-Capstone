@@ -15,7 +15,7 @@
     <% @assignments.each do |assignment| %>
       <tr>
         <td><%= assignment.name %></td>
-        <td><%= assignment.type %></td>
+        <td><%= assignment.category %></td>
         <td><%= assignment.due_date.to_s(:long_ordinal) %></td>
         <td><%= link_to 'View', [:staff, assignment], class: 'btn btn-xs btn-default' %></td>
         <td><%= link_to 'Edit', edit_staff_assignment_path(assignment), class: 'btn btn-xs btn-default' %></td>

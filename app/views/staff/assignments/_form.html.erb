@@ -21,11 +21,11 @@
     <%= f.text_field :description, placeholder: 'Description', class: 'form-control input-lg' %>
   </div>  
   <div class= 'form-group'>
-    <%= f.label :type, 'Category:' %><br>
-    <%= f.select :type, [['Ruby', 'ruby'],
-                           ['Rails', 'rails'],
-                           ['JavaScript', 'javascript']],
-                          class: 'form-control input-lg' %>
+    <%= f.label :category, 'Category:' %><br>
+    <%= f.select :category, [['Ruby', 'ruby'],
+                             ['Rails', 'rails'],
+                             ['JavaScript', 'javascript']],
+                            class: 'form-control input-lg' %>
   </div>
   <div class= 'form-group'>
     <%= f.label :due_date, 'Due Date:' %><br>
