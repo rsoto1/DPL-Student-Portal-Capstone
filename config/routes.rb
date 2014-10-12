@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     get '/webresources' => 'base#resources'
     get '/FAQ' => 'base#FAQ'
     get '/profile' => 'users#profile'
-    # get '/coursework' => 'assignments#index'
     get '/calendar' => 'events#index'
 
     resources :events
