@@ -1,5 +1,4 @@
 class Assignment < ActiveRecord::Base
   belongs_to :cohort
-  validates :name, presence: :true
-  
+  validates :name, :description, presence: :true
 end
