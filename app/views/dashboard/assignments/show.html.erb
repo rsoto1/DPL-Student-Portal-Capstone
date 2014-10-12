@@ -6,6 +6,6 @@ Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
 <br>
 <h4>Assignment Description:</h4>
 <p><%= @assignment.description %></p>
-<%= link_to 'Submit Answer', edit_dashboard_assignment_path(@assignment),
-                               class: 'btn btn-primary btn-sm' %>
+<%= link_to 'Submit Answer', new_dashboard_assignment_answer_path(@assignment),
+                             class: 'btn btn-primary btn-sm' %>
 <%= link_to 'Back', dashboard_assignments_path, class: 'btn btn-sm btn-danger'%>
