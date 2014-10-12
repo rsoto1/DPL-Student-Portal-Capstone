@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :events
     resources :assignments, path: 'coursework',
                             only: [:show, :index] do
-    # resources :answers
+      resources :answers
     end
     # resources :notifications
     # resources :attendances
