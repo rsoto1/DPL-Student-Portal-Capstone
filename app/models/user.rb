@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:github]
   belongs_to :cohort
   has_one :github_profile
+  has_many :pull_requests
   # has_many :attendances, dependent: :destroy
   # has_many :announcements, dependent: :destroy
   # has_many :notifications, dependent: :destroy

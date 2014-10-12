@@ -1,4 +1,5 @@
 class Assignment < ActiveRecord::Base
-	belongs_to :cohort
-	validates :name, presence: :true
+  belongs_to :cohort
+  has_many :pull_requests
+  validates :name, presence: :true
 end
