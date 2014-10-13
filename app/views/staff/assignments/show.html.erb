@@ -26,5 +26,4 @@ Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
   <hr> <!-- this needs to be replaced with CSS line bordering -->
 <% end %>
 <hr>
-<h4>Pull Requests:</h4>
-<%= render 'layouts/pull_requests' %>
+<%= render 'layouts/pull_requests' unless @assignment.pull_requests.count == 0 %>
