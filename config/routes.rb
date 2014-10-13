@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about', as: :about
   get '/contact' => 'static_pages#contact', as: :contact
   get '/web_resources' => 'static_pages#web_resources', as: :web_resources
+  get '/staff/base/admin'
   
   devise_for :users,
              singular: :user,
