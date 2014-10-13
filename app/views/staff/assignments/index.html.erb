@@ -1,0 +1,35 @@
+<%- page_header 'Assignments Listing' %>
+<!-- <h1>Assignments Listing</h1> -->
+<p>This cohort doesn't have nearly enough work to do! You should add more assignments!</p>
+
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th>Assignment</th>
+      <th>Category</th>
+      <th>Due Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assignments.each do |assignment| %>
+      <tr>
+        <td><%= assignment.name %></td>
+        <td><%= assignment.category %></td>
+        <td><%= assignment.due_date.to_s(:long_ordinal) %></td>
+        <td><%= link_to 'View', [:staff, @cohort, assignment],
+                                class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Edit', edit_staff_cohort_assignment_path(@cohort, assignment),
+                                class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Delete', [:staff, @cohort, assignment],
+                                  class: 'btn btn-xs btn-default', method: :delete, 
+                                        data: { 
+                                                confirm: 'Are you sure you want to '\
+                                                         'delete this assignment?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add Assignment', new_staff_cohort_assignment_path(@cohort),
+                              class: 'btn btn-primary' %>

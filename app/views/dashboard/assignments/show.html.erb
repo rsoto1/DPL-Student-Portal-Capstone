@@ -1,2 +1,23 @@
-<h1>Dashboard::Assignments#show</h1>
-<p>Find me in app/views/dashboard/assignments/show.html.erb</p>
+<%- page_header @assignment.name %>
+<h5>
+Category: <%= @assignment.category %> | 
+Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
+</h5>
+<br>
+<h4>Assignment Description:</h4>
+<p><%= @assignment.description %></p>
+<%= link_to 'Submit Answer', new_dashboard_assignment_answer_path(@assignment),
+                             class: 'btn btn-primary btn-sm' %>
+<%= link_to 'Back', dashboard_assignments_path, class: 'btn btn-sm btn-danger'%>
+
+<h4>Answers:</h4>
+<% @assignment.answers.each do |answer| %>
+  <div>
+    <strong>
+      <%= answer.user.first_name %> <%= answer.user.last_name %> - <%= answer.title %>
+    </strong>
+    <br>
+    <%= answer.body %>
+  </div>
+  <hr> <!-- this needs to be replaced with CSS line bordering -->
+<% end %>

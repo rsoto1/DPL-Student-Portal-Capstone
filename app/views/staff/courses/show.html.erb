@@ -1,4 +1,4 @@
-<h1><%= @course.name %></h1>
+<%- page_header @course.name %>
 <h4>Duration: <%= "#{@course.duration} #{@course.duration_unit}" %> | Price: $<%= @course.price %></h4>
 <p><%= @course.description %></p>
 <%= link_to 'Edit Course', edit_staff_course_path,

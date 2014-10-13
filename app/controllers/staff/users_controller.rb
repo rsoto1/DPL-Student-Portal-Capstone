@@ -3,7 +3,7 @@ class Staff::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_staff!, only: [:new, :create]
   before_action :set_cohort
-  before_action :set_student, only: [:edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -40,6 +40,9 @@ class Staff::UsersController < ApplicationController
 
   def profile
     @user = current_user
+  end
+
+  def show
   end
 
   private
