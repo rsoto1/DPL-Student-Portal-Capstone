@@ -23,7 +23,7 @@ class Staff::CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
-      redirect_to staff_courses_path, notice: 'Course has been added!'
+      redirect_to staff_base_admin_path, notice: 'Course has been added!'
     else
       alert_and_render('Could not save course info', :new)
     end
@@ -31,7 +31,7 @@ class Staff::CoursesController < ApplicationController
 
   def update
     if @course.update_attributes(course_params)
-      redirect_to @course, notice: 'All up to date'
+      redirect_to staff_base_admin_path, notice: 'All up to date'
     else
       alert_and_render('There was an issue updating', :edit)
     end
@@ -39,7 +39,7 @@ class Staff::CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    redirect_to staff_path, notice: 'Course has been deleted'
+    redirect_to staff_base_admin_path, notice: 'Course has been deleted'
   end
 
   private
