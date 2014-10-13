@@ -5,14 +5,10 @@ class GithubWebhooksController < ApplicationController
   before_action :build_client
 
   def push(payload)
-    # TODO: handle push webhook
-    # push = JSON.parse(payload.body.read)
     puts "I got some JSON: #{payload.inspect}"
   end
+  
   def ping(payload)
-    # TODO: handle push webhook
-    # push = JSON.parse(payload)
-    # puts "I got some JSON: #{payload.inspect}"
     puts "Repo Name: #{payload['repository']['full_name']}"
     puts "Repo Description: #{payload['repository']['description']}"
   end
@@ -31,20 +27,18 @@ class GithubWebhooksController < ApplicationController
                          body: payload['pull_request']['body'],
                          merged: payload['pull_request']['merged'])
     else
-      user = User.find_by(uid: payload['pull_request']['user']['id'])
+      # user = User.find_by(uid: payload['pull_request']['user']['id'])
       pull_request = PullRequest.find_by(sha: payload['pull_request']['head']['sha'])
-      user.pull_request.update(action: payload['action'],
-                               mergeable: payload['pull_request']['mergeable'],
-                               title: payload['pull_request']['title'],
-                               body: payload['pull_request']['body'],
-                               merged: payload['pull_request']['merged'])
-
+      pull_request.update(action: payload['action'],
+                          mergeable: payload['pull_request']['mergeable'],
+                          title: payload['pull_request']['title'],
+                          body: payload['pull_request']['body'],
+                          merged: payload['pull_request']['merged'])
     end
     pull_request_sha = payload['pull_request']['head']['sha']
-    puts 'this was a pull request'
     puts "Repo: #{payload['repository']['full_name']}"
     puts "Pull Request ##{payload['number']} was #{payload['action']}"
-    puts 'Info:'
+    puts '########## Info ###########'
     puts "User: #{payload['pull_request']['user']['login']}"
     puts "Title: #{payload['pull_request']['title']}"
     puts "Description: #{payload['pull_request']['body']}"
