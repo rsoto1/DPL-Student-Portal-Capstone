@@ -1,2 +1,23 @@
-<h1>Dashboard::Assignments#index</h1>
-<p>Find me in app/views/dashboard/assignments/index.html.erb</p>
+<%- page_header 'Assignments Listing' %>
+<!-- <h1>Assignments Listing</h1> -->
+<p>This cohort doesn't have nearly enough work to do! You should add more assignments!</p>
+
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th>Assignment</th>
+      <th>Category</th>
+      <th>Due Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assignments.each do |assignment| %>
+      <tr>
+        <td><%= link_to assignment.name, dashboard_assignment_path(assignment) %></td>
+        <td><%= assignment.category %></td>
+        <td><%= assignment.due_date.to_s(:long_ordinal) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

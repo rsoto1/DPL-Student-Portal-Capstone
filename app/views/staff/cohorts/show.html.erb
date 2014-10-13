@@ -1,4 +1,4 @@
-<h1><%= @cohort.location.name + ' ' + @cohort.name %></h1>
+<%- page_header @cohort.location.name + ' ' + @cohort.name %>
 <h4><%= @cohort.starts_at.to_date.to_s(:long_ordinal) %> 
 through 
 <%= @cohort.ends_at.to_date.to_s(:long_ordinal) %></h4>
