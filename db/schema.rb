@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20141012045209) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,34 +88,9 @@ ActiveRecord::Schema.define(version: 20141012045209) do
     t.datetime "updated_at"
   end
 
-  create_table "github_profiles", force: true do |t|
-    t.integer  "user_id"
-    t.string   "username"
-    t.string   "email"
-    t.string   "name"
-    t.string   "image"
-    t.string   "location"
-    t.integer  "public_repo"
-    t.integer  "public_gists"
-    t.string   "member_since"
-    t.string   "access_token"
-    t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "locations", force: true do |t|
     t.string   "name"
     t.string   "time_zone_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "names", force: true do |t|
-    t.datetime "starts_at"
-    t.datetime "ends_at"
-    t.boolean  "all_day"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -153,16 +130,18 @@ ActiveRecord::Schema.define(version: 20141012045209) do
     t.integer  "role",                   default: 0
     t.string   "last_name"
     t.string   "temp_password"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "github_state"
-    t.string   "github_access_token"
-    t.string   "github_email"
   end
 
   add_index "users", ["cohort_id", "role"], name: "index_users_on_cohort_id_and_role", using: :btree
   add_index "users", ["cohort_id"], name: "index_users_on_cohort_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "web_resources", force: true do |t|
+    t.string   "name"
+    t.text     "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
