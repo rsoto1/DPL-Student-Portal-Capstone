@@ -55,6 +55,20 @@ class GithubWebhooksController < ApplicationController
     puts 'this was a pull request comment'
   end
 
+  def issues(payload)
+    description = payload['issue']['body']
+    # binding.pry
+    description += '\n' + payload['issue']['html_url']
+    if payload['action'] == 'opened'
+      Assignment.create(name: payload['issue']['title'],
+                        description: description,
+                        due_date: Date.tomorrow)
+    else
+      issue = Assignment.find_by(name: payload['issue']['title'])
+      issue.update(description: description)
+    end
+  end
+
   def webhook_secret(payload)
     ENV['GITHUB_WEBHOOK_SECRET']
   end
