@@ -48,7 +48,7 @@ class GithubWebhooksController < ApplicationController
     commits.each do |c|
       puts c.commit.message
     end
-    binding.pry
+    # binding.pry
   end
 
   def pull_request_review_comment(payload)
