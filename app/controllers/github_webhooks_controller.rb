@@ -15,8 +15,8 @@ class GithubWebhooksController < ApplicationController
 
   def pull_request(payload)
     if payload['action'] == 'opened'
-      PullRequest.create(user: User.find_by(uid: payload['pull_request']['user']['id']),
-                         assignment: Assignment.find_by(title: payload['pull_request']['title']),
+      PullRequest.create(user: User.find_by(uid: payload['pull_request']['user']['id'].to_s),
+                         assignment: Assignment.find_by(name: payload['pull_request']['title']),
                          repo: payload['pull_request']['head']['repo']['full_name'],
                          pull_request_number: payload['number'],
                          action: payload['action'],
@@ -27,7 +27,6 @@ class GithubWebhooksController < ApplicationController
                          body: payload['pull_request']['body'],
                          merged: payload['pull_request']['merged'])
     else
-      # user = User.find_by(uid: payload['pull_request']['user']['id'])
       pull_request = PullRequest.find_by(sha: payload['pull_request']['head']['sha'])
       pull_request.update(action: payload['action'],
                           mergeable: payload['pull_request']['mergeable'],
