@@ -57,6 +57,7 @@ Rails.application.routes.draw do
       get '/students/new' => 'users#new', as: :new_student
       resources :users, path: 'students'
       resources :assignments, path: 'coursework'
+      resources :repos
     end
   end
 
