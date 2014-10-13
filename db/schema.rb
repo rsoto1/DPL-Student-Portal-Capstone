@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006015342) do
+ActiveRecord::Schema.define(version: 20141012045209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,9 +23,22 @@ ActiveRecord::Schema.define(version: 20141006015342) do
     t.datetime "updated_at"
   end
 
+  create_table "answers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "assignment_id"
+    t.string   "title"
+    t.text     "body"
+    t.boolean  "accepted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["assignment_id"], name: "index_answers_on_assignment_id", using: :btree
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
+
   create_table "assignments", force: true do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "category"
     t.integer  "cohort_id"
     t.text     "description"
     t.date     "due_date"
@@ -73,9 +86,34 @@ ActiveRecord::Schema.define(version: 20141006015342) do
     t.datetime "updated_at"
   end
 
+  create_table "github_profiles", force: true do |t|
+    t.integer  "user_id"
+    t.string   "username"
+    t.string   "email"
+    t.string   "name"
+    t.string   "image"
+    t.string   "location"
+    t.integer  "public_repo"
+    t.integer  "public_gists"
+    t.string   "member_since"
+    t.string   "access_token"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "locations", force: true do |t|
     t.string   "name"
     t.string   "time_zone_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "names", force: true do |t|
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "all_day"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -115,6 +153,11 @@ ActiveRecord::Schema.define(version: 20141006015342) do
     t.integer  "role",                   default: 0
     t.string   "last_name"
     t.string   "temp_password"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "github_state"
+    t.string   "github_access_token"
+    t.string   "github_email"
   end
 
   add_index "users", ["cohort_id", "role"], name: "index_users_on_cohort_id_and_role", using: :btree

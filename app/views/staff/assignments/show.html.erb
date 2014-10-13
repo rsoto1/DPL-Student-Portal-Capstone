@@ -6,9 +6,9 @@ Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
 <br>
 <h4>Assignment Description:</h4>
 <p><%= @assignment.description %></p>
-<%= link_to 'Submit Answer', new_dashboard_assignment_answer_path(@assignment),
-                             class: 'btn btn-primary btn-sm' %>
-<%= link_to 'Back', dashboard_assignments_path, class: 'btn btn-sm btn-danger'%>
+<%= link_to 'Edit Assignment', edit_staff_cohort_assignment_path(@cohort, @assignment),
+                               class: 'btn btn-primary btn-sm' %>
+<%= link_to 'Back', staff_cohort_assignments_path, class: 'btn btn-sm btn-danger'%>
 
 <h4>Answers:</h4>
 <% @assignment.answers.each do |answer| %>
@@ -18,6 +18,10 @@ Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
     </strong>
     <br>
     <%= answer.body %>
+    <br>
+    Accepted: <%= check_box answer, :accepted,
+                                    { class: 'accepted_box',
+                                      id: "answer_#{answer.id}_accepted" }  %>
   </div>
   <hr> <!-- this needs to be replaced with CSS line bordering -->
 <% end %>
