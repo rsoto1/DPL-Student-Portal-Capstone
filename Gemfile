@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'app_stats', :git => 'https://github.com/vidkun/app_stats.git'
 # Use Devise for user authentication and registration
 gem 'devise', '~> 3.3.0'
+# Merit Gamification
+gem 'merit'
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
