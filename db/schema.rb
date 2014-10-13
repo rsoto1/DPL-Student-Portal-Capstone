@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013212050) do
+ActiveRecord::Schema.define(version: 20141013225209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,6 +155,16 @@ ActiveRecord::Schema.define(version: 20141013212050) do
   add_index "pull_requests", ["answer_id"], name: "index_pull_requests_on_answer_id", using: :btree
   add_index "pull_requests", ["assignment_id"], name: "index_pull_requests_on_assignment_id", using: :btree
   add_index "pull_requests", ["user_id"], name: "index_pull_requests_on_user_id", using: :btree
+
+  create_table "repos", force: true do |t|
+    t.integer  "cohort_id"
+    t.string   "name"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "repos", ["cohort_id"], name: "index_repos_on_cohort_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
