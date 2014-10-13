@@ -1,0 +1,39 @@
+<%= form_for([:staff, @cohort, @assignment]) do |f| %>
+<% if @assignment.errors.any? %>
+    <div id='error_explanation'>
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited
+          this assignment from being saved:</h2>
+      <ul>
+        <% @assignment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Begin rendering the form -->
+  <div class= 'form-group'>
+    <%= f.label :name, 'Assignment Title:' %><br>
+    <%= f.text_field :name, placeholder: 'Assignment Title', class: 'form-control input-lg' %>
+  </div>
+  <div class= 'form-group'>
+    <%= f.label :description, 'Description:' %><br>
+    <%= f.text_area :description, placeholder: 'Description', class: 'form-control input-lg' %>
+  </div>  
+  <div class= 'form-group'>
+    <%= f.label :category, 'Category:' %><br>
+    <%= f.select :category, [['Ruby', 'ruby'],
+                             ['Rails', 'rails'],
+                             ['JavaScript', 'javascript']],
+                            class: 'form-control input-lg' %>
+  </div>
+  <div class= 'form-group'>
+    <%= f.label :due_date, 'Due Date:' %><br>
+    <%= f.date_select :due_date, order: [:month, :day, :year],
+                                 start_year: Date.today.year %>
+  </div>
+
+  <%= f.submit 'Submit', class: 'btn btn-primary' %> 
+  
+  <%= link_to 'Back', staff_cohort_assignments_path, class: 'btn btn-danger' %>
+<% end %>
