@@ -149,10 +149,10 @@ ActiveRecord::Schema.define(version: 20141013212050) do
     t.string   "action"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "answer_id_id"
+    t.integer  "answer_id"
   end
 
-  add_index "pull_requests", ["answer_id_id"], name: "index_pull_requests_on_answer_id_id", using: :btree
+  add_index "pull_requests", ["answer_id"], name: "index_pull_requests_on_answer_id", using: :btree
   add_index "pull_requests", ["assignment_id"], name: "index_pull_requests_on_assignment_id", using: :btree
   add_index "pull_requests", ["user_id"], name: "index_pull_requests_on_user_id", using: :btree
 
