@@ -15,38 +15,18 @@ class Staff::UsersController < ApplicationController
     @student = @cohort.users.build_with_temp_password
   end
 
+
   def create
     @student = @cohort.users.build_with_temp_password(user_params)
 
     if @student.save
+      StudentMailer.welcome_email(@student).deliver
       redirect_to staff_cohort_path(@cohort), notice: 'Student created!'
     else
       alert_and_render('Could not add new student', :new)
     end
-  end
+  end  
 
-
-#   def create
-#     @user = User.new(params[:user])
- 
-#     respond_to do |format|
-#       if @user.save
-#         # Tell the UserMailer to send a welcome email after save
-#         UserMailer.welcome_email(@user).deliver
- 
-#         format.html { redirect_to(@user, notice: 'User was successfully created.') }
-#         format.json { render json: @user, status: :created, location: @user }
-#       else
-#         format.html { render action: 'new' }
-#         format.json { render json: @user.errors, status: :unprocessable_entity }
-#       end
-#     end
-#   end
-# end
-
-
-
-  
 
   def update
     if @student.update_info(user_params)
