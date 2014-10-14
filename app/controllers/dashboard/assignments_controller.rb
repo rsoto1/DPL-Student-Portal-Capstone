@@ -8,7 +8,7 @@ class Dashboard::AssignmentsController < ApplicationController
   end
 
   def show
-    @assignment = @cohort.assignments.includes(:answers).find(params[:id])
+    @assignment = @cohort.assignments.includes(:answers).includes(:pull_requests).find(params[:id])
   end
 
   private
