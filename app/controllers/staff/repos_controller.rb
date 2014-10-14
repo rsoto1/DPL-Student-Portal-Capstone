@@ -64,7 +64,7 @@ class Staff::ReposController < ApplicationController
     @repo = @cohort.repos.find(params[:id])
   end
 
-  def assignment_params
+  def repo_params
     params.require(:repo).permit(:name,
                                  :link,
                                  :cohort_id)
