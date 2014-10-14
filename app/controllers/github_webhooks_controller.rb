@@ -21,7 +21,7 @@ class GithubWebhooksController < ApplicationController
                          # I spy, with my little eye...an assignment with the id referenced in the
                          # Orphan Annie secret message above. Otherwise, find an assignment whose title 
                          # matches the title of the pull request
-                         assignment: Assignment.find_by(id: assignment[1] || 
+                         assignment: Assignment.find_by(id: assignment[1]) || 
                                      Assignment.find_by(name: payload['pull_request']['title']),
                          repo_name: payload['pull_request']['head']['repo']['full_name'],
                          repo: Repo.find_by(name: payload['pull_request']['head']['repo']['full_name']),
@@ -61,7 +61,6 @@ class GithubWebhooksController < ApplicationController
     commits.each do |c|
       puts c.commit.message
     end
-    # binding.pry
   end
 
   def pull_request_review_comment(payload)
@@ -70,12 +69,13 @@ class GithubWebhooksController < ApplicationController
 
   def issues(payload)
     description = payload['issue']['body']
-    # binding.pry
-    description += '\n' + payload['issue']['html_url']
+    description += "\n\n" + payload['issue']['html_url']
+    repo = Repo.find_by(name: payload['repository']['full_name'])
     if payload['action'] == 'opened'
       Assignment.create(name: payload['issue']['title'],
                         description: description,
-                        due_date: Date.tomorrow)
+                        due_date: Date.tomorrow,
+                        cohort: repo.cohort)
     else
       issue = Assignment.find_by(name: payload['issue']['title'])
       issue.update(description: description)
