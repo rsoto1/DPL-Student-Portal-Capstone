@@ -47,24 +47,15 @@ class GithubWebhooksController < ApplicationController
                           body: payload['pull_request']['body'],
                           merged: payload['pull_request']['merged'])
     end
-    pull_request_sha = payload['pull_request']['head']['sha']
-    puts "Repo: #{payload['repository']['full_name']}"
-    puts "Pull Request ##{payload['number']} was #{payload['action']}"
-    puts '########## Info ###########'
-    puts "User: #{payload['pull_request']['user']['login']}"
-    puts "Title: #{payload['pull_request']['title']}"
-    puts "Description: #{payload['pull_request']['body']}"
-    puts "Link: #{payload['pull_request']['html_url']}"
-    puts "Can be merged: #{payload['pull_request']['mergeable'].to_s}"
-    repo = payload['pull_request']['head']['repo']['full_name']
-    commits = @client.commits(repo, pull_request_sha)
-    commits.each do |c|
-      puts c.commit.message
-    end
+    # commits = @client.commits(repo, pull_request_sha)
+    # commits.each do |c|
+    #   puts c.commit.message
+    # end
   end
 
   def pull_request_review_comment(payload)
     puts 'this was a pull request comment'
+    # This event needs to be built out and handled like a champ
   end
 
   def issues(payload)
@@ -80,6 +71,10 @@ class GithubWebhooksController < ApplicationController
       issue = Assignment.find_by(name: payload['issue']['title'])
       issue.update(description: description)
     end
+  end
+
+  def issues_comment(payload)
+    # This event needs to be built out and handled like a champ
   end
 
   def webhook_secret(payload)
