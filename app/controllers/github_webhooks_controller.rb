@@ -23,7 +23,8 @@ class GithubWebhooksController < ApplicationController
                          # matches the title of the pull request
                          assignment: Assignment.find_by(id: assignment[1] || 
                                      Assignment.find_by(name: payload['pull_request']['title']),
-                         repo: payload['pull_request']['head']['repo']['full_name'],
+                         repo_name: payload['pull_request']['head']['repo']['full_name'],
+                         repo: Repo.find_by(name: payload['pull_request']['head']['repo']['full_name']),
                          pull_request_number: payload['number'],
                          action: payload['action'],
                          link: payload['pull_request']['html_url'],
