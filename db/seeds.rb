@@ -6,17 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# if Rails.env.development?
-#   seed_file = Rails.root.join('db', 'seeds.yml')
-#   seed_data = YAML::load_file(seed_file)
+if Rails.env.development?
+  seed_file = Rails.root.join('db', 'seeds.yml')
+  seed_data = YAML::load_file(seed_file)
 
-#   seed_data['users'].each do |user_name, user_data|
-#     User.create!(user_data)
-#   end
-# end
+  seed_data['users'].each do |user_name, user_data|
+    User.create!(user_data)
+  end
+end
 
 Location.create(name: 'Salt Lake City', time_zone_name: '(GMT-07:00) Mountain Time (US & Canada)')
-Location.create(name: 'Las Vegas', time_zone_name: '(GMT-06:00) Central Time (US & Canada)')
+Location.create(name: 'Las Vegas', time_zone_name: '(GMT-08:00) Pacific Time (US & Canada)')
 
-Course.create(name: 'Ruby on Rails', duration: '11 weeks')
-Course.create(name: 'IOS Development', duration: '11 weeks')
+Course.create(name: 'Ruby on Rails', duration: '11', duration_unit: 'weeks')
+Course.create(name: 'IOS Development', duration: '11', duration_unit: 'weeks')
