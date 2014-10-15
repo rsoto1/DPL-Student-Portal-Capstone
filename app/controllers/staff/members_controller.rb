@@ -1,5 +1,6 @@
 class Staff::MembersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
     @members = Member.all
@@ -26,7 +27,7 @@ class Staff::MembersController < ApplicationController
   end
 
   def show
-  
+    @member = Member.new
   end
 
   def update
@@ -44,6 +45,10 @@ class Staff::MembersController < ApplicationController
  
 
   private
+
+  def set_member
+    @member = Member.find(params[:id])
+  end
  
   def member_params
     params.require(:member).permit(:first_name, :last_name, :email)

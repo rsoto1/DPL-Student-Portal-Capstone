@@ -1,10 +1,10 @@
 <%- page_header @member.first_name %>
 <h4>Staff Member: <%= "#{@member.first_name} #{@member.last_name}" %></h4>
 <p><%= @member.email %></p>
-<%= button_to 'Admin', edit_staff_member_path,
+<%= button_to 'Edit Admin', edit_staff_member_path,
                               class: "btn btn-primary",
                               method: :get%>
-<%= button_to 'Delete Admin', staff_member_path(@member),
+<%= button_to 'Delete Admin', staff_members_path,
                               class: "btn btn-primary",
                               method: :delete%>
 
