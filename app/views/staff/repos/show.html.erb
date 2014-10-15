@@ -1,0 +1,24 @@
+<%- page_header @repo.name %>
+<h5>
+Link: <%= @repo.link %>
+</h5>
+<br>
+<%= link_to 'Edit Repo', edit_staff_cohort_repo_path(@cohort, @repo),
+                               class: 'btn btn-primary btn-sm' %>
+<%= link_to 'Back', staff_cohort_repos_path, class: 'btn btn-sm btn-danger'%>
+
+<h4>Pull Requests:</h4>
+<% @repo.pull_requests.each do |pull_request| %>
+  <div>
+    <strong>
+      <%= pull_request.user.first_name %> <%= pull_request.user.last_name %> 
+      (<%= pull_request.user.github_profile.username %>) <%= pull_request.action %>:
+      <%= link_to "Pull Request ##{pull_request.pull_request_number}", pull_request.link,
+                                                                       target: '_blank' %>
+    </strong>
+    <br>
+    SHA: <%= pull_request.sha %> | Mergeable: <%= pull_request.mergeable %>
+    <br>
+    <%= pull_request.body %>
+  </div>
+<% end %>

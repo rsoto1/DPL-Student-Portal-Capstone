@@ -1,4 +1,5 @@
-<%- page_header @assignment.name %>
+<%- page_header "[ID: #{@assignment.id}] #{@assignment.name}" %>
+<% content_for :title, @assignment.name %>
 <h5>
 Category: <%= @assignment.category %> | 
 Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
@@ -10,18 +11,4 @@ Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
                                class: 'btn btn-primary btn-sm' %>
 <%= link_to 'Back', staff_cohort_assignments_path, class: 'btn btn-sm btn-danger'%>
 
-<h4>Answers:</h4>
-<% @assignment.answers.each do |answer| %>
-  <div>
-    <strong>
-      <%= answer.user.first_name %> <%= answer.user.last_name %> - <%= answer.title %>
-    </strong>
-    <br>
-    <%= answer.body %>
-    <br>
-    Accepted: <%= check_box answer, :accepted,
-                                    { class: 'accepted_box',
-                                      id: "answer_#{answer.id}_accepted" }  %>
-  </div>
-  <hr> <!-- this needs to be replaced with CSS line bordering -->
-<% end %>
+<%= render 'shared/answers' %>

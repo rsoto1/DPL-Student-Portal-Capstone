@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :ensure_staff!, only: [:new, :create]
   layout 'application', only: [:edit]
-  
+
   def new
   end
 
@@ -32,6 +32,7 @@ class RegistrationsController < Devise::RegistrationsController
                                  :last_name,
                                  :email,
                                  :github_username,
+                                 :github_email,
                                  :hometown,
                                  :password,
                                  :password_confirmation,
