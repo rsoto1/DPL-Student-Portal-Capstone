@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   root to: 'site#index'
   get '/about' => 'static_pages#about', as: :about
@@ -46,6 +47,7 @@ Rails.application.routes.draw do
     get '/' => 'base#index'
     resources :locations
     resources :courses
+    resources :members
     resources :cohorts do
       get '/students/new' => 'users#new', as: :new_student
       resources :users, path: 'students'
