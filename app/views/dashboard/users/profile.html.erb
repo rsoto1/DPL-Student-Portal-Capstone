@@ -9,8 +9,7 @@
     <% end %>
     <h4><%= @user.email %></h4>
     <p>Hometown: <%= @user.hometown %></p>
-    <p>GitHub Username: <%= @user.github_profile.username %></p>
-    <p>GitHub Email: <%= @user.github_profile.email %></p>
+    <p>GitHub Username: <%= @user.github_profile.username if @user.github_profile %></p>
   </div>
   <div class="col-md-8">
     <%= button_to 'Edit Profile', edit_user_registration_path,
