@@ -1,24 +1,73 @@
-<%= link_to 'List Locations', staff_locations_path %><br>
-<%= link_to 'Add Location', new_staff_location_path %><br>
-<%= link_to 'List Cohorts', staff_cohorts_path %><br>
-<%= link_to 'Add Cohort', new_staff_cohort_path %><br>
-<%= link_to 'List Courses', staff_courses_path %><br>
-<%= link_to 'Add Course', new_staff_course_path %><br>
-<%= link_to 'Add Location', new_staff_location_path %><br>
+
+<%= button_to "Add Cohort", new_staff_cohort_path, method: 'get', remote: true, class: 'btn btn-primary btn-sm' %><br><br>
+
+   <div id='modalDiv'>
+
+   </div>
+
+
 <div class="row">
-  <div class="col-md-9">
-    <ul id="sortable">
-      <li class="ui-state-default">Badges</li>
-      <li class="ui-state-default">News</li>
-      <li class="ui-state-default">Coursework</li>
-      <li class="ui-state-default">Github</li>
-    </ul>
-  </div>
-  <div class="col-md-3">
-    <ul id="sortable2">
-      <li class="ui-state-default">Today's Schedule</li>
-      <li class="ui-state-default">Calendar</li>
-      <li class="ui-state-default">To Do List</li>
-    </ul>
-  </div>
-</div>
+  <div class="col-lg-12">
+
+  <div class="col-md-4">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">
+               Cohort 1
+            </h3>
+         </div>
+         <div class="panel-body">
+            <%= link_to 'Class Schedule', root_path %><br>
+            <%= link_to 'Manage Students', root_path %><br>
+            <%= link_to 'Coursework', root_path %><br>
+            <%= link_to 'Announcements', root_path %><br>
+            <%= link_to 'Events', root_path %><br>
+            <%= link_to 'Notifications', root_path %><br>
+            <%= link_to 'Web Resources', root_path %><br>
+         </div>
+      </div>
+   </div>   
+
+  <div class="col-md-4">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">
+               Cohort 2
+            </h3>
+         </div>
+         <div class="panel-body">    
+            <%= link_to 'Class Schedule', root_path %><br>
+            <%= link_to 'Manage Students', root_path %><br>
+            <%= link_to 'Coursework', root_path %><br>
+            <%= link_to 'Announcements', root_path %><br>
+            <%= link_to 'Events', root_path %><br>
+            <%= link_to 'Notifications', root_path %><br>
+            <%= link_to 'Web Resources', root_path %><br>
+         </div>
+      </div>
+   </div>   
+
+   <div class="col-md-4">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">
+               Cohort 3
+            </h3>
+         </div>
+         <div class="panel-body">    
+            <%= link_to 'Class Schedule', root_path %><br>
+            <%= link_to 'Manage Students', root_path %><br>
+            <%= link_to 'Coursework', root_path %><br>
+            <%= link_to 'Announcements', root_path %><br>
+            <%= link_to 'Events', root_path %><br>
+            <%= link_to 'Notifications', root_path %><br>
+            <%= link_to 'Web Resources', root_path %><br>
+         </div>
+      </div>
+   </div>
+
+ 
+
+
+
+  

@@ -18,4 +18,4 @@
 .idea
 .env
 coverage
-.env
+/db/schema.rb
