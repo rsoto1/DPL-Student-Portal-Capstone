@@ -7,6 +7,7 @@ users:
     first_name: 'Bill'
     last_name: 'Preston'
     email: 'bill@email.com'
+    cohort_id: 1
     <<: *default_passwords
     role: 0
   ted:
