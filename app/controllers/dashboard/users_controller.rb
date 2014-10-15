@@ -18,6 +18,7 @@ class Dashboard::UsersController < ApplicationController
 
   def profile
     @user = current_user
+    @user.generate_github_state! unless @user.github_state == 'linked'
   end
 
   private
@@ -29,6 +30,11 @@ class Dashboard::UsersController < ApplicationController
                                  :password,
                                  :password_confirmation,
                                  :hometown,
-                                 :github_username)
+                                 :github_username,
+                                 :github_email,
+                                 :github_state,
+                                 :github_access_token,
+                                 :provider,
+                                 :uid)
   end
 end
