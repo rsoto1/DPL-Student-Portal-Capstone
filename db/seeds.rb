@@ -13,10 +13,17 @@ if Rails.env.development?
   seed_data['users'].each do |user_name, user_data|
     User.create!(user_data)
   end
+
+  seed_data['locations'].each do |location_name, location_data|
+    Location.create!(location_data)
+  end
+
+  seed_data['courses'].each do |course_name, course_data|
+    Course.create!(course_data)
+  end
+
+  # seed_data['cohorts'].each do |cohort_name, cohort_data|
+  #   Cohort.create!(cohort_data)
+  # end
 end
 
-Location.create(name: 'Salt Lake City', time_zone_name: '(GMT-07:00) Mountain Time (US & Canada)')
-Location.create(name: 'Las Vegas', time_zone_name: '(GMT-08:00) Pacific Time (US & Canada)')
-
-Course.create(name: 'Ruby on Rails', duration: '11', duration_unit: 'weeks')
-Course.create(name: 'IOS Development', duration: '11', duration_unit: 'weeks')

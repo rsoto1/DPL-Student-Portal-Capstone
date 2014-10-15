@@ -15,3 +15,29 @@ users:
     email: 'ted@email.com'
     <<: *default_passwords
     role: 1
+
+locations:  
+  slc:
+    name: 'Salt Lake City'
+    time_zone_name: '(GMT-07:00) Mountain Time (US & Canada)'
+  vegas:
+    name: 'Las Vegas'
+    time_zone_name: '(GMT-08:00) Pacific Time (US & Canada)'
+
+courses:
+  ruby:
+    name: 'Ruby on Rails'
+    duration: '11'
+    duration_unit: 'weeks'
+  IOS:
+    name: 'IOS Development'
+    duration: '11'
+    duration_unit: 'weeks'
+
+# cohorts:
+#   winter:
+#     name: 'Winter 2014'
+#     starts_at: 'November 18, 2014'
+#     ends_at: 'February 2, 2015'
+  
+    
