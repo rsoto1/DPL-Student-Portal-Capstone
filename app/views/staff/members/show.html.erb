@@ -1,9 +1,11 @@
-<%- page_header @member.name %>
-<h4>Duration: <%= "#{@course.duration} #{@course.duration_unit}" %> | Price: $<%= @course.price %></h4>
-<p><%= @course.description %></p>
+<%- page_header @member.first_name %>
+<h4>Staff Member: <%= "#{@member.first_name} #{@member.last_name}" %></h4>
+<p><%= @member.email %></p>
 <%= button_to 'Admin', edit_staff_member_path,
                               class: "btn btn-primary",
                               method: :get%>
 <%= button_to 'Delete Admin', staff_member_path(@member),
                               class: "btn btn-primary",
                               method: :delete%>
+
+

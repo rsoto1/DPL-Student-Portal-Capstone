@@ -15,7 +15,7 @@
       <tr>
         <td><%= member.first_name %></td>
         <td><%= member.last_name %></td>
-         <td><%= email %></td>
+        <td><%= member.email %></td>
         <td><%= link_to 'View', [:staff, member], class: 'btn btn-xs btn-default' %></td>
         <td><%= link_to 'Edit', edit_staff_member_path(member), class: 'btn btn-xs btn-default' %></td>
         <td><%= link_to 'Delete', [:staff, member], class: 'btn btn-xs btn-default', method: :delete, 
