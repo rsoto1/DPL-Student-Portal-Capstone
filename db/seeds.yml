@@ -34,10 +34,17 @@ courses:
     duration: '11'
     duration_unit: 'weeks'
 
-# cohorts:
-#   winter:
-#     name: 'Winter 2014'
-#     starts_at: 'November 18, 2014'
-#     ends_at: 'February 2, 2015'
-  
-    
+cohorts:
+  winter:
+    name: 'Winter 2014'
+    starts_at: 'November 18, 2014'
+    ends_at: 'February 2, 2015'
+    location_id: 1
+    course_id: 1
+
+  spring:
+    name: 'Spring 2014'
+    starts_at: 'February 16, 2015'
+    ends_at: 'April 30, 2015'
+    location_id: 2
+    course_id: 2

@@ -22,8 +22,8 @@ if Rails.env.development?
     Course.create!(course_data)
   end
 
-  # seed_data['cohorts'].each do |cohort_name, cohort_data|
-  #   Cohort.create!(cohort_data)
-  # end
+  seed_data['cohorts'].each do |cohort_name, cohort_data|
+    Cohort.create!(cohort_data)
+  end
 end
 

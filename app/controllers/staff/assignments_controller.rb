@@ -29,6 +29,7 @@ class Staff::AssignmentsController < ApplicationController
 
   def new
     @assignment = Assignment.new
+    @cohort = Cohort.find(params[:id])
   end
 
   def create
