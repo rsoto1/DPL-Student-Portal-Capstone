@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013045318) do
+ActiveRecord::Schema.define(version: 20141014022940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,9 +31,11 @@ ActiveRecord::Schema.define(version: 20141013045318) do
     t.boolean  "accepted"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "pull_request_id"
   end
 
   add_index "answers", ["assignment_id"], name: "index_answers_on_assignment_id", using: :btree
+  add_index "answers", ["pull_request_id"], name: "index_answers_on_pull_request_id", using: :btree
   add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "assignments", force: true do |t|
@@ -51,17 +53,6 @@ ActiveRecord::Schema.define(version: 20141013045318) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "badges_sashes", force: true do |t|
-    t.integer  "badge_id"
-    t.integer  "sash_id"
-    t.boolean  "notified_user", default: false
-    t.datetime "created_at"
-  end
-
-  add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id", using: :btree
-  add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
-  add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
 
   create_table "cohorts", force: true do |t|
     t.string   "name"
@@ -97,44 +88,27 @@ ActiveRecord::Schema.define(version: 20141013045318) do
     t.datetime "updated_at"
   end
 
+  create_table "github_profiles", force: true do |t|
+    t.integer  "user_id"
+    t.string   "username"
+    t.string   "email"
+    t.string   "name"
+    t.string   "image"
+    t.string   "location"
+    t.integer  "public_repo"
+    t.integer  "public_gists"
+    t.string   "member_since"
+    t.string   "access_token"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "locations", force: true do |t|
     t.string   "name"
     t.string   "time_zone_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "merit_actions", force: true do |t|
-    t.integer  "user_id"
-    t.string   "action_method"
-    t.integer  "action_value"
-    t.boolean  "had_errors",    default: false
-    t.string   "target_model"
-    t.integer  "target_id"
-    t.text     "target_data"
-    t.boolean  "processed",     default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "merit_activity_logs", force: true do |t|
-    t.integer  "action_id"
-    t.string   "related_change_type"
-    t.integer  "related_change_id"
-    t.string   "description"
-    t.datetime "created_at"
-  end
-
-  create_table "merit_score_points", force: true do |t|
-    t.integer  "score_id"
-    t.integer  "num_points", default: 0
-    t.string   "log"
-    t.datetime "created_at"
-  end
-
-  create_table "merit_scores", force: true do |t|
-    t.integer "sash_id"
-    t.string  "category", default: "default"
   end
 
   create_table "notifications", force: true do |t|
@@ -152,10 +126,38 @@ ActiveRecord::Schema.define(version: 20141013045318) do
     t.datetime "updated_at"
   end
 
-  create_table "sashes", force: true do |t|
+  create_table "pull_requests", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "assignment_id"
+    t.string   "repo_name"
+    t.string   "title"
+    t.integer  "pull_request_number"
+    t.text     "body"
+    t.string   "link"
+    t.boolean  "mergeable"
+    t.boolean  "merged"
+    t.string   "sha"
+    t.string   "action"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "answer_id"
+    t.integer  "repo_id"
+  end
+
+  add_index "pull_requests", ["answer_id"], name: "index_pull_requests_on_answer_id", using: :btree
+  add_index "pull_requests", ["assignment_id"], name: "index_pull_requests_on_assignment_id", using: :btree
+  add_index "pull_requests", ["repo_id"], name: "index_pull_requests_on_repo_id", using: :btree
+  add_index "pull_requests", ["user_id"], name: "index_pull_requests_on_user_id", using: :btree
+
+  create_table "repos", force: true do |t|
+    t.integer  "cohort_id"
+    t.string   "name"
+    t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "repos", ["cohort_id"], name: "index_repos_on_cohort_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -177,8 +179,11 @@ ActiveRecord::Schema.define(version: 20141013045318) do
     t.integer  "role",                   default: 0
     t.string   "last_name"
     t.string   "temp_password"
-    t.integer  "sash_id"
-    t.integer  "level",                  default: 0
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "github_state"
+    t.string   "github_access_token"
+    t.string   "github_email"
   end
 
   add_index "users", ["cohort_id", "role"], name: "index_users_on_cohort_id_and_role", using: :btree
