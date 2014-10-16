@@ -65,13 +65,6 @@ ActiveRecord::Schema.define(version: 20141014022940) do
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
 
-  create_table "boards", force: true do |t|
-    t.string   "title"
-    t.text     "discription"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "cohorts", force: true do |t|
     t.string   "name"
     t.datetime "starts_at"
@@ -84,12 +77,6 @@ ActiveRecord::Schema.define(version: 20141014022940) do
 
   add_index "cohorts", ["course_id"], name: "index_cohorts_on_course_id", using: :btree
   add_index "cohorts", ["location_id"], name: "index_cohorts_on_location_id", using: :btree
-
-  create_table "conversations", force: true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -135,18 +122,45 @@ ActiveRecord::Schema.define(version: 20141014022940) do
     t.datetime "updated_at"
   end
 
+  create_table "merit_actions", force: true do |t|
+    t.integer  "user_id"
+    t.string   "action_method"
+    t.integer  "action_value"
+    t.boolean  "had_errors",    default: false
+    t.string   "target_model"
+    t.integer  "target_id"
+    t.text     "target_data"
+    t.boolean  "processed",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "merit_activity_logs", force: true do |t|
+    t.integer  "action_id"
+    t.string   "related_change_type"
+    t.integer  "related_change_id"
+    t.string   "description"
+    t.datetime "created_at"
+  end
+
+  create_table "merit_score_points", force: true do |t|
+    t.integer  "score_id"
+    t.integer  "num_points", default: 0
+    t.string   "log"
+    t.datetime "created_at"
+  end
+
+  create_table "merit_scores", force: true do |t|
+    t.integer "sash_id"
+    t.string  "category", default: "default"
+  end
+
   create_table "notifications", force: true do |t|
     t.integer  "user_id"
     t.boolean  "read"
     t.text     "message"
     t.string   "sender_name"
     t.string   "sender_email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "posts", force: true do |t|
-    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -189,6 +203,11 @@ ActiveRecord::Schema.define(version: 20141014022940) do
 
   add_index "repos", ["cohort_id"], name: "index_repos_on_cohort_id", using: :btree
 
+  create_table "sashes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -214,6 +233,8 @@ ActiveRecord::Schema.define(version: 20141014022940) do
     t.string   "github_state"
     t.string   "github_access_token"
     t.string   "github_email"
+    t.integer  "sash_id"
+    t.integer  "level",                  default: 0
   end
 
   add_index "users", ["cohort_id", "role"], name: "index_users_on_cohort_id_and_role", using: :btree
