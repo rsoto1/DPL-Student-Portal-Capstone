@@ -12,7 +12,7 @@ gem 'bootstrap-sass'
 # add browser vendor prefixes automatically.
 gem 'autoprefixer-rails'
 # font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -35,6 +35,8 @@ gem 'octokit', '~> 3.0'
 gem 'httparty'
 # For handling github webhooks
 gem 'github_webhook'
+# Merit Gamification
+gem 'merit'
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
