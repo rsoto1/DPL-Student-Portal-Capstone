@@ -1,0 +1,32 @@
+<h4>Answers:</h4>
+<% @assignment.answers.each do |answer| %>
+  <div>
+  <% if answer.pull_request.nil? %>
+    <strong>
+      <%= answer.user.first_name %> <%= answer.user.last_name %> - <%= answer.title %>
+    </strong>
+    <br>
+    <%= answer.body %>
+    <br>
+    
+  <% else %>
+    <strong>
+      <%= answer.user.first_name %> <%= answer.user.last_name %> - <%= answer.title %>
+      (<%= answer.user.github_profile.username %>) <%= answer.pull_request.action %>:
+      <%= link_to "Pull Request ##{answer.pull_request.pull_request_number}", answer.pull_request.link,
+                                                                       target: '_blank' %>
+    </strong>
+    <br>
+    SHA: <%= answer.pull_request.sha %> | Mergeable: <%= answer.pull_request.mergeable %>
+    <br>
+    <%= answer.pull_request.body %>
+    <br>
+    <% end %>
+    <% unless current_user.student? %>
+      Accepted: <%= check_box answer, :accepted,
+                                      { class: 'accepted_box',
+                                        id: "answer_#{answer.id}_accepted" }  %>
+    <% end %>
+  </div>
+  <hr> <!-- this needs to be replaced with CSS line bordering -->
+<% end %>
