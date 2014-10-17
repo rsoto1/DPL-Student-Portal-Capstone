@@ -25,10 +25,6 @@ if Rails.env.development?
   seed_data['cohorts'].each do |cohort_name, cohort_data|
     Cohort.create!(cohort_data)
   end
-
-  seed_data['members'].each do |member_name, member_data|
-    Member.create!(member_data)
-  end
   
 
 end
