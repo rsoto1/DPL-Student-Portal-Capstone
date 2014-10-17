@@ -1,0 +1,30 @@
+<%- page_header 'Repo Listing' %>
+<p>Here's a list of repos associated with this cohort.</p>
+
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th>Repo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @repos.each do |repo| %>
+      <tr>
+        <td><%= repo.name %></td>
+        <td><%= link_to 'View', [:staff, @cohort, repo],
+                                class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Edit', edit_staff_cohort_repo_path(@cohort, repo),
+                                class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Delete', [:staff, @cohort, repo],
+                                  class: 'btn btn-xs btn-default', method: :delete, 
+                                        data: { 
+                                                confirm: 'Are you sure you want to '\
+                                                         'delete this repo?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add Repo', new_staff_cohort_repo_path(@cohort),
+                              class: 'btn btn-primary' %>

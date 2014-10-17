@@ -3,13 +3,14 @@ class Staff::AssignmentsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_staff!
   before_action :set_cohort
-  before_action :set_assignment, only: [:show, :edit, :update, :destroy]
+  before_action :set_assignment, only: [:edit, :update, :destroy]
   
   def index
    @assignments = @cohort.assignments.order(:due_date)
   end
 
   def show
+    @assignment = @cohort.assignments.includes(:answers).includes(:pull_requests).find(params[:id])
   end
 
   def edit

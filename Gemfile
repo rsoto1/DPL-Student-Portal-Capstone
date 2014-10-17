@@ -27,6 +27,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'app_stats', :git => 'https://github.com/vidkun/app_stats.git'
 # Use Devise for user authentication and registration
 gem 'devise', '~> 3.3.0'
+# Omniauth Github support for devise
+gem 'omniauth-github'
+# Octokit gem for github api
+gem 'octokit', '~> 3.0'
+# HTTParty gem for api usage
+gem 'httparty'
+# For handling github webhooks
+gem 'github_webhook'
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
@@ -41,8 +49,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
-
 end
+
+  gem 'dotenv-rails', :groups => [:development, :test]
 
 group :test do
   # Database Cleaner provides auto cleaning of test db after running tests
