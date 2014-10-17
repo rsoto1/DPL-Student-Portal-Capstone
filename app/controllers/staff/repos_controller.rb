@@ -1,7 +1,7 @@
 class Staff::ReposController < ApplicationController
   include SetCohort
   before_action :authenticate_user!
-  before_action :ensure_staff!
+  before_action :ensure_staff
   before_action :set_cohort
   before_action :set_repo, only: [:show, :edit, :update, :destroy]
 
