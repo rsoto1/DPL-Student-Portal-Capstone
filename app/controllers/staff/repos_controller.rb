@@ -17,7 +17,8 @@ class Staff::ReposController < ApplicationController
 
   def update
     if @repo.update(repo_params)
-      redirect_to staff_cohort_repos_url, notice: 'Repo was successfully updated.'
+      redirect_to staff_cohort_repos_url,
+                  notice: 'Repo was successfully updated.'
     else
       render :edit
     end
@@ -31,7 +32,8 @@ class Staff::ReposController < ApplicationController
     @repo = @cohort.repos.build(repo_params)
 
     if @repo.save
-      redirect_to staff_cohort_repos_url, notice: 'Repo was successfully created.'
+      redirect_to staff_cohort_repos_url,
+                  notice: 'Repo was successfully created.'
     else
       render :new
     end
