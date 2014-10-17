@@ -49,8 +49,8 @@ class Staff::ReposController < ApplicationController
     begin
       @repo.destroy
       flash[:notice] = 'Repo deleted!'
-    rescue StandardError => e
-      flash[:notice] = e.message
+    rescue StandardError => error
+      flash[:notice] = error.message
     end
     respond_to do |format|
       format.html { redirect_to staff_cohort_repos_url }
