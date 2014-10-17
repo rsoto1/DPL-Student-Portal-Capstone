@@ -43,8 +43,8 @@ class Dashboard::AnswersController < ApplicationController
     begin
       @answer.destroy
       flash[:notice] = 'Answer deleted!'
-    rescue StandardError => e
-      flash[:notice] = e.message
+    rescue StandardError => error
+      flash[:notice] = error.message
     end
     redirect_to dashboard_assignments_url
   end

@@ -44,8 +44,8 @@ class Staff::AssignmentsController < ApplicationController
     begin
       @assignment.destroy
       flash[:notice] = 'Assignment deleted!'
-    rescue StandardError => e
-      flash[:notice] = e.message
+    rescue StandardError => error
+      flash[:notice] = error.message
     end
     redirect_to staff_cohort_assignments_url
   end
