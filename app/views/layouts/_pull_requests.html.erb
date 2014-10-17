@@ -1,0 +1,16 @@
+<h4>Pull Requests:</h4>
+<% @assignment.pull_requests.each do |pull_request| %>
+    <div>
+      <strong>
+        <%= pull_request.user.first_name %> <%= pull_request.user.last_name %> 
+        (<%= pull_request.user.github_profile.username %>) <%= pull_request.action %>:
+        <%= link_to "Pull Request ##{pull_request.pull_request_number}", pull_request.link,
+                                                                         target: '_blank' %>
+      </strong>
+      <br>
+      SHA: <%= pull_request.sha %> | Mergeable: <%= pull_request.mergeable %>
+      <br>
+      <%= pull_request.body %>
+    </div>
+    <hr> <!-- this needs to be replaced with CSS line bordering -->
+<% end %>

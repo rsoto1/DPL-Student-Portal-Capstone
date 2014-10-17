@@ -49,3 +49,31 @@ cohorts:
     ends_at: 'April 30, 2015'
     location_id: 2
     course_id: 2
+
+members:
+  jane:
+    first_name: 'Jane'
+    last_name: 'Doe'
+    email: 'jane@email.com'
+
+  tom:
+    first_name: 'Tom'
+    last_name: 'Smith'
+    email: 'tom@email.com'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
