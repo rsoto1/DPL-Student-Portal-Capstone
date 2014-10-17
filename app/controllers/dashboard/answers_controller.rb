@@ -5,7 +5,7 @@ class Dashboard::AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
   
   def index
-   @answers = @assignment.answers.order(:accepted)
+    @answers = @assignment.answers.order(:accepted)
   end
 
   def show
@@ -15,16 +15,12 @@ class Dashboard::AnswersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      @answer.user = current_user
-      if @answer.update(answer_params)
-        format.html { redirect_to dashboard_assignment_url(@assignment),
-                                  notice: 'Answer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @assignment }
-      else
-        format.html { render :edit }
-        format.json { render json: @answer.errors, status: :unprocessable_entity }
-      end
+    @answer.user = current_user
+    if @answer.update(answer_params)
+      redirect_to dashboard_assignment_url(@assignment),
+                  notice: 'Answer was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -35,15 +31,11 @@ class Dashboard::AnswersController < ApplicationController
   def create
     @answer = @assignment.answers.build(answer_params)
     @answer.user = current_user
-    respond_to do |format|
-      if @answer.save
-        format.html { redirect_to dashboard_assignment_url(@assignment),
-                                  notice: 'Assignment was successfully created.' }
-        format.json { render :show, status: :created, location: @assignment }
-      else
-        format.html { render :new }
-        format.json { render json: @answer.errors, status: :unprocessable_entity }
-      end
+    if @answer.save
+      redirect_to dashboard_assignment_url(@assignment),
+                  notice: 'Assignment was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -54,10 +46,7 @@ class Dashboard::AnswersController < ApplicationController
     rescue StandardError => e
       flash[:notice] = e.message
     end
-    respond_to do |format|
-      format.html { redirect_to dashboard_assignments_url }
-      format.json { head :no_content }
-    end
+    redirect_to dashboard_assignments_url
   end
 
   private
