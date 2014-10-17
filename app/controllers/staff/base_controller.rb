@@ -9,6 +9,8 @@ class Staff::BaseController < ApplicationController
     @course = Course.new
     @locations = Location.all
     @courses = Course.all
+    @member = Member.new
+    @members = Member.all
   end
 
 end

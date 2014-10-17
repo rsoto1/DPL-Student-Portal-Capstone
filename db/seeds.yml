@@ -50,7 +50,20 @@ cohorts:
     location_id: 2
     course_id: 2
 
+<<<<<<< HEAD
 
+=======
+members:
+  jane:
+    first_name: 'Jane'
+    last_name: 'Doe'
+    email: 'jane@email.com'
+
+  tom:
+    first_name: 'Tom'
+    last_name: 'Smith'
+    email: 'tom@email.com'
+>>>>>>> cc6b7f84c1cfcacf6ec7398954ff7be23e0fced8
 
 
 

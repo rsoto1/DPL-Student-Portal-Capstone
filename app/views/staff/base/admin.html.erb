@@ -56,8 +56,14 @@
            <!-- Button trigger modal -->
            <%= button_to "Add Staff", new_staff_member_path, method: 'get', remote: true, class: 'btn btn-primary btn-sm' %> 
            <br><br>
+<<<<<<< HEAD
            
             
+=======
+            <% @members.each do |member| %>
+            <li><%= link_to "#{member.first_name}", staff_member_path(member) %></li>
+            <% end %>
+>>>>>>> cc6b7f84c1cfcacf6ec7398954ff7be23e0fced8
          </div>
       </div>
    </div>

@@ -25,6 +25,13 @@ if Rails.env.development?
   seed_data['cohorts'].each do |cohort_name, cohort_data|
     Cohort.create!(cohort_data)
   end
+<<<<<<< HEAD
+=======
+
+  seed_data['members'].each do |member_name, member_data|
+    Member.create!(member_data)
+  end
+>>>>>>> cc6b7f84c1cfcacf6ec7398954ff7be23e0fced8
   
 
 end
