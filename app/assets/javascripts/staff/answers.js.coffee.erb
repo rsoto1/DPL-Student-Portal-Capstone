@@ -1,7 +1,6 @@
 jQuery ->
   $('.accepted_box').click ->
     $.ajax
-      # url: '/staff/cohorts/:cohort_id/coursework/:assignment_id/answers/' + $(this).attr('id') 
       url: '/staff/accept_answer'
       type: 'PUT'
       data:
