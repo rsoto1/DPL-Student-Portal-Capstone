@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     get '/' => 'base#index'
     resources :locations
     resources :courses
+    # route for handling ajax query to accept an answer
     put '/accept_answer' => 'answers#update_answer_acceptance'
     resources :cohorts do
       get '/students/new' => 'users#new', as: :new_student
