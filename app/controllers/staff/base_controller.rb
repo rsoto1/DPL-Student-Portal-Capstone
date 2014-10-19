@@ -14,3 +14,6 @@ class Staff::BaseController < ApplicationController
   end
 
 end
+
+
+#Saturday night:  have the staff modal working but it doesn't save.  Slacked Ryan about it. 
