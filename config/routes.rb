@@ -1,4 +1,32 @@
 Rails.application.routes.draw do
+  namespace :staff do
+  get 'members/index'
+  end
+
+  namespace :staff do
+  get 'members/show'
+  end
+
+  namespace :staff do
+  get 'members/new'
+  end
+
+  namespace :staff do
+  get 'members/create'
+  end
+
+  namespace :staff do
+  get 'members/edit'
+  end
+
+  namespace :staff do
+  get 'members/update'
+  end
+
+  namespace :staff do
+  get 'members/destroy'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   root to: 'site#index'
   get '/about' => 'static_pages#about', as: :about
