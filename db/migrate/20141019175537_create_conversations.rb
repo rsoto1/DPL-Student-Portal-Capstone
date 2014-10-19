@@ -6,7 +6,6 @@ class CreateConversations < ActiveRecord::Migration
       t.string :title
       t.integer :last_commenter_id
       t.datetime :last_comment_at
-
       t.timestamps
     end
   end

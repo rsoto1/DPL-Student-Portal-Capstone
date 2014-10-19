@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   # has_many :announcements, dependent: :destroy
   # has_many :notifications, dependent: :destroy
   has_many :answers, dependent: :destroy
+  has_many :conversations
+  has_many :comments
 
   enum role: [:student, :staff]
 
