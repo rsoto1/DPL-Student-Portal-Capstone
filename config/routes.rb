@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   root to: 'site#index'
   get '/about' => 'static_pages#about', as: :about
   get '/contact' => 'static_pages#contact', as: :contact
   get '/web_resources' => 'static_pages#web_resources', as: :web_resources
   get '/staff/base/admin'
-  
+
   devise_for :users,
              singular: :user,
              controllers: { registrations: 'registrations',
@@ -41,15 +42,6 @@ Rails.application.routes.draw do
     # resources :announcements
   end
 
-  # scope :staff do
-  #   devise_for :users,
-  #              controllers: { registrations: 'registrations' },
-  #              only: 'registrations',
-  #              path: 'student',
-  #              path_names: { sign_up: 'new' }
-  #   # get '/staff/student/new' => 'registrations#new', as: :new_student
-  # end
-
   namespace :staff do
     get '/' => 'base#index'
     resources :locations
@@ -61,6 +53,27 @@ Rails.application.routes.draw do
       resources :repos
     end
   end
+
+  # Routes for Discussion Board
+  resources :boards do
+    resources :conversations do
+      resources :comments
+    end
+  end
+
+end
+
+
+
+
+  # scope :staff do
+  #   devise_for :users,
+  #              controllers: { registrations: 'registrations' },
+  #              only: 'registrations',
+  #              path: 'student',
+  #              path_names: { sign_up: 'new' }
+  #   # get '/staff/student/new' => 'registrations#new', as: :new_student
+  # end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -110,5 +123,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-end

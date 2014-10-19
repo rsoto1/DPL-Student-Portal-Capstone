@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Board:</strong>
+  <%= @conversation.board %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @conversation.user %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @conversation.title %>
+</p>
+
+<p>
+  <strong>Last commenter:</strong>
+  <%= @conversation.last_commenter_id %>
+</p>
+
+<p>
+  <strong>Last comment at:</strong>
+  <%= @conversation.last_comment_at %>
+</p>
+
+<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
+<%= link_to 'Back', conversations_path %>
