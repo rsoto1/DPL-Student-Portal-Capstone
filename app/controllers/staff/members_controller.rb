@@ -4,15 +4,15 @@ class Staff::MembersController < ApplicationController
   #may need to change to set_staff
   
   def index
-    @members = User.all
+    @members = User.staff.all
   end
 
   def show
-    @member = User.find(member_params[:id])
+    @member = User.staff.find(member_params[:id])
   end
 
   def new
-    @member = User.new(role: :staff)
+    @member = User.staff.new(role: :staff)
     respond_to do |format|
       format.html
       format.js
@@ -20,8 +20,7 @@ class Staff::MembersController < ApplicationController
   end
 
   def create
-    @member = User.new(role: :staff)
-     # @member = Member.new(member_params)
+    @member = User.staff.new(member_params)
     if @member.save
       redirect_to staff_base_admin_path, notice: 'Welcome to the family!'
     else
@@ -48,13 +47,14 @@ class Staff::MembersController < ApplicationController
   private
 
   def set_member
-    @member = Member.find(params[:id])
+    @member = User.find(params[:id])
   end
  
   def member_params
-    params.require(:member).permit(:first_name, :last_name, :email)
+    params.require(:user).permit(:first_name, :last_name, :email)
   end
 end
+
 
 
 

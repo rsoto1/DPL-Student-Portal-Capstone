@@ -1,5 +1,5 @@
-<%- page_header @member.name %>
-<h4><%= @location.time_zone_name %></h4>
+<%- page_header @member.first_name %>
+<h4><%= @member.first_name %></h4>
 <br>
 <%= button_to 'Edit Location', edit_staff_location_path,
                               class: "btn btn-primary",

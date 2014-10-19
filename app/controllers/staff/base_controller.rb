@@ -10,6 +10,7 @@ class Staff::BaseController < ApplicationController
     @member = User.staff.new
     @locations = Location.all
     @courses = Course.all
+    @members = User.staff.all
   end
 
 end
