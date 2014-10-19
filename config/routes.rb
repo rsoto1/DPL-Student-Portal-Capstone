@@ -53,6 +53,9 @@ Rails.application.routes.draw do
   # end
 
   namespace :staff do
+    get '/' => 'base#admin'
+    resources :members
+    resources :users, path: 'members'
     get '/' => 'base#index'
     resources :locations
     resources :courses

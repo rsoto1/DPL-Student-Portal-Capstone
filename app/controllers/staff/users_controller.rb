@@ -1,9 +1,9 @@
 class Staff::UsersController < ApplicationController
-  include SetCohort
+  # include SetCohort
   before_action :authenticate_user!
   before_action :ensure_staff!, only: [:new, :create]
-  before_action :set_cohort
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  # before_action :set_cohort
+  # before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -12,7 +12,7 @@ class Staff::UsersController < ApplicationController
   end
 
   def new
-    @student = @cohort.users.build_with_temp_password
+    # @student = @cohort.users.build_with_temp_password
   end
 
   def create

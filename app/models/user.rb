@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:github]
   belongs_to :cohort
+  belongs_to :staff
   has_one :github_profile
   has_many :pull_requests
   # has_many :attendances, dependent: :destroy

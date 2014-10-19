@@ -4,7 +4,7 @@ class Staff::MembersController < ApplicationController
   #may need to change to set_staff
   
   def index
-    @members = User.all(role: :staff)
+    @members = User.all
   end
 
   def show
