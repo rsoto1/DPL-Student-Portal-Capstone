@@ -53,6 +53,7 @@ group :development, :test do
 end
 
   gem 'dotenv-rails', :groups => [:development, :test]
+  gem 'annotate', '~> 2.6.5', :groups => :development
 
 group :test do
   # Database Cleaner provides auto cleaning of test db after running tests

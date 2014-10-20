@@ -4,7 +4,7 @@ module NavigationHelper
     nav = nav.split('/')
     current_user.staff? ? nav[0] = 'Dashboard' : nav.shift
     nav.delete_if { |el| el == '' || !(el =~ /\A\d+\z/).nil? }
-    nav.each { |n| navigation << "#{n.capitalize} > " }
+    nav.each { |nav_section| navigation << "#{nav_section.capitalize} > " }
     navigation << (content_for?(:title) ? content_for(:title) : '')
     (navigation.last == ' ') ? navigation[0...-3] : navigation
   end
