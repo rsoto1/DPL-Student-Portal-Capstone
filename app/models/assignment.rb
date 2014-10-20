@@ -9,6 +9,7 @@ class Assignment < ActiveRecord::Base
   end
 
   def percent_answers_accepted
+    # should probably change to accepted answers / total answers
     100.0 * (accepted_answers.count.to_f / cohort.users.student.count)
   end
 
