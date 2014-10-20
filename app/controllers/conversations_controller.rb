@@ -1,10 +1,11 @@
 class ConversationsController < ApplicationController
   before_filter :load_board
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
+
   # GET /conversations
   # GET /conversations.json
   def index
-    @conversations = @board.conversations
+    @conversations = @board.conversations.all
   end
 
   # GET /conversations/1
@@ -14,7 +15,7 @@ class ConversationsController < ApplicationController
 
   # GET /conversations/new
   def new
-    @conversation = @board.conversations.build(params[:conversation_id])
+    @conversation = @board.conversations.new
   end
 
   # GET /conversations/1/edit
@@ -24,8 +25,7 @@ class ConversationsController < ApplicationController
   # POST /conversations
   # POST /conversations.json
   def create
-    @conversation = @board.conversations.build(params[:conversation])
-
+    @conversation = @board.conversations.new(board_params)
     respond_to do |format|
       if @conversation.save
         format.html { redirect_to @conversation, notice: 'Conversation was successfully created.' }
@@ -40,9 +40,10 @@ class ConversationsController < ApplicationController
   # PATCH/PUT /conversations/1
   # PATCH/PUT /conversations/1.json
   def update
+    @conversation = @board.conversations.find(params[:id])
     respond_to do |format|
       if @conversation.update(conversation_params)
-        format.html { redirect_to @board, notice: 'Conversation was successfully updated.' }
+        format.html { redirect_to @conversations, notice: 'Conversation was successfully updated.' }
         format.json { render :show, status: :ok, location: @conversation }
       else
         format.html { render :edit }
@@ -65,6 +66,10 @@ class ConversationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def load_board
         @board = Board.find(params[:board_id])
+    end
+
+    def set_conversation
+        @conversation ||= @board.conversations.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

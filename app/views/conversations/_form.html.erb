@@ -1,21 +1,21 @@
-<% form_for([@board, @conversation]) do |f| %>
-  <% if @board.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@board.errors.count, "error") %> prohibited this board from being saved:</h2>
+<%= form_for([@conversations, @board] ) do |f| %>
+<% if @conversation.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@conversation.errors.count, "error") %> prohibited this conversation from being saved:</h2>
 
-      <ul>
-      <% @board.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <ul>
+    <% @conversation.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>
