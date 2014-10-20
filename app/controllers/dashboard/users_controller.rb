@@ -9,6 +9,7 @@ class Dashboard::UsersController < ApplicationController
 
   def update
     if current_user.update_info(user_params)
+      current_user.add_points(20)
       sign_in current_user, bypass: true
       redirect_to dashboard_path, notice: 'User profile updated!'
     else

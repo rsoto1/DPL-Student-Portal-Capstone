@@ -10,16 +10,19 @@ class ConversationsController < ApplicationController
   end
 
   def new
+    current_user.add_points(20)
     @conversation = Conversation.new
+    @comment = @conversation.comments.build
   end
 
   def edit
   end
 
   def create
-    @conversation = Conversation.new
+    @conversation = Conversation.new(conversation_params)
+    @comment = @conversation.comments.build(params[:comment])
     if @conversation.save
-      @conversation = Conversation.new(:title => params[:conversation][:title], :last_commenter_id => current_user.id, :last_post_at => Time.now, :board_id => params[:conversation][:board_id], :user_id => current_user.id)
+      @conversation = Conversation.new(:title => params[:conversation][:title], :last_commenter_id => current_user.id, :last_comment_at => Time.now, :board_id => params[:conversation][:board_id])
       if @comment.save
         redirect_to @conversation, notice:'Successfully started a conversation.'
       else
@@ -53,6 +56,6 @@ class ConversationsController < ApplicationController
     end
 
     def conversation_params
-      params.require(:conversation).permit(:title, :last_commenter_id, :last_comment_at)
+      params.require(:conversation).permit(:title, :last_commenter_id, :last_comment_at, :user_id)
     end
 end
