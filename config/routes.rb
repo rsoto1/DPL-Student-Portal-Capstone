@@ -56,7 +56,9 @@ Rails.application.routes.draw do
 
   # Routes for Discussion Board
   resources :boards do
-    resources :conversations
+    resources :conversations do
+      resource :comments
+    end
   end
 end
 
