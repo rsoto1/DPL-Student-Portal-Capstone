@@ -49,7 +49,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'letter_opener'
+ # gem 'letter_opener'
 
 end
 
