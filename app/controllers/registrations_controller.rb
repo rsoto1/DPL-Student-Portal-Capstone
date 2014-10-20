@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_action :ensure_staff!, only: [:new, :create]
+  before_action :ensure_staff, only: [:new, :create]
   layout 'application', only: [:edit]
 
   def new
