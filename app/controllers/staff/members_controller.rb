@@ -1,6 +1,6 @@
 class Staff::MembersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_staff, only: [:show, :edit, :update, :destroy]
   #may need to change to set_staff
   
   def index
@@ -12,7 +12,7 @@ class Staff::MembersController < ApplicationController
   end
 
   def new
-    @member = User.staff.new(role: :staff)
+    @member = User.new(role: :staff)
     respond_to do |format|
       format.html
       format.js
@@ -20,7 +20,7 @@ class Staff::MembersController < ApplicationController
   end
 
   def create
-    @member = User.staff.new(member_params)
+    @member = User.new(member_params, role: :staff)
     if @member.save
       redirect_to staff_base_admin_path, notice: 'Welcome to the family!'
     else

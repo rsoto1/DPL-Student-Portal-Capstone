@@ -7,7 +7,7 @@ class Staff::BaseController < ApplicationController
   def admin
     @location = Location.new
     @course = Course.new
-    @member = User.staff.new
+    @member = User.new
     @locations = Location.all
     @courses = Course.all
     @members = User.staff.all
@@ -15,5 +15,4 @@ class Staff::BaseController < ApplicationController
 
 end
 
-
-#Saturday night:  have the staff modal working but it doesn't save.  Slacked Ryan about it. 
+ 
