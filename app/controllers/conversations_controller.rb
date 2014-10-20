@@ -1,34 +1,40 @@
 class ConversationsController < ApplicationController
-  before_filter :load_board
+  # before_filter :load_board
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
 
   def index
-    @conversations = @board.conversations.all
+    @conversations = Conversations.all
   end
 
   def show
   end
 
   def new
-    @conversation = @board.conversations.new
+    @conversation = Conversations.new
   end
 
   def edit
   end
 
   def create
-    @conversation = @board.conversations.new(board_params)
-      if @conversation.save
-        redirect_to @conversation, notice:'Conversation was successfully created.'
+    @conversation = Conversations.new(:conversation)
+    if @conversation.save
+      @conversation = Conversation.new(:title => params[:conversation][:title], :last_commenter_id => current_user.id, :last_post_at => Time.now, :board_id => params[:conversation][:board_id], :user_id => current_user.id)
+      if @comment.save
+        notice:'Successfully started a conversation.'
+        redirect_to @conversation
       else
         render :new
       end
+    else
+      render :new
     end
+  end
 
   def update
-    @conversation = @board.conversations.find(params[:id])
       if @conversation.update(conversation_params)
-        redirect_to @conversations, notice:'Conversation was successfully updated.'
+        notice:'Conversation was successfully updated.'
+        redirect_to @conversations
       else
         render :edit
       end
@@ -36,19 +42,20 @@ class ConversationsController < ApplicationController
 
   def destroy
     @conversation.destroy
-      redirect_to board_conversations_url(@board), notice:'Conversation was successfully destroyed.'
+    notice:'Conversation was successfully destroyed.'
+    redirect_to board_conversations_url(@board)
   end
 
   private
-    def load_board
-        @board = Board.find(params[:board_id])
-    end
+    # def load_board
+    #     @board = Board.find(params[:id])
+    # end
 
     def set_conversation
-        @conversation ||= @board.conversations.find(params[:id])
+        @conversation ||= Conversations.find(params[:id])
     end
 
     def conversation_params
-      params.require(:conversation).permit(:id, :board_id, :user_id, :title, :last_commenter_id, :last_comment_at)
+      params.require(:conversation).permit(:title, :last_commenter_id, :last_comment_at)
     end
 end

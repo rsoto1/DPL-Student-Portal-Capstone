@@ -25,9 +25,9 @@ class BoardsController < ApplicationController
     end
 
   def update
-    @board = Board.find(params[:id])
       if @board.update(board_params)
-        redirect_to @board, notice:'Board was successfully updated.'
+        notice:'Board was successfully updated.'
+        redirect_to @board
       else
         render :edit
       end
@@ -35,8 +35,9 @@ class BoardsController < ApplicationController
 
   def destroy
     @board.destroy
-      redirect_to boards_url, notice:'Board was successfully destroyed.'
-    end
+    notice:'Board was successfully destroyed.'
+    redirect_to boards_url
+  end
 
   private
     def set_board
@@ -44,6 +45,6 @@ class BoardsController < ApplicationController
   end
 
     def board_params
-      params.require(:board).permit(:title )
+      params.require(:board).permit(:title)
     end
 end
