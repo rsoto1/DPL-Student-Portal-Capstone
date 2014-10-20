@@ -1,9 +1,21 @@
-<p id="notice"><%= notice %></p>
+<% title @board.title  %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @board.title %>
-</p>
+<table>
+  <tr>
+    <th width="60%">Conversation Title</th>
+    <th width="10%">Comments</th>
+    <th width="30%">Last Comment</th>
+  </tr>
+  <% for conversation in @board.conversations %>
+    <tr>
+      <td><%= link_to h(conversation.title), conversation_path(conversation.id) %>
+      <td><%= conversation.comments - 1 %></td>
+      <td class="right"></td>
+      <td><%= link_to "Show", conversation %></td>
+      <td><%= link_to "Edit", edit_conversation_path(conversation.id) %></td>
+      <td><%= link_to "Destroy", conversation, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
 
-<%= link_to 'Edit', edit_board_path(@board) %> |
-<%= link_to 'Back', boards_path %>
+<p><%= link_to "New Conversation", new_board_conversation_path(@board) %></p>

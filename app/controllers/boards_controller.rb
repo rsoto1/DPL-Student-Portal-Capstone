@@ -25,7 +25,6 @@ class BoardsController < ApplicationController
   # POST /boards.json
   def create
     @board = Board.new(board_params)
-
     respond_to do |format|
       if @board.save
         format.html { redirect_to @board, notice: 'Board was successfully created.' }
@@ -40,6 +39,7 @@ class BoardsController < ApplicationController
   # PATCH/PUT /boards/1
   # PATCH/PUT /boards/1.json
   def update
+    @board = Board.find(params[:id])
     respond_to do |format|
       if @board.update(board_params)
         format.html { redirect_to @board, notice: 'Board was successfully updated.' }
@@ -64,11 +64,11 @@ class BoardsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_board
-      @board = Board.find(params[:id])
-    end
+        @board ||= Board.find(params[:id])
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:title)
+      params.require(:board).permit(:title )
     end
 end
