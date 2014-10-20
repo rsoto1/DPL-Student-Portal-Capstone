@@ -1,12 +1,12 @@
 class Staff::AssignmentsController < ApplicationController
   include SetCohort
   before_action :authenticate_user!
-  before_action :ensure_staff!
+  before_action :ensure_staff
   before_action :set_cohort
   before_action :set_assignment, only: [:edit, :update, :destroy]
-  
+
   def index
-   @assignments = @cohort.assignments.order(:due_date)
+    @assignments = @cohort.assignments.order(:due_date)
   end
 
   def show
@@ -17,14 +17,11 @@ class Staff::AssignmentsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @assignment.update(assignment_params)
-        format.html { redirect_to staff_cohort_assignments_url, notice: 'Assignment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @assignment }
-      else
-        format.html { render :edit }
-        format.json { render json: @assignment.errors, status: :unprocessable_entity }
-      end
+    if @assignment.update(assignment_params)
+      redirect_to staff_cohort_assignments_url,
+                  notice: 'Assignment was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -35,14 +32,11 @@ class Staff::AssignmentsController < ApplicationController
   def create
     @assignment = @cohort.assignments.build(assignment_params)
 
-    respond_to do |format|
-      if @assignment.save
-        format.html { redirect_to staff_cohort_assignments_url, notice: 'Assignment was successfully created.' }
-        format.json { render :show, status: :created, location: @assignment }
-      else
-        format.html { render :new }
-        format.json { render json: @assignment.errors, status: :unprocessable_entity }
-      end
+    if @assignment.save
+      redirect_to staff_cohort_assignments_url,
+                  notice: 'Assignment was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -50,13 +44,10 @@ class Staff::AssignmentsController < ApplicationController
     begin
       @assignment.destroy
       flash[:notice] = 'Assignment deleted!'
-    rescue StandardError => e
-      flash[:notice] = e.message
+    rescue StandardError => error
+      flash[:notice] = error.message
     end
-    respond_to do |format|
-      format.html { redirect_to staff_cohort_assignments_url }
-      format.json { head :no_content }
-    end
+    redirect_to staff_cohort_assignments_url
   end
 
   private
