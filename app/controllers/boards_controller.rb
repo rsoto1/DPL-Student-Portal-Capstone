@@ -26,8 +26,7 @@ class BoardsController < ApplicationController
 
   def update
       if @board.update(board_params)
-        notice:'Board was successfully updated.'
-        redirect_to @board
+        redirect_to @board, notice: 'Board was successfully updated.'
       else
         render :edit
       end
@@ -35,8 +34,7 @@ class BoardsController < ApplicationController
 
   def destroy
     @board.destroy
-    notice:'Board was successfully destroyed.'
-    redirect_to boards_url
+    redirect_to boards_url, notice: 'Board was successfully destroyed.'
   end
 
   private

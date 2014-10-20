@@ -1,28 +1,27 @@
 class ConversationsController < ApplicationController
-  # before_filter :load_board
+  before_filter :load_board
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
 
   def index
-    @conversations = Conversations.all
+    @conversations = Conversation.all
   end
 
   def show
   end
 
   def new
-    @conversation = Conversations.new
+    @conversation = Conversation.new
   end
 
   def edit
   end
 
   def create
-    @conversation = Conversations.new(:conversation)
+    @conversation = Conversation.new
     if @conversation.save
       @conversation = Conversation.new(:title => params[:conversation][:title], :last_commenter_id => current_user.id, :last_post_at => Time.now, :board_id => params[:conversation][:board_id], :user_id => current_user.id)
       if @comment.save
-        notice:'Successfully started a conversation.'
-        redirect_to @conversation
+        redirect_to @conversation, notice:'Successfully started a conversation.'
       else
         render :new
       end
@@ -33,8 +32,7 @@ class ConversationsController < ApplicationController
 
   def update
       if @conversation.update(conversation_params)
-        notice:'Conversation was successfully updated.'
-        redirect_to @conversations
+        redirect_to @conversations, notice:'Conversation was successfully updated.'
       else
         render :edit
       end
@@ -42,17 +40,16 @@ class ConversationsController < ApplicationController
 
   def destroy
     @conversation.destroy
-    notice:'Conversation was successfully destroyed.'
-    redirect_to board_conversations_url(@board)
+    redirect_to board_conversations_url(@board), notice:'Conversation was successfully destroyed.'
   end
 
   private
-    # def load_board
-    #     @board = Board.find(params[:id])
-    # end
+    def load_board
+        @board = Board.find(params[:board_id])
+    end
 
     def set_conversation
-        @conversation ||= Conversations.find(params[:id])
+        @conversation = Conversations.find(params[:id])
     end
 
     def conversation_params
