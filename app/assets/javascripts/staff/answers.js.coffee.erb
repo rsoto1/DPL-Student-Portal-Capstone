@@ -1,0 +1,10 @@
+jQuery ->
+  $('.accepted_box').click ->
+    $.ajax
+      url: '/staff/accept_answer'
+      type: 'PUT'
+      data:
+        accepted: $(this).prop('checked')
+        answer_id: $(this).attr('id')
+
+    return

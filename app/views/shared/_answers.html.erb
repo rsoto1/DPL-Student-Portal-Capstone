@@ -25,7 +25,8 @@
     <% unless current_user.student? %>
       Accepted: <%= check_box answer, :accepted,
                                       { class: 'accepted_box',
-                                        id: "answer_#{answer.id}_accepted" }  %>
+                                        id: answer.id,
+                                        checked: answer.accepted } %>
     <% end %>
   </div>
   <hr> <!-- this needs to be replaced with CSS line bordering -->
