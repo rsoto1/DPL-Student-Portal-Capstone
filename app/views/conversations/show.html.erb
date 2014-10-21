@@ -1,31 +1,22 @@
 <% title @conversation.title  %>
-</p>
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Board:</strong>
-  <%= @conversation.board %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @conversation.user %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @conversation.title %>
-</p>
-
-<p>
-  <strong>Last commenter:</strong>
-  <%= @conversation.last_commenter_id %>
-</p>
-
-<p>
-  <strong>Last comment at:</strong>
-  <%= @conversation.last_comment_at %>
-</p>
 
 
-<%= link_to 'Back', board_conversations_path %>
+<table>
+  <tr>
+    <th width="30%">User</th>
+    <th width="70%">Comments</th>
+  </tr>
+  <% @conversation.comments.each do |comment| %>
+  <tr>
+    <td>
+      <%= link_to comment.user.username, comment.user %>
+      <small>Posted At <%= comment.created_at %></small>
+    </td>
+    <td>
+      <p><%= comment.body %></p>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Comment", new_board_conversation_comment_path(@board, @conversation) %></p>
