@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Dashboard::AttendanceController, :type => :controller do
+RSpec.describe Dashboard::AttendancesController, :type => :controller do
 
   describe "GET index" do
     it "returns http success" do

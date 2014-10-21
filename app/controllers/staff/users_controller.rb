@@ -1,7 +1,7 @@
 class Staff::UsersController < ApplicationController
   include SetCohort
   before_action :authenticate_user!
-  before_action :ensure_staff!, only: [:new, :create]
+  before_action :ensure_staff, only: [:new, :create]
   before_action :set_cohort
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
@@ -15,15 +15,18 @@ class Staff::UsersController < ApplicationController
     @student = @cohort.users.build_with_temp_password
   end
 
+
   def create
     @student = @cohort.users.build_with_temp_password(user_params)
 
     if @student.save
+      StudentMailer.welcome_email(@student).deliver
       redirect_to staff_cohort_path(@cohort), notice: 'Student created!'
     else
       alert_and_render('Could not add new student', :new)
     end
-  end
+  end  
+
 
   def update
     if @student.update_info(user_params)
