@@ -45,10 +45,6 @@
                         current_user.staff? ? staff_profile_path : dashboard_profile_path %>
           <!-- <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a> -->
         </li>
-        <li>
-          <%= link_to content_tag(:i, nil, :class=>"fa fa-fw fa-gear") + ' Settings', root_path %>
-          <!-- <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a> -->
-        </li>
         <li class="divider"></li>
         <li>
           <%= link_to content_tag(:i, nil, :class=>"fa fa-fw fa-sign-out") + ' Sign Out', destroy_user_session_path, method: :delete %>
