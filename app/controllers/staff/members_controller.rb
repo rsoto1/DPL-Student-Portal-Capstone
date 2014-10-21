@@ -1,6 +1,6 @@
 class Staff::MembersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_staff, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:show, :edit, :update, :destroy]
   #may need to change to set_staff
   
   def index
@@ -8,7 +8,7 @@ class Staff::MembersController < ApplicationController
   end
 
   def show
-    @member = User.staff.find(member_params[:id])
+    # @member = User.staff.find(member_params[:id])
   end
 
   def new
