@@ -3,14 +3,17 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @comments = Comment.all
+    # @comments = Comment.all
+    @comments = @conversation.comments
   end
 
   def show
   end
 
   def new
-    @comment = Comment.new
+    # @comment = Comment.new
+    @comment = @conversation.comments.new
+    @board = @conversation.board
   end
 
   def edit
@@ -18,9 +21,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @board.conversation.comment.new(comment_params)
+    @comment = @conversation.comments.new(comment_params)
+    @comment.user = current_user
     if @comment.save
-        redirect_to board_conversations_url(@board)
+        redirect_to board_conversations_url(@conversation)
     else
       render :new
     end
@@ -53,6 +57,10 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params.require(:comment).permit(:body)
+      params.require(:comment).permit(:body,
+                                      :user_id,
+                                      :conversation_id,
+                                      :last_comment_at,
+                                      :last_commenter_id)
     end
 end

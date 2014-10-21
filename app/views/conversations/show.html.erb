@@ -9,8 +9,6 @@
   <% @conversation.comments.each do |comment| %>
   <tr>
     <td>
-      <%= link_to comment.user.username, comment.user %>
-      <small>Posted At <%= comment.created_at %></small>
     </td>
     <td>
       <p><%= comment.body %></p>

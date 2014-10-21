@@ -3,7 +3,9 @@ class ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
 
   def index
-    @conversations = Conversation.all
+    # @conversations = Conversation.all
+    @conversations = @board.conversations
+    # @comment = Comment.new
   end
 
   def show
