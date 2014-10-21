@@ -1,4 +1,4 @@
-<% title @conversations.title  %>
+<% title @conversation.title  %>
 
 <p id="notice"><%= notice %></p>
 
@@ -27,5 +27,5 @@
   <%= @conversation.last_comment_at %>
 </p>
 
-<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
+<%= link_to 'Edit', edit_board_conversation_path(@conversation.id) %> |
 <%= link_to 'Back', conversations_path %>

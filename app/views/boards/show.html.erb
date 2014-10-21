@@ -9,7 +9,7 @@
   <% for conversation in @board.conversations %>
     <tr>
       <td><%= link_to h(conversation.title), board_conversation_path(@board, conversation) %>
-      <td><%= @board.conversation.comments - 1 %></td>
+      <td><%= conversation.comments.count %></td>
       <td class="right"></td>
       <td><%= link_to "Show", board_conversation_path(@board, conversation) %></td>
       <td><%= link_to "Edit", edit_board_conversation_path(@board, conversation) %></td>

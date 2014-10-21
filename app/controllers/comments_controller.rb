@@ -18,14 +18,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(:body => params[:comment][:body], :conversation_id => params[:comment][:board_id], :user_id => current_user.id)
-      if @comment.save
-        @comment = Board.find(@comment.board_id)
-        @comment.update_attributes(:last_commenter_id => current_user.id, :last_comment_at => Time.now)
-        redirect_to @comment, notice: 'Successfully made a comment.'
-        render :show
-      else
-        render :new
+    @comment = @board.conversation.comment.new(comment_params)
+    if @comment.save
+        redirect_to board_conversations_url(@board)
+    else
+      render :new
     end
   end
 
