@@ -1,5 +1,6 @@
-<%- page_header 'Edit Staff Members' %>
-<p>This is just a temporary view. This should render the locations form
-allowing staff to edit existing members.</p>
-
-<%= render 'form' %>
+<%- page_header 'Edit Staff Member' %>
+<%= form_for [:staff, @member], url: staff_member_path(@member) do |f| %>
+  <%= render 'form', f: f %>
+  <%= f.submit 'Submit', class: 'btn btn-primary' %> 
+  <%= link_to 'Back', staff_base_admin_path, class: 'btn btn-default' %>
+<% end %>
