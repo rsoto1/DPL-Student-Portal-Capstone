@@ -8,12 +8,12 @@
   </tr>
   <% for conversation in @board.conversations %>
     <tr>
-      <td><%= link_to h(conversation.title), conversation_path(conversation.id) %>
-      <td><%= conversation.comments - 1 %></td>
+      <td><%= link_to h(conversation.title), board_conversation_path(@board, conversation) %>
+      <td><%= @board.conversation.comments - 1 %></td>
       <td class="right"></td>
-      <td><%= link_to "Show", conversation %></td>
-      <td><%= link_to "Edit", edit_conversation_path(conversation.id) %></td>
-      <td><%= link_to "Destroy", conversation, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Show", board_conversation_path(@board, conversation) %></td>
+      <td><%= link_to "Edit", edit_board_conversation_path(@board, conversation) %></td>
+      <td><%= link_to "Destroy", board_conversation_path(@board, conversation), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

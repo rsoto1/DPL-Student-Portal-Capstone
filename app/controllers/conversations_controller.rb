@@ -11,23 +11,26 @@ class ConversationsController < ApplicationController
 
   def new
     current_user.add_points(20)
-    @conversation = Conversation.new
-    @comment = @conversation.comments.build
+    @conversation = @board.conversation.new
+    # @comment = @conversation.comments.build
   end
 
   def edit
   end
 
   def create
-    @conversation = Conversation.new(conversation_params)
-    @comment = @conversation.comments.build(params[:comment])
+    @conversation = @board.conversations.new(conversation_params)
+    @conversation.user = current_user
+    # @comment = @conversation.comments.build(params[:comment])
     if @conversation.save
-      @conversation = Conversation.new(:title => params[:conversation][:title], :last_commenter_id => current_user.id, :last_comment_at => Time.now, :board_id => params[:conversation][:board_id])
-      if @comment.save
-        redirect_to @conversation, notice:'Successfully started a conversation.'
-      else
-        render :new
-      end
+      # @conversation = Conversation.new(:title => params[:conversation][:title], :last_commenter_id => current_user.id, :last_comment_at => Time.now, :board_id => params[:conversation][:board_id])
+        redirect_to board_conversations_url(@board)
+
+      # if @comment.save
+      #   redirect_to @conversation, notice:'Successfully started a conversation.'
+      # else
+      #   render :new
+      # end
     else
       render :new
     end
@@ -56,6 +59,10 @@ class ConversationsController < ApplicationController
     end
 
     def conversation_params
-      params.require(:conversation).permit(:title, :last_commenter_id, :last_comment_at, :user_id)
+      params.require(:conversation).permit(:title,
+                                           :last_commenter_id || current_user.id,
+                                           :last_comment_at || Time.now,
+                                           :user_id,
+                                           :board_id)
     end
 end

@@ -62,9 +62,6 @@ Rails.application.routes.draw do
   end
 end
 
-
-
-
   # scope :staff do
   #   devise_for :users,
   #              controllers: { registrations: 'registrations' },

@@ -15,14 +15,14 @@
   <tbody>
     <% @board.conversations.each do |conversation| %>
       <tr>
-        <td><%= conversation.board %></td>
-        <td><%= conversation.user %></td>
+        <td><%= conversation.board.title %></td>
+        <td><%= conversation.user.first_name %></td>
         <td><%= conversation.title %></td>
         <td><%= conversation.last_commenter_id %></td>
         <td><%= conversation.last_comment_at %></td>
-        <td><%= link_to 'Show', conversation %></td>
-        <td><%= link_to 'Edit', edit_conversation_path(conversation) %></td>
-        <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', board_conversation_path(@board, conversation) %></td>
+        <td><%= link_to 'Edit', edit_board_conversation_path(@board, conversation) %></td>
+        <td><%= link_to 'Destroy', board_conversation_path(@board, conversation), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Conversation', new_conversation_path %>
+<%= link_to 'New Conversation', new_board_conversation_path(@board) %>
