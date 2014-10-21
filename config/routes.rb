@@ -105,7 +105,6 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about', as: :about
   get '/contact' => 'static_pages#contact', as: :contact
   get '/web_resources' => 'static_pages#web_resources', as: :web_resources
-  get '/staff/base/admin'
   
   devise_for :users,
              singular: :user,
@@ -142,22 +141,12 @@ Rails.application.routes.draw do
     # resources :announcements
   end
 
-  # scope :staff do
-  #   devise_for :users,
-  #              controllers: { registrations: 'registrations' },
-  #              only: 'registrations',
-  #              path: 'student',
-  #              path_names: { sign_up: 'new' }
-  #   # get '/staff/student/new' => 'registrations#new', as: :new_student
-  # end
-
   namespace :staff do
     get '/' => 'base#index'
+    get '/base/admin'
     resources :locations
     resources :courses
     resources :members
-      get '/users/staff' => 'members#new', as: :new_member
-      resources :users, path: 'members'
     # route for handling ajax query to accept an answer
     put '/accept_answer' => 'answers#update_answer_acceptance'
     resources :cohorts do
@@ -168,6 +157,15 @@ Rails.application.routes.draw do
 
     end
   end
+
+  # scope :staff do
+  #   devise_for :users,
+  #              controllers: { registrations: 'registrations' },
+  #              only: 'registrations',
+  #              path: 'student',
+  #              path_names: { sign_up: 'new' }
+  #   # get '/staff/student/new' => 'registrations#new', as: :new_student
+  # end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
