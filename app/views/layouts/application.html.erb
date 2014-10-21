@@ -8,12 +8,13 @@
   </head>
   <body>
     <div id="wrapper"> <!-- body wrapper -->
+      <div class="container-fluid">
       <%= render '/layouts/nav' %>
-      <div class="page-wrapper-header"> <!-- Header main content wrapper -->
+      <!-- <div class="page-wrapper-header"> Header main content wrapper -->
         <%= render '/layouts/breadcrumbs' %>
-      </div>
+      <!-- </div> -->
       <div class="page-wrapper"> <!-- Main content wrapper -->
-        <div class="container-fluid">
+
 
           <%= yield %>
       </div>
@@ -25,8 +26,5 @@
       </div>
 
   </body>
-  
+
 </html>
-
-
-    
