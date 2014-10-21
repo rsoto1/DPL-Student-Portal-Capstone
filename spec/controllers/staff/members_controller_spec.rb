@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Dashboard::AttendancesController, :type => :controller do
+RSpec.describe Staff::MembersController, :type => :controller do
 
   describe "GET index" do
     it "returns http success" do
@@ -9,16 +9,9 @@ RSpec.describe Dashboard::AttendancesController, :type => :controller do
     end
   end
 
-  describe "GET edit" do
+  describe "GET show" do
     it "returns http success" do
-      get :edit
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET update" do
-    it "returns http success" do
-      get :update
+      get :show
       expect(response).to have_http_status(:success)
     end
   end
@@ -37,9 +30,16 @@ RSpec.describe Dashboard::AttendancesController, :type => :controller do
     end
   end
 
-  describe "GET show" do
+  describe "GET edit" do
     it "returns http success" do
-      get :show
+      get :edit
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "GET update" do
+    it "returns http success" do
+      get :update
       expect(response).to have_http_status(:success)
     end
   end
