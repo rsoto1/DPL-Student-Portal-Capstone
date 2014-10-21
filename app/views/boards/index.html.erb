@@ -7,14 +7,12 @@
     <tr>
       <td><h4><%= link_to h(board.title), board_path(board.id) %></h4>
         <small><%= board.conversations.count %> conversations</small><br /></td>
-
+      <td><%= current_user.first_name %></td>
       <td class="right">
 
       </td>
-
-<td><%= link_to "Show", board %></td>
-<td><%= link_to "Edit", edit_board_path(board) %></td>
-<td><%= link_to "Destroy", board, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Edit", edit_board_path(board) %></td>
+      <td><%= link_to "Destroy", board, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
