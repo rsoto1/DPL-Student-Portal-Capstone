@@ -1,14 +1,12 @@
 class Staff::MembersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_member, only: [:show, :edit, :update, :destroy]
-  #may need to change to set_staff
-  
+
   def index
     @members = User.staff.all
   end
 
   def show
-    # @member = User.staff.find(member_params[:id])
   end
 
   def new
@@ -20,9 +18,10 @@ class Staff::MembersController < ApplicationController
   end
 
   def create
-    @member = User.new(member_params, role: :staff)
+    @member = User.build_with_temp_password(member_params)
+    @member.staff!
     if @member.save
-      redirect_to staff_base_admin_path, notice: 'Welcome to the family!'
+      redirect_to staff_members_path, notice: 'Welcome to the family!'
     else
       alert_and_render('Could not save admin info', :new)
     end
@@ -33,7 +32,7 @@ class Staff::MembersController < ApplicationController
 
   def update
     if @member.update_attributes(member_params)
-      redirect_to staff_path, notice: 'All up to date'
+      redirect_to staff_user_path(@member), notice: 'All up to date'
     else
       alert_and_render('There was an issue updating', :edit)
     end
@@ -41,7 +40,7 @@ class Staff::MembersController < ApplicationController
 
   def destroy
     @member.destroy
-    redirect_to staff_base_admin_path, notice: 'Sad to see you go'
+    redirect_to staff_members_path, notice: 'Sad to see you go'
   end
 
   private
@@ -49,26 +48,8 @@ class Staff::MembersController < ApplicationController
   def set_member
     @member = User.find(params[:id])
   end
- 
+
   def member_params
-    params.require(:user).permit(:first_name, :last_name, :email)
+    params.require(:user).permit(:first_name, :last_name, :email, :role)
   end
 end
-
-
-
-
-
-
-
-
-
-
-
- 
- 
- 
-
- 
-
-
