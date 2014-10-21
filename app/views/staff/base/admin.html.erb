@@ -54,10 +54,10 @@
          </div>
          <div class="panel-body">    
            <!-- Button trigger modal -->
-           <%= button_to "Add Staff", new_staff_user_path, method: 'get', remote: false, class: 'btn btn-primary btn-sm' %> 
+           <%= button_to "Add Staff", new_staff_member_path, method: 'get', remote: false, class: 'btn btn-primary btn-sm' %> 
             <br><br> 
             <% @members.each do |member| %>
-            <li><%= link_to "#{member.first_name}", staff_user_path(member) %></li>
+            <li><%= link_to "#{member.first_name}", staff_member_path(member) %></li>
             <% end %>
          </div>
       </div>
