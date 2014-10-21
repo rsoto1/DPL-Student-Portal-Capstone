@@ -1,5 +1,5 @@
 <% title @conversation.title  %>
-
+</p>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -27,5 +27,5 @@
   <%= @conversation.last_comment_at %>
 </p>
 
-<%= link_to 'Edit', edit_board_conversation_path(@conversation.id) %> |
-<%= link_to 'Back', conversations_path %>
+
+<%= link_to 'Back', board_conversations_path %>
