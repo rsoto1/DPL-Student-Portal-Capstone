@@ -7,10 +7,10 @@
     <p>GitHub Username: <%= @member.github_profile.username if @member.github_profile %></p>
   </div>
   <div class="col-md-8">
-    <%= button_to 'Edit Staff Member', edit_staff_user_path(@member),
+    <%= button_to 'Edit Staff Member', edit_staff_member_path(@member),
                               class: "btn btn-primary",
                               method: :get%>
-    <%= button_to 'Delete Staff Member', staff_user_path(@member),
+    <%= button_to 'Delete Staff Member', staff_member_path(@member),
                               class: "btn btn-primary",
                               method: :delete %>
   </div>
