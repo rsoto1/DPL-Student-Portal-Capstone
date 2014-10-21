@@ -11,10 +11,6 @@ class Staff::MembersController < ApplicationController
 
   def new
     @member = User.new(role: :staff)
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def create
@@ -32,7 +28,7 @@ class Staff::MembersController < ApplicationController
 
   def update
     if @member.update_attributes(member_params)
-      redirect_to staff_user_path(@member), notice: 'All up to date'
+      redirect_to staff_member_path(@member), notice: 'All up to date'
     else
       alert_and_render('There was an issue updating', :edit)
     end
@@ -40,7 +36,7 @@ class Staff::MembersController < ApplicationController
 
   def destroy
     @member.destroy
-    redirect_to staff_members_path, notice: 'Sad to see you go'
+    redirect_to staff_base_admin_path, notice: 'Sad to see you go'
   end
 
   private
