@@ -4,8 +4,7 @@ class StudentMailer < ActionMailer::Base
  
   def welcome_email(student)
     @student = student
-    # CHANGE @url to correct login page
-    # @url  = 'http://example.com/login'
+    @url  = http://dpl-student-portal-capstone.herokuapp.com
     mail(to: @student.email, subject: 'Welcome to the Student Portal')
   end
 end
