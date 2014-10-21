@@ -17,7 +17,7 @@ class Staff::MembersController < ApplicationController
     @member = User.build_with_temp_password(member_params)
     @member.staff!
     if @member.save
-      redirect_to staff_members_path, notice: 'Welcome to the family!'
+      redirect_to staff_base_admin_path, notice: 'Welcome to the family!'
     else
       alert_and_render('Could not save admin info', :new)
     end
