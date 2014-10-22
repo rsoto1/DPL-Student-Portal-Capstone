@@ -33,6 +33,7 @@ RSpec.configure do |config|
 
   config.after(:suite) do
     DatabaseCleaner.clean_with(:truncation)
+    load "#{Rails.root}/db/seeds.rb"
   end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
