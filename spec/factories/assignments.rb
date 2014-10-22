@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :assignment do
     name "MyString"
-    type ""
+    category ""
     description "MyText"
     due_date "2014-09-29"
   end
