@@ -35,10 +35,6 @@ gem 'octokit', '~> 3.0'
 gem 'httparty'
 # For handling github webhooks
 gem 'github_webhook'
-# Merit Gamification
-gem 'merit'
-# SSchemaPlus provides ActiveRecord support for foreign keys, database defined validations and associations.
-gem 'schema_plus'
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
