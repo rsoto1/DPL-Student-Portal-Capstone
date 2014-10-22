@@ -4,7 +4,7 @@ class StudentMailer < ActionMailer::Base
  
   def welcome_email(student)
     @student = student
-    @url  = http://dpl-student-portal-capstone.herokuapp.com
+    @url  = 'http://dpl-student-portal-capstone.herokuapp.com'
     mail(to: @student.email, subject: 'Welcome to the Student Portal')
   end
 end
