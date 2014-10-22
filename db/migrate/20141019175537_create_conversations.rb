@@ -4,6 +4,7 @@ class CreateConversations < ActiveRecord::Migration
       t.references :board, index: true
       t.references :user, index: true
       t.string :title
+      t.text :description
       t.integer :last_commenter_id
       t.datetime :last_comment_at
       t.timestamps

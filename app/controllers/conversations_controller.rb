@@ -12,7 +12,6 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    current_user.add_points(20)
     @conversation = Conversation.new
     # @comment = @conversation.comments.build
   end
