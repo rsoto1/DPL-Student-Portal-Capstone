@@ -144,6 +144,7 @@ Rails.application.routes.draw do
   namespace :staff do
     get '/' => 'base#index'
     get '/base/admin'
+    get '/profile' => 'members#profile'
     resources :locations
     resources :courses
     resources :members
