@@ -14,14 +14,13 @@
     </td>
   </tr>
 </table>
+<br>
+<p><%= link_to "New Comment", new_board_conversation_comment_path(@board, @conversation), :class => "btn btn-default" %></p>
 
 <% @conversation.comments.each do |comment| %>
-
 <div class="comment">
-  <span class="left"><%= comment.user.first_name %><br />
-    <%= link_to "Delete", @comment, :confirm => 'Are you sute?', :method => :delete%></span>
+  <span class="left"><%= comment.user.first_name %><br>
+  <%= link_to "Delete", @comment, :confirm => 'Are you sute?', :method => :delete %></span>
   <span class="right"><%= comment.body %></span>
 </div>
 <% end %>
-
-<p><%= link_to "New Comment", new_board_conversation_comment_path(@board, @conversation) %></p>

@@ -12,9 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_area :body, :cols => "80", :rows => "20" %>
+    <%= f.text_area :body, :class => "form-control", :rows => "10" %>
   </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-default" %>
   </div>
 <% end %>
