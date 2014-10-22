@@ -1,17 +1,18 @@
+<%- page_header @user.first_name + ' ' + @user.last_name %>
 <div class="row">
   <div class="col-md-4">
-    <h2><%= @user.first_name + ' ' + @user.last_name %></h2>
+   
+  </div>
+  <div class="col-md-8">
     <% unless @user.github_profile.nil? || @user.github_profile.image.nil? %>
-      <%= image_tag @user.github_profile.image, { width: 200,
+    <%= image_tag @user.github_profile.image, { width: 200,
                                                   height: 200 } %>
     <% end %>
     <h4 class="info"><%= @user.email %></h4>
     <p class="info">Hometown: <%= @user.hometown %></p>
     <p class="info">GitHub Username: <%= @user.github_profile.username if @user.github_profile %></p>
-  </div>
-  <div class="col-md-8">
     <%= button_to 'Edit Profile', edit_user_registration_path,
-                                  class: "btn btn-primary pull-right",
+                                  class: "btn btn-primary",
                                   method: :get%>
     <% unless @user.github_authorized? %>
       <% authorize_url = Octokit.authorize_url(ENV['GITHUB_CLIENT_ID'],
@@ -23,3 +24,6 @@
     <% end %>
   </div>
 </div>
+
+
+
