@@ -53,6 +53,7 @@ class ConversationsController < ApplicationController
 
     def conversation_params
       params.require(:conversation).permit(:title,
+                                           :description,
                                            :last_commenter_id || current_user.id,
                                            :last_comment_at || Time.now,
                                            :user_id,

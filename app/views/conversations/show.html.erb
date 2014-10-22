@@ -1,5 +1,20 @@
 <% title @conversation.title  %>
 
+
+<table class="table">
+  <tr>
+    <th width="20%">Conversation Creator</th>
+    <th width="80%">Conversation Description</th>
+  </tr>
+  <tr>
+    <td>
+      <p><%= current_user.first_name %>
+    <td>
+      <p><%= @conversation.description %></p>
+    </td>
+  </tr>
+</table>
+
 <% @conversation.comments.each do |comment| %>
 
 <div class="comment">
