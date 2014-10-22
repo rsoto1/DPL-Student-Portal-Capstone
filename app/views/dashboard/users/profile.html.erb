@@ -1,7 +1,7 @@
 <%- page_header @user.first_name + ' ' + @user.last_name %>
 <div class="row">
   <div class="col-md-4">
-   
+    <img src="http://placehold.it/200x220" class="img-circle">
   </div>
   <div class="col-md-8">
     <% unless @user.github_profile.nil? || @user.github_profile.image.nil? %>
