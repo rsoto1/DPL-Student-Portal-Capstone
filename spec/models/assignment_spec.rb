@@ -24,6 +24,12 @@ RSpec.describe Assignment, :type => :model do
 
   describe 'validates name' do
     it { should validate_presence_of :name }
+
+    it 'should be invalid if it has no name' do
+      @assignment = create(:assignment)
+      @assignment.name = nil
+      expect(@assignment).to_not be_valid
+    end
   end
 
   describe '#accepted_answers' do
