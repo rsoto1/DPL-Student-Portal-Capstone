@@ -105,6 +105,7 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about', as: :about
   get '/contact' => 'static_pages#contact', as: :contact
   get '/web_resources' => 'static_pages#web_resources', as: :web_resources
+  get '/faq' => 'static_pages#faq'
   
   devise_for :users,
              singular: :user,
@@ -127,7 +128,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     get '/' => 'base#index'
     get '/webresources' => 'base#resources'
-    get '/FAQ' => 'base#FAQ'
+    # get '/FAQ' => 'base#FAQ'
     get '/profile' => 'users#profile'
     get '/calendar' => 'events#index'
 
