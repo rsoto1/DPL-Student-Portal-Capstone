@@ -128,7 +128,6 @@ Rails.application.routes.draw do
   namespace :dashboard do
     get '/' => 'base#index'
     get '/webresources' => 'base#resources'
-    # get '/FAQ' => 'base#FAQ'
     get '/profile' => 'users#profile'
     get '/calendar' => 'events#index'
 
