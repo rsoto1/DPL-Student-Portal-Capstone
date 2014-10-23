@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :assignment do
     name { Faker::Lorem.sentence }
     category { %w(ruby rails javascript).sample }
-    description { Faker::Lorem.paragraphs(3) }
+    description { Faker::Lorem.paragraph }
     due_date { Time.now + 1.day }
     cohort
   end
