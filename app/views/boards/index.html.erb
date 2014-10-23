@@ -16,4 +16,8 @@
   <% end %>
 </table>
 
-<p><%= link_to "New Board", new_board_path, :class => "btn btn-primary" %></p>
+<div id="modalDiv">
+<!-- <div class="actions"> -->
+  <%= button_to "New Board", new_board_path, :class => "btn btn-default", method: 'get', remote: true %>
+  <!-- </div> -->
+</div>
