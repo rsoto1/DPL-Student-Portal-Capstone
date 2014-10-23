@@ -41,11 +41,11 @@
     <div>
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
       <%= f.password_field :current_password, autocomplete: "off", placeholder: 'Current Password' %>
-    </div>
+    </div><br>
 
     <div class="btn_">
-      <%= f.submit "Update", class: "btn-sm btn-primary" %>&nbsp
-      <%= link_to "Back", dashboard_profile_path, class: "btn-sm btn-danger" %>
+      <%= f.submit "Update", class: "btn btn-sm btn-primary" %>&nbsp
+      <%= link_to "Back", dashboard_profile_path, class: "btn btn-sm btn-primary" %>
     </div>
   </div>
 <% end %>
