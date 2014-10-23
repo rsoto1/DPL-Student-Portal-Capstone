@@ -24,12 +24,25 @@ RSpec.describe User, :type => :model do
   end
 
   describe 'update_info' do
-    it 'should update the user info' do
-      student.update_info(first_name: 'Bill',
-                          last_name: 'Ted')
-      expect(student.first_name).to eq 'Bill'
-      expect(student.last_name).to eq 'Ted'
-      expect(student.temp_password).to be_nil
+    context 'without a password' do
+      it 'should update the user info' do
+        student.update_info(first_name: 'Bill',
+                            last_name: 'Ted')
+        expect(student.first_name).to eq 'Bill'
+        expect(student.last_name).to eq 'Ted'
+        expect(student.temp_password).to be_nil
+      end
+    end
+
+    context 'with a password' do
+      it 'should update the user info' do
+        student.update_info(first_name: 'Bill',
+                            last_name: 'Ted',
+                            password: student.password)
+        expect(student.first_name).to eq 'Bill'
+        expect(student.last_name).to eq 'Ted'
+        expect(student.temp_password).to be_nil
+      end
     end
   end
 
