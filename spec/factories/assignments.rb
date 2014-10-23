@@ -6,5 +6,6 @@ FactoryGirl.define do
     category { %w(ruby rails javascript).sample }
     description { Faker::Lorem.paragraphs(3) }
     due_date { Time.now + 1.day }
+    cohort
   end
 end
