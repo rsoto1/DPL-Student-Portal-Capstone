@@ -21,7 +21,7 @@ class ConversationsController < ApplicationController
     @conversation.user = current_user
     if current_user && @conversation.save
       @conversation.update_attributes(:user_id => current_user.id)
-        redirect_to board_conversations_url(@conversation)
+        redirect_to board_conversation_path(@conversation.board_id, @conversation.id)
     else
       render :new
     end
