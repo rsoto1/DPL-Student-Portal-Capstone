@@ -11,6 +11,28 @@ RSpec.describe User, :type => :model do
     it { should have_many :pull_requests }
   end
 
+  describe '.build_with_temp_password' do
+    it 'should build a new student' do
+      @student = User.build_with_temp_password(role: :student)
+      expect(@student).to be_student
+    end
+
+    it 'should build a new student' do
+      @staff = User.build_with_temp_password(role: :staff)
+      expect(@staff).to be_staff
+    end
+  end
+
+  describe 'update_info' do
+    it 'should update the user info' do
+      student.update_info(first_name: 'Bill',
+                          last_name: 'Ted')
+      expect(student.first_name).to eq 'Bill'
+      expect(student.last_name).to eq 'Ted'
+      expect(student.temp_password).to be_nil
+    end
+  end
+
   context 'as a student' do
     describe '.student?' do
       it 'should be a student' do
@@ -26,7 +48,7 @@ RSpec.describe User, :type => :model do
 
     describe '.cohort' do
       it 'should be in a cohort' do
-        expect(student.cohort).to_not eq nil
+        expect(student.cohort).to_not be_nil
       end
     end
 
