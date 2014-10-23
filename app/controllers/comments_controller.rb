@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     @comment = @conversation.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-        redirect_to board_conversations_url(@conversation)
+        redirect_to show_board_conversations_url(@conversation)
     else
       render :new
     end

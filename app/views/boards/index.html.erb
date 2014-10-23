@@ -15,9 +15,7 @@
     </tr>
   <% end %>
 </table>
+<%= button_to "New Board", new_board_path, :class => "btn btn-primary", method: 'get', remote: true %>
 
 <div id="modalDiv">
-<!-- <div class="actions"> -->
-  <%= button_to "New Board", new_board_path, :class => "btn btn-default", method: 'get', remote: true %>
-  <!-- </div> -->
 </div>

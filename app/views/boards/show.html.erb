@@ -18,4 +18,6 @@
   <% end %>
 </table>
 
-<p><%= link_to "New Conversation", new_board_conversation_path(@board), :class => "btn btn-default" %></p>
+<p><%= button_to "New Conversation", new_board_conversation_path(@board), :class => "btn btn-primary", method: 'get', remote: true %></p>
+<div id="modalDiv">
+</div>

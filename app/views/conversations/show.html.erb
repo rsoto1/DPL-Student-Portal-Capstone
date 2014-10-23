@@ -14,9 +14,11 @@
     </td>
   </tr>
 </table>
+<p><%= button_to "New Comment", new_board_conversation_comment_path(@board, @conversation), :class => "btn btn-primary", method: 'get', remote: true %></p>
+<div id="modalDiv">
+</div>
 <br>
-<p><%= link_to "New Comment", new_board_conversation_comment_path(@board, @conversation), :class => "btn btn-default" %></p>
-
+<br>
 <% @conversation.comments.each do |comment| %>
 <div class="comment">
   <span class="left"><%= comment.user.first_name %><br>
