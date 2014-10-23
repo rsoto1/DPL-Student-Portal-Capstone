@@ -17,10 +17,11 @@ RSpec.describe User, :type => :model do
       expect(@student).to be_student
     end
 
-    it 'should build a new student' do
+    it 'should build a new staff' do
       @staff = User.build_with_temp_password(role: :staff)
       expect(@staff).to be_staff
     end
+
   end
 
   describe 'update_info' do
