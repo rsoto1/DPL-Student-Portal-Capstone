@@ -3,9 +3,7 @@ class ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @conversations = Conversation.all
     @conversations = @board.conversations
-    # @comment = Comment.new
   end
 
   def show
@@ -13,7 +11,6 @@ class ConversationsController < ApplicationController
 
   def new
     @conversation = Conversation.new
-    # @comment = @conversation.comments.build
   end
 
   def edit
@@ -22,15 +19,18 @@ class ConversationsController < ApplicationController
   def create
     @conversation = @board.conversations.new(conversation_params)
     @conversation.user = current_user
-    if @conversation.save
-        redirect_to board_conversations_url(@board)
+    if current_user && @conversation.save
+      @conversation.update_attributes(:user_id => current_user.id)
+        redirect_to board_conversations_url(@conversation)
     else
       render :new
     end
   end
 
   def update
+    @conversation = Conversation.find(params[:id])
       if @conversation.update(conversation_params)
+        @conversation.update_attributes(:user_id => current_user.id)
         redirect_to @conversations, notice:'Conversation was successfully updated.'
       else
         render :edit

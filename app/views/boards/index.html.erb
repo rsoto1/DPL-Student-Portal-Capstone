@@ -4,18 +4,15 @@
     <th width="30%">Last Comment</th>
   </tr>
   <% for board in @boards %>
-    <tr>
+    <tr class="active">
       <td><h4><%= link_to h(board.title), board_path(board.id) %></h4>
         <small><%= board.conversations.count %> conversations</small><br /></td>
       <td class="right">
-        <%= current_user.first_name %>
       </td>
-      <td><%= link_to "Edit", edit_board_path(board) %></td>
-      <td><%= link_to "Destroy", board, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
-<%= button_to "New Board", new_board_path, :class => "btn btn-primary", method: 'get', remote: true %>
-
+<%= button_to "New Board", new_board_path, :class => "btn btn-primary btn-xs", method: 'get', remote: true %>
+<br>
 <div id="modalDiv">
 </div>

@@ -1,3 +1,5 @@
+<% title @board.title  %>
+
 <table class="table">
   <tr>
     <th width="60%">Conversation Title</th>
@@ -5,14 +7,16 @@
     <th width="30%">Last Comment</th>
   </tr>
   <% for conversation in @board.conversations %>
-    <tr>
-      <td><%= link_to h(conversation.board.title), board_conversation_path(@board, conversation) %>
+    <tr class="active">
+      <td><%= link_to h(conversation.title), board_conversation_path(@board, conversation) %>
       <td><%= conversation.comments.count %></td>
-      <td class="right"></td>
-      <td><%= link_to 'Edit', edit_board_conversation_path(@board, conversation) %></td>
-      <td><%= link_to 'Destroy', board_conversation_path(@board, conversation), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td class="right">
+
+      </td>
     </tr>
   <% end %>
 </table>
+<p><%= button_to "New Conversation", new_board_conversation_path(@board), :class => "btn btn-primary btn-xs", method: 'get', remote: true %></p>
 <br>
-<%= link_to 'New Conversation', new_board_conversation_path(@board), :class => "btn btn-default" %>
+<div id="modalDiv">
+</div>

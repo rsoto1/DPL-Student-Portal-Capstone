@@ -3,25 +3,22 @@
 
 <table class="table">
   <tr>
-    <th width="20%">Conversation Creator</th>
-    <th width="80%">Conversation Description</th>
+    <th width="100%">Conversation Description</th>
   </tr>
-  <tr>
-    <td>
-      <p><%= current_user.first_name %>
+  <tr class="active">
     <td>
       <p><%= @conversation.description %></p>
     </td>
   </tr>
 </table>
-<p><%= button_to "New Comment", new_board_conversation_comment_path(@board, @conversation), :class => "btn btn-primary", method: 'get', remote: true %></p>
+<p><%= button_to "New Comment", new_board_conversation_comment_path(@board, @conversation), :class => "btn btn-primary btn-xs", method: 'get', remote: true %></p>
 <div id="modalDiv">
 </div>
 <br>
 <br>
 <% @conversation.comments.each do |comment| %>
 <div class="comment">
-  <span class="left"><%= comment.user.first_name %><br>
+  <span class="left"><%= comment.user_id %><br>
   <%= link_to "Delete", @comment, :confirm => 'Are you sute?', :method => :delete %></span>
   <span class="right"><%= comment.body %></span>
 </div>
