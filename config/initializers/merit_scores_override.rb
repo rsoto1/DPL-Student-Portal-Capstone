@@ -19,8 +19,28 @@ module Merit
         sash_id_column = "#{options[:table_name]}.sash_id"
       end
 
+      # klass = options[:table_name].to_s.classify.constantize
+      # klass_scope = klass.select("#{options[:table_name]}.id AS #{alias_id_column}, SUM(num_points) as sum_points")
+      #                    .join("LEFT JOIN merit_scores ON merit_scores.sash_id = #{sash_id_column}")
+      #                    .join("LEFT JOIN merit_score_points ON merit_score_points.score_id = merit_scores.id")
+      #                    .where("merit_score_points.created_at > '#{options[:since_date]}'")
+      #                    .group("#{options[:table_name]}.id, merit_scores.sash_id")
+      #                    .order("sum_points DESC")
+      #                    .limit(options[:limit]).all
       # MeritableModel - Sash -< Scores -< ScorePoints
-      sql_query = "SELECT #{options[:table_name]}.id AS #{alias_id_column}, SUM(num_points) as sum_points FROM #{options[:table_name]} LEFT JOIN merit_scores ON merit_scores.sash_id = #{sash_id_column} LEFT JOIN merit_score_points ON merit_score_points.score_id = merit_scores.id WHERE merit_score_points.created_at > '#{options[:since_date]}' GROUP BY #{options[:table_name]}.id, merit_scores.sash_id ORDER BY sum_points DESC LIMIT #{options[:limit]}"
+      sql_query = "SELECT
+        #{options[:table_name]}.id AS #{alias_id_column},
+        SUM(num_points) as sum_points
+      FROM #{options[:table_name]}
+      LEFT JOIN merit_scores ON merit_scores.sash_id = #{sash_id_column}
+      LEFT JOIN merit_score_points ON merit_score_points.score_id = merit_scores.id 
+      WHERE
+        merit_score_points.created_at > '#{options[:since_date]}'
+      GROUP BY
+        #{options[:table_name]}.id,
+        merit_scores.sash_id
+      ORDER BY sum_points DESC
+      LIMIT #{options[:limit]}"
       results = ActiveRecord::Base.connection.execute(sql_query)
       results.map do |h|
         h.keep_if { |k, v| (k == alias_id_column) || (k == 'sum_points') }
