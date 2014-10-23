@@ -106,6 +106,7 @@ Rails.application.routes.draw do
   get '/contact' => 'static_pages#contact', as: :contact
   get '/web_resources' => 'static_pages#web_resources', as: :web_resources
   get '/faq' => 'static_pages#faq'
+  get '/chart' => 'static_pages#chart'
   
   devise_for :users,
              singular: :user,
