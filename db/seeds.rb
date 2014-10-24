@@ -29,4 +29,8 @@ if Rails.env.development?
   seed_data['repos'].each do |repo_name, repo_data|
     Repo.create!(repo_data)
   end
+
+  seed_data['assignments'].each do |assignment_name, assignment_data|
+    Assignment.create!(assignment_data)
+  end
 end

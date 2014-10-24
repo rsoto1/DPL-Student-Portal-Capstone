@@ -51,12 +51,27 @@ cohorts:
     course_id: 2
 
 repos:
-  project1:
-    name: 'Game of Life'
-    link: 'gameoflife@github.com'
+  repo1:
+    name: 'Assignments'
+    link: 'assignments@github.com'
     cohort_id: 1
 
-  project2:
-    name: 'Project Lab'
-    link: 'projectlab@github.com'
+  repo2:
+    name: 'Projects'
+    link: 'projects@github.com'
+    cohort_id: 1
+
+assignments:
+  assignment1:
+    name: 'Game of Life'
+    category: 'Ruby'
+    description: 'Build Game of Life using Ruby'
+    due_date: 'November 4, 2014'
+    cohort_id: 1
+
+  assignment2:
+    name: 'Tic Tac Toe'
+    category: 'JavaScript'
+    description: 'Tic Tac Toe using JavaScript'
+    due_date: 'November 11, 2014'
     cohort_id: 1
