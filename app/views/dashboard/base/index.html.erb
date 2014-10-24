@@ -3,7 +3,7 @@
     <ul id="sortable">
       <li class="ui-state-default">Badges</li>
       <li class="ui-state-default">News</li>
-      <li class="ui-state-default"><strong>Coursework</strong><br>
+      <li class="ui-state-default"><strong>Assignments</strong><br>
         <% @assignments.each do |assignment| %>
         <%= link_to assignment.name, dashboard_assignment_path(assignment), :style => "color:#2a6496"%>
         <%= assignment.category %>
