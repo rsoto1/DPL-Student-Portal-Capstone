@@ -25,5 +25,8 @@ if Rails.env.development?
   seed_data['cohorts'].each do |cohort_name, cohort_data|
     Cohort.create!(cohort_data)
   end
-  
+
+  seed_data['repos'].each do |repo_name, repo_data|
+    Repo.create!(repo_data)
+  end
 end

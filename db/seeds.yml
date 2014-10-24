@@ -49,3 +49,14 @@ cohorts:
     ends_at: 'April 30, 2015'
     location_id: 2
     course_id: 2
+
+repos:
+  project1:
+    name: 'Game of Life'
+    link: 'gameoflife@github.com'
+    cohort_id: 1
+
+  project2:
+    name: 'Project Lab'
+    link: 'projectlab@github.com'
+    cohort_id: 1
