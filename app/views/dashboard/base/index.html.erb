@@ -78,10 +78,9 @@
         </h3>
         </div>
         <div class="panel-body">           
-          <% @assignments.each do |assignment| %>
-          <td><%= link_to assignment.name, dashboard_assignment_path(assignment) %></td>
-          <td><%= assignment.category %></td>
-          <td><%= assignment.due_date.to_s(:long_ordinal) %><br><% end %></td>
+          <%= link_to 'Reddit', 'http://reddit.com' %><br>
+          <%= link_to 'Tech Crunch', 'http://techcrunch.com' %><br>
+          <%= link_to 'CNET', 'http://www.cnet.com/news/' %><br>
         </div>
     </div>
   </div>
