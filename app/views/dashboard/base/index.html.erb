@@ -4,6 +4,13 @@
       <li class="ui-state-default">Badges</li>
       <li class="ui-state-default">News</li>
       <li class="ui-state-default">Coursework</li>
+          <% @assignments.each do |assignment| %>
+      <tr>
+        <td><%= link_to assignment.name, dashboard_assignment_path(assignment) %></td>
+        <td><%= assignment.category %></td>
+        <td><%= assignment.due_date.to_s(:long_ordinal) %></td><br>
+      </tr>
+    <% end %>
       <li class="ui-state-default">Github</li>
     </ul>
   </div>
