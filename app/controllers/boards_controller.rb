@@ -18,7 +18,7 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(board_params)
       if @board.save
-        redirect_to @board, notice:'Board was successfully created.'
+        redirect_to boards_path, notice:'Board was successfully created.'
       else
         render :new
       end
@@ -26,7 +26,7 @@ class BoardsController < ApplicationController
 
   def update
       if @board.update(board_params)
-        redirect_to @board, notice: 'Board was successfully updated.'
+        redirect_to boards_path, notice: 'Board was successfully updated.'
       else
         render :edit
       end
@@ -34,7 +34,7 @@ class BoardsController < ApplicationController
 
   def destroy
     @board.destroy
-    redirect_to boards_url, notice: 'Board was successfully destroyed.'
+    redirect_to boards_path, notice: 'Board was successfully destroyed.'
   end
 
   private
