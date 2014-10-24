@@ -19,7 +19,7 @@
 @import "sb-admin";
 @import "jquery-ui/sortable";
 
-.comment {width:100%; display:table;}
-.comment span {padding:5px; border:3px solid #eee; margin:0;}
-.comment span.left {width:9em; background:#eee; border:3px solid #eee; display:table-cell;}
-.comment span.right { border:3px solid #eee; display:table-cell;}
+.comment {width:100%; display:table; }
+.comment span {padding:5px; border:3px solid #eee; margin-bottom:10px;}
+.comment span.left {width:9em; background:#eee; border-bottom:1px solid #979797; border-right:1px solid #979797; display:table-cell;}
+.comment span.right { border-bottom:1px solid #979797; background:#eee; display:table-cell;}

@@ -11,7 +11,7 @@
       <td><%= link_to h(conversation.title), board_conversation_path(@board, conversation) %>
       <td><%= conversation.comments.count %></td>
       <td class="right">
-
+        <%= time_ago_in_words(conversation.last_comment_at) %> ago
       </td>
     </tr>
   <% end %>

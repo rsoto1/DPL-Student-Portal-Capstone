@@ -12,7 +12,9 @@
     </tr>
   <% end %>
 </table>
+<% if current_user.staff? %>
 <%= button_to "New Board", new_board_path, :class => "btn btn-primary btn-xs", method: 'get', remote: true %>
 <br>
 <div id="modalDiv">
 </div>
+<% end %>

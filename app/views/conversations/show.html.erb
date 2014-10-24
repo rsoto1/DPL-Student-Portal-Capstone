@@ -17,8 +17,19 @@
 <br>
 <% @conversation.comments.each do |comment| %>
 <div class="comment">
-  <span class="left"><%= comment.user_id %><br>
-  <%= link_to "Delete", @comment, :confirm => 'Are you sute?', :method => :delete %></span>
+  <span class="left">
+    <% if comment.user.github_authorized? %>
+    <%= image_tag comment.user.github_profile.image, { width: 90,
+                                                       height: 90 } %><br>
+    <%= comment.user.github_profile.username %>
+    <% else %>
+      <%= comment.user.first_name %>
+    <% end %><br>
+    Comments: <%= comment.user.comments.count %><br>
+    </span>
   <span class="right"><%= comment.body %></span>
 </div>
 <% end %>
+
+<!-- TODO Change link so 'delete' just deletes comment not whole conversation -->
+<!-- <%= link_to "Delete", @comment, :confirm => 'Are you sute?', :method => :delete %> -->
