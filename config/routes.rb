@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/contact' => 'static_pages#contact', as: :contact
   get '/web_resources' => 'static_pages#web_resources', as: :web_resources
   get '/staff/base/admin'
-  
+
   devise_for :users,
              singular: :user,
              controllers: { registrations: 'registrations' },
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get '/FAQ' => 'base#FAQ'
     get '/profile' => 'users#profile'
     get '/calendar' => 'events#index'
+    get '/leaderboard' => 'base#leaderboard'
 
     resources :events
     resources :assignments, path: 'coursework',

@@ -63,13 +63,6 @@ ActiveRecord::Schema.define(version: 20141013213137) do
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
 
-  create_table "boards", force: true do |t|
-    t.string   "title"
-    t.text     "discription"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "cohorts", force: true do |t|
     t.string   "name"
     t.datetime "starts_at"
@@ -82,12 +75,6 @@ ActiveRecord::Schema.define(version: 20141013213137) do
 
   add_index "cohorts", ["course_id"], name: "index_cohorts_on_course_id", using: :btree
   add_index "cohorts", ["location_id"], name: "index_cohorts_on_location_id", using: :btree
-
-  create_table "conversations", force: true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -156,12 +143,6 @@ ActiveRecord::Schema.define(version: 20141013213137) do
     t.text     "message"
     t.string   "sender_name"
     t.string   "sender_email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "posts", force: true do |t|
-    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,21 @@
+<%- page_header 'Leaderboard' %>
+<!-- <h1>Assignments Listing</h1> -->
+<p>If you ain't first, you're last! Shake 'n Bake, baby!</p>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leaders.each do |leader| %>
+      <tr>
+        <td><%= User.find_by(id: leader['user_id']).first_name %></td>
+        <td><%= leader['sum_points'] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
