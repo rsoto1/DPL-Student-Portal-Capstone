@@ -5,9 +5,6 @@ class Staff::UsersController < ApplicationController
   before_action :set_cohort
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
-  def index
-  end
-
   def edit
   end
 
