@@ -53,12 +53,12 @@ cohorts:
 repos:
   repo1:
     name: 'Assignments'
-    link: 'assignments@github.com'
+    link: 'https://github.com/cmckee-dev/DPL-Student-Portal-Capstone'
     cohort_id: 1
 
   repo2:
     name: 'Projects'
-    link: 'projects@github.com'
+    link: 'https://github.com/cmckee-dev/DPL-Student-Portal-Capstone'
     cohort_id: 1
 
 assignments:
