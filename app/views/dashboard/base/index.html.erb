@@ -33,25 +33,92 @@
        <!-- This is just a placeholder until we get badge info merged in -->
          </div>
       </div>
-   </div> 
+  </div> 
 
-
-
-
-    <div class="col-md-6">
+  <div class="col-md-6">
       <div class="panel panel-default">
          <div class="panel-heading">
             <h3 class="panel-title">
-               Assignments
+               Leader Board
             </h3>
          </div>
+         <div class="panel-body">           
+            Bill  - 500 points<br>
+            Ann - 450 points<br>
+            John 400 points<br>
+       <!-- This is just a placeholder -->
+         </div>
+      </div>
+  </div> 
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Assignments
+        </h3>
+        </div>
          <div class="panel-body">           
            <% @assignments.each do |assignment| %>
             <td><%= link_to assignment.name, dashboard_assignment_path(assignment) %></td>
             <td><%= assignment.category %></td>
             <td><%= assignment.due_date.to_s(:long_ordinal) %><br><% end %></td>
          </div>
-         <end>
+       </div>
+  </div>
+
+  <div class="col-md-6">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">
+               Today's Schedule
+            </h3>
+         </div>
+         <div class="panel-body">           
+             9:00 - 10:15  Lecture<br>
+            10:15 - 10:30  Break<br>
+            10:30 - 12:00  Lecture<br>
+            12:00 -  1:00  Lunch<br>
+             1:00 -  3:15  Lecture<br>
+             3:15 -  3:30  Break<br>
+             3:30 -  5:00  Project Time<br>
+             5:00 -  6:00  Mentors
+       <!-- This is just a placeholder  -->
+         </div>
+      </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          News
+        </h3>
+        </div>
+         <div class="panel-body">           
+           <% @assignments.each do |assignment| %>
+            <td><%= link_to assignment.name, dashboard_assignment_path(assignment) %></td>
+            <td><%= assignment.category %></td>
+            <td><%= assignment.due_date.to_s(:long_ordinal) %><br><% end %></td>
+         </div>
+       </div>
+  </div>
+
+  <div class="col-md-6">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">
+               Calendar of Events
+            </h3>
+         </div>
+         <div class="panel-body1">           
+           <%= image_tag "calendar.jpg" %>  
+       <!-- This is just a placeholder  -->
+         </div>
+      </div>
+  </div>
+
+
   
 
     
