@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :repo do
-    cohort nil
-    name "MyString"
-    link "MyString"
+    cohort
+    name 'MyString/MyRepo'
+    link { Faker::Internet.url('example.com') }
   end
 end
