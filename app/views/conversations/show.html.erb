@@ -26,6 +26,7 @@
       <%= comment.user.first_name %>
     <% end %><br>
     Comments: <%= comment.user.comments.count %><br>
+    <%= link_to "Delete", board_conversation_comment_path(@conversation.board, @conversation, comment), :confirm => 'Are you sure?', :method => :delete %>
     </span>
   <span class="right"><%= comment.body %></span>
 </div>
