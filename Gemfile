@@ -62,6 +62,8 @@ group :test do
   gem 'shoulda-matchers'
   # Provides metrics for test coverage
   gem 'simplecov', require: false
+  # Generate test data - Easy Bake Oven Style!
+  gem 'faker'
 end
 
 group :production do

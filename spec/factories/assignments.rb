@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :assignment do
-    name "MyString"
-    type ""
-    description "MyText"
-    due_date "2014-09-29"
+    name { Faker::Lorem.sentence }
+    category { %w(ruby rails javascript).sample }
+    description { Faker::Lorem.paragraph }
+    due_date { Time.now + 1.day }
+    cohort
   end
 end
