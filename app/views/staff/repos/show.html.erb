@@ -5,7 +5,7 @@ Link: <%= @repo.link %>
 <br>
 <%= link_to 'Edit Repo', edit_staff_cohort_repo_path(@cohort, @repo),
                                class: 'btn btn-primary btn-sm' %>
-<%= link_to 'Back', staff_cohort_repos_path, class: 'btn btn-sm btn-danger'%>
+<%= link_to 'Back', staff_cohort_repos_path, class: 'btn btn-sm btn-primary'%><br><br>
 
 <h4>Pull Requests:</h4>
 <% @repo.pull_requests.each do |pull_request| %>

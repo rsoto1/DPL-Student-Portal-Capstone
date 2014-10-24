@@ -8,7 +8,7 @@ Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
 <h4>Assignment Description:</h4>
 <p><%= @assignment.description %></p>
 <%= link_to 'Edit Assignment', edit_staff_cohort_assignment_path(@cohort, @assignment), 
-                               class: 'btn btn-primary btn-sm' %>
-<%= link_to 'Back', staff_cohort_assignments_path, class: 'btn btn-sm btn-danger'%>
+                               class: 'btn btn-sm btn-primary' %>
+<%= link_to 'Back', staff_cohort_assignments_path, class: 'btn btn-sm btn-primary'%><br>
 
 <%= render 'shared/answers' %>
