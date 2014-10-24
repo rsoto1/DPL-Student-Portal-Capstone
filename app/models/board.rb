@@ -3,7 +3,6 @@ class Board < ActiveRecord::Base
   validates_length_of :title, :maximum => 50
 
   def most_recent_comment
-    conversation = Conversation.last(:order => 'last_comment_at DESC', :conditions => ['board_id = ?', self.id])
-      return conversation
+    self.conversations.order(:last_comment_at).last
   end
 end
