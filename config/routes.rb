@@ -103,7 +103,8 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   root to: 'site#index'
   get '/about' => 'static_pages#about', as: :about
-  get '/contact' => 'static_pages#contact', as: :contact
+  get '/contacts' => 'contacts#new', as: :contact
+  resources 'contacts', only: [:new, :create]
   get '/web_resources' => 'static_pages#web_resources', as: :web_resources
   get '/faq' => 'static_pages#faq'
   get '/chart' => 'static_pages#chart'

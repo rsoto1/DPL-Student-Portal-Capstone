@@ -9,9 +9,6 @@ class StaticPagesController < ApplicationController
     end
   end
 
-  def contact
-  end
-
   def faq
   end
 end
