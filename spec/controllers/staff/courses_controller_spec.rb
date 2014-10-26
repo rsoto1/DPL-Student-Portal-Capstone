@@ -46,13 +46,6 @@ RSpec.describe Staff::CoursesController, :type => :controller do
         post :create, @params
       }.to change(Course, :count).by(1)
     end
-
-    # it 'renders new template if unsuccessfull' do
-    #   @params = { course: { name: nil }
-    #             }
-    #   post :create, @params
-    #   expect(response).to render_template :new
-    # end
   end
 
   describe '#update' do
@@ -74,14 +67,6 @@ RSpec.describe Staff::CoursesController, :type => :controller do
       expect(course.duration).to eq 21
       expect(course.duration_unit).to eq 'days'
     end
-
-    # it 'renders edit template if unsuccessfull' do
-    #   @params = { id: @course.id,
-    #               course: { name: nil }
-    #             }
-    #   patch :update, @params
-    #   expect(response).to render_template :edit
-    # end
   end
 
   describe '#destroy' do
