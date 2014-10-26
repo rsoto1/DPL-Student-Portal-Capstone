@@ -52,7 +52,7 @@ RSpec.describe Staff::CohortsController, :type => :controller do
 
   describe '#update' do
     before do
-      @cohort = create(:cohort)
+      @cohort = create(:cohort, name: 'Cohort 4096')
       @params = { id: @cohort.id,
                   cohort: { name: 'Cohort 2222',
                             starts_at: Time.now,
