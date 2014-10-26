@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Staff::MembersController, :type => :controller do
   before do
-    # @location = create(:location)
-    # @cohort = create(:cohort, location: @location)
     @staff = create(:staff)
     sign_in(@staff)
   end
@@ -20,6 +18,27 @@ RSpec.describe Staff::MembersController, :type => :controller do
       expect(@member.first_name).to eq 'Some'
       expect(@member.last_name).to eq 'Staff'
       expect(response).to render_template('show')
+    end
+  end
+
+  describe '#profile' do
+    it 'renders info about a staff member' do
+      get :profile
+      expect(response).to be_success
+      expect(assigns(:member)).to eq(@staff)
+      expect(response).to render_template('profile')
+    end
+  end
+
+  describe '#index' do
+    before do
+      @members = create_list(:staff, 4)
+    end
+    it 'renders a list of staff members' do
+      get :index
+      expect(response).to be_success
+      expect(@members.count).to eq 4
+      expect(response).to render_template('index')
     end
   end
 
