@@ -1,3 +1,3 @@
 class Schedule < ActiveRecord::Base
-  has_many :cohorts
+  belongs_to :cohort
 end

@@ -139,9 +139,6 @@ Rails.application.routes.draw do
                             only: [:show, :index] do
       resources :answers, except: [:show]
     end
-    # resources :notifications
-    # resources :attendances
-    # resources :announcements
   end
 
   namespace :staff do
@@ -151,7 +148,6 @@ Rails.application.routes.draw do
     resources :locations
     resources :courses
     resources :members
-    resources :schedules
     # route for handling ajax query to accept an answer
     put '/accept_answer' => 'answers#update_answer_acceptance'
     resources :cohorts do
@@ -159,7 +155,7 @@ Rails.application.routes.draw do
       resources :users, path: 'students'
       resources :assignments, path: 'coursework'
       resources :repos
-
+      resources :schedules
     end
   end
 

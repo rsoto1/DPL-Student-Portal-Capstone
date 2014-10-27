@@ -1,18 +1,15 @@
 class Staff::SchedulesController < ApplicationController
-  # include SetCohort
+  include SetCohort
   before_action :authenticate_user!
   before_action :ensure_staff
-  # before_action :set_cohort
+  before_action :set_cohort
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
 
   def index
-    @schedules = Schedule.all
+    @schedules = @cohort.schedules.all
   end
 
   def show
-   if @schedule
-      @schedule = Schedule.new
-    end
   end
 
   def edit
@@ -20,7 +17,7 @@ class Staff::SchedulesController < ApplicationController
 
   def update
     if @schedule.update_attributes(schedule_params)
-      redirect_to staff_schedules_path,
+      redirect_to staff_cohort_schedules_path(@cohort),
                   notice: 'Schedule was successfully updated.'
     else
       render :edit
@@ -28,14 +25,14 @@ class Staff::SchedulesController < ApplicationController
   end
 
   def new
-    @schedule = Schedule.new
+    @schedule = @cohort.schedules.new
   end
 
   def create
-    @schedule = Schedule.new(schedule_params)
+    @schedule = @cohort.schedules.new(schedule_params)
 
     if @schedule.save
-      redirect_to staff_schedules_path,
+      redirect_to staff_cohort_schedules_path(@cohort),
                   notice: 'Schedule was successfully created.'
     else
       render :new
@@ -44,16 +41,16 @@ class Staff::SchedulesController < ApplicationController
 
   def destroy
       @schedule.destroy
-      redirect_to staff_schedules_path
+      redirect_to staff_cohort_schedules_path
   end
 
   private
 
   def set_schedule
-    @schedule = Schedule.find(params[:id])
+    @schedule = @cohorts.schedules.find(params[:id])
   end
 
   def schedule_params
-    params.require(:schedule).permit(:day, :description)
+    params.require(:schedule).permit(:day, :description, :cohort_id)
   end
 end
