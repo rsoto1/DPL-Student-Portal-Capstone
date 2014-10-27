@@ -31,11 +31,11 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
       if @conversation.update(conversation_params)
         @conversation.update_attributes(:user_id => current_user.id)
-        redirect_to @conversations, notice:'Conversation was successfully updated.'
+        redirect_to board_conversations_path(@board), notice: 'Conversation was successfully updated.'
       else
         render :edit
       end
-    end
+  end
 
   def destroy
     @conversation.destroy
