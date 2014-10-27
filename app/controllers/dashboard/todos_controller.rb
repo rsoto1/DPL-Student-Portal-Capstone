@@ -1,16 +1,13 @@
 class Dashboard::TodosController < ApplicationController
     before_action :set_todo, only: [:show, :edit, :update, :destroy]
-    
-  def index  
-    @todos = Todo.all
-  end
+    before_action :set_user
 
   def new
-    @todo = Todo.new
+    @todo = user.todos.new
   end
 
   def create
-    @todo = Todo.new(todo_params)
+    @todo = @user.todos.new(todo_params)
     if @todo.save
       redirect_to dashboard_path, notice: 'You saved a new item'
     else
@@ -41,4 +38,7 @@ class Dashboard::TodosController < ApplicationController
     params.require(:todo).permit(:item)
   end
 
+  def set_user
+    @user ||= current_user
+  end
 end
