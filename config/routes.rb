@@ -100,6 +100,7 @@
 #
 
 Rails.application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   root to: 'site#index'
   get '/about' => 'static_pages#about', as: :about
@@ -108,7 +109,7 @@ Rails.application.routes.draw do
   get '/web_resources' => 'static_pages#web_resources', as: :web_resources
   get '/faq' => 'static_pages#faq'
   get '/chart' => 'static_pages#chart'
-  
+
   devise_for :users,
              singular: :user,
              controllers: { registrations: 'registrations',
@@ -160,6 +161,14 @@ Rails.application.routes.draw do
 
     end
   end
+
+  # Routes for Discussion Board
+  resources :boards do
+    resources :conversations do
+      resources :comments
+    end
+  end
+end
 
   # scope :staff do
   #   devise_for :users,
@@ -218,5 +227,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-end

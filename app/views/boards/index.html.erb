@@ -1,0 +1,27 @@
+<table class="table discussion">
+  <tr>
+    <th width="70%">Discussion Boards</th>
+    <th width="30%">Last Comment</th>
+  </tr>
+  <% for board in @boards %>
+    <tr class="active">
+      <td><h4><%= link_to h(board.title), board_path(board.id) %></h4>
+        <small><%= board.conversations.count %> conversations</small><br />
+        <small>
+          <% if current_user.staff? %>
+            <%= link_to "Delete", board_path(board), :confirm => 'Are you sure?', :method => :delete %>
+          <% end %>
+        </small>
+        </td>
+      <td class="right">
+        <%= board.most_recent_comment.nil? ? "No Comments yet." : board.most_recent_comment.user.first_name %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<% if current_user.staff? %>
+<%= button_to "New Board", new_board_path, :class => "btn btn-primary btn-xs", method: 'get', remote: true %>
+<br>
+<div id="modalDiv">
+</div>
+<% end %>
