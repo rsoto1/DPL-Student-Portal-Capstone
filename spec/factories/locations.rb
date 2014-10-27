@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :location do
-    name "MyString"
-    time_zone_name "MyString"
+    name { Faker::Address.city }
+    time_zone_name { Faker::Address.time_zone }
   end
 end

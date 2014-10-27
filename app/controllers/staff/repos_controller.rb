@@ -1,7 +1,7 @@
 class Staff::ReposController < ApplicationController
   include SetCohort
   before_action :authenticate_user!
-  before_action :ensure_staff!
+  before_action :ensure_staff
   before_action :set_cohort
   before_action :set_repo, only: [:show, :edit, :update, :destroy]
 
@@ -16,14 +16,11 @@ class Staff::ReposController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @repo.update(repo_params)
-        format.html { redirect_to staff_cohort_repos_url, notice: 'Repo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @repo }
-      else
-        format.html { render :edit }
-        format.json { render json: @repo.errors, status: :unprocessable_entity }
-      end
+    if @repo.update(repo_params)
+      redirect_to staff_cohort_repos_url,
+                  notice: 'Repo was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -34,14 +31,11 @@ class Staff::ReposController < ApplicationController
   def create
     @repo = @cohort.repos.build(repo_params)
 
-    respond_to do |format|
-      if @repo.save
-        format.html { redirect_to staff_cohort_repos_url, notice: 'Repo was successfully created.' }
-        format.json { render :show, status: :created, location: @repo }
-      else
-        format.html { render :new }
-        format.json { render json: @repo.errors, status: :unprocessable_entity }
-      end
+    if @repo.save
+      redirect_to staff_cohort_repos_url,
+                  notice: 'Repo was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -49,13 +43,10 @@ class Staff::ReposController < ApplicationController
     begin
       @repo.destroy
       flash[:notice] = 'Repo deleted!'
-    rescue StandardError => e
-      flash[:notice] = e.message
+    rescue StandardError => error
+      flash[:notice] = error.message
     end
-    respond_to do |format|
-      format.html { redirect_to staff_cohort_repos_url }
-      format.json { head :no_content }
-    end
+    redirect_to staff_cohort_repos_url
   end
 
   private

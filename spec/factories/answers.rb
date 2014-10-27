@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :answer do
-    user nil
-    assignment nil
-    title "MyString"
-    body "MyText"
+    user { create :student }
+    assignment
+    title { Faker::Lorem.sentence }
+    body { Faker::Lorem.paragraph }
   end
 end

@@ -17,11 +17,9 @@
               <%= f.check_box :remember_me %> <%= f.label :remember_me %>
             </div>
           <% end %>
-          <div class="form-group">
-            <%= f.submit "Sign in", class: 'btn btn-primary' %>
-          </div>
           <div class='panel-footer'>
-            <%= render "devise/shared/links" %>
+            <%= f.submit "Sign in", class: 'pull-right btn btn-primary' %>
+            <%= render 'devise/shared/links' %>
           </div>
         <% end %>
       </div>
@@ -35,6 +33,3 @@
         <p class="Copyright">&copy; DevPoint Labs 2014</p>
       </div>
 </body>
-
-
-

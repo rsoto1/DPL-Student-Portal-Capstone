@@ -3,8 +3,8 @@
 FactoryGirl.define do
   factory :cohort do
     name "MyString"
-    starts_at "2014-09-29 14:26:44"
-    ends_at "2014-09-29 14:26:44"
-    location nil
+    starts_at { Time.now }
+    ends_at { Time.now + 11.weeks }
+    location
   end
 end

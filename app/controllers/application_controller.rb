@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def ensure_staff!
+  def ensure_staff
     redirect_to root_path unless current_user && current_user.staff?
   end
 

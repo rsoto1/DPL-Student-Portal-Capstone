@@ -36,6 +36,7 @@ through
                               class: "btn btn-primary",
                               method: :get%>
 
-<%= link_to 'Add Student', new_staff_cohort_user_path(@cohort),
+<%= link_to 'Add Student', new_staff_cohort_user_path(@cohort), method: 'get', remote: true,
                               class: "btn btn-primary",
                               method: :get%>
+ <div id='modalDiv'></div>                             

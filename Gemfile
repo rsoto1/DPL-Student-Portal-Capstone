@@ -37,6 +37,8 @@ gem 'httparty'
 gem 'github_webhook'
 # Merit Gamification
 gem 'merit'
+# mail form gem because there's no need to write to database for a contact form!
+gem 'mail_form'
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
@@ -51,9 +53,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
+
 end
 
   gem 'dotenv-rails', :groups => [:development, :test]
+  gem 'annotate', '~> 2.6.5', :groups => :development
 
 group :test do
   # Database Cleaner provides auto cleaning of test db after running tests
@@ -62,6 +66,8 @@ group :test do
   gem 'shoulda-matchers'
   # Provides metrics for test coverage
   gem 'simplecov', require: false
+  # Generate test data - Easy Bake Oven Style!
+  gem 'faker'
 end
 
 group :production do

@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: answers
+#
+#  id              :integer          not null, primary key
+#  user_id         :integer
+#  assignment_id   :integer
+#  title           :string(255)
+#  body            :text
+#  accepted        :boolean
+#  created_at      :datetime
+#  updated_at      :datetime
+#  pull_request_id :integer
+#
+
 class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :assignment
