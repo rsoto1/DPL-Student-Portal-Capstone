@@ -47,7 +47,7 @@ class Staff::SchedulesController < ApplicationController
   private
 
   def set_schedule
-    @schedule = @cohorts.schedules.find(params[:id])
+    @schedule = @cohort.schedules.find(params[:id])
   end
 
   def schedule_params
