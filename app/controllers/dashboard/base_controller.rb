@@ -8,6 +8,8 @@ class Dashboard::BaseController < ApplicationController
     @assignments = @cohort.assignments.all
     @todos = @user.todos.all
     @todo = @user.todos.new
+    @schedules = Schedule.all
+    @schedule = Schedule.new
   end
 
   private
