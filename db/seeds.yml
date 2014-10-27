@@ -111,25 +111,28 @@ assignments:
     due_date: 'November 11, 2014'
     cohort_id: 1
 
-# todos:
-#   todo:
-#     item: 'Review Learn Ruby the Hard Way'
+todos:
+  todo:
+    item: 'Review Learn Ruby the Hard Way'
+    user_id: 1
 
-#   todo2:
-#     item: 'Start rails guide - building a blog'   
+  todo2:
+    item: 'Start rails guide - building a blog'   
+    user_id: 1
 
-#   todo3:
-#     item: 'Review Treehouse - JavaScript' 
+  todo3:
+    item: 'Review Treehouse - JavaScript' 
+    user_id: 1
 
 schedules:
-  friday: 
-    day: 'Friday'
-    description: 'Tic Tac Toe - JavaScript'
+  monday: 
+    day: 'Monday'
+    description: 'Review of Ruby basics'
     cohort_id: 1
 
-  thursday: 
-    day: 'Thursday'
-    description: 'Introduction to JavaScript'
+  tuesday: 
+    day: 'Tuesday'
+    description: 'Git and GitHub'
     cohort_id: 1
   
   wednesday: 
@@ -137,14 +140,14 @@ schedules:
     description: 'Conways Game of Life - Ruby'
     cohort_id: 1
   
-  tuesday: 
-    day: 'Tuesday'
-    description: 'Git and GitHub'
+  thursday: 
+    day: 'Thursday'
+    description: 'Introduction to JavaScript'
     cohort_id: 1
-  
-  monday: 
-    day: 'Monday'
-    description: 'Review of Ruby basics'
+
+  friday: 
+    day: 'Friday'
+    description: 'Tic Tac Toe - JavaScript'
     cohort_id: 1
 
 
