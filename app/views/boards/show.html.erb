@@ -8,7 +8,12 @@
   </tr>
   <% for conversation in @board.conversations %>
     <tr class="active">
-      <td><%= link_to h(conversation.title), board_conversation_path(@board, conversation) %>
+      <td><%= link_to h(conversation.title), board_conversation_path(@board, conversation) %><br>
+        <small>
+          <% if current_user.staff? %>
+            <%= link_to "Delete", board_conversation_path(@board, conversation), :confirm => 'Are you sure?', :method => :delete %>
+          <% end %>
+        </small>
       <td><%= conversation.comments.count %></td>
       <td class="right">
         <%= time_ago_in_words(conversation.last_comment_at) %> ago

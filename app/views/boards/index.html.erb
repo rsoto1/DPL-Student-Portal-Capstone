@@ -6,9 +6,15 @@
   <% for board in @boards %>
     <tr class="active">
       <td><h4><%= link_to h(board.title), board_path(board.id) %></h4>
-        <small><%= board.conversations.count %> conversations</small><br /></td>
+        <small><%= board.conversations.count %> conversations</small><br />
+        <small>
+          <% if current_user.staff? %>
+            <%= link_to "Delete", board_path(board), :confirm => 'Are you sure?', :method => :delete %>
+          <% end %>
+        </small>
+        </td>
       <td class="right">
-        <%= board.most_recent_comment.nil? ? "Say Something, Bro!" : board.most_recent_comment.user.first_name %>
+        <%= board.most_recent_comment.nil? ? "No Comments yet." : board.most_recent_comment.user.first_name %>
       </td>
     </tr>
   <% end %>
