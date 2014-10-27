@@ -1,0 +1,27 @@
+<% title @board.title  %>
+
+<table class="table discussion">
+  <tr>
+    <th width="60%">Conversation Title</th>
+    <th width="10%">Comments</th>
+    <th width="30%">Last Comment</th>
+  </tr>
+  <% for conversation in @board.conversations %>
+    <tr class="active">
+      <td><%= link_to h(conversation.title), board_conversation_path(@board, conversation) %><br>
+        <small>
+          <% if current_user.staff? %>
+            <%= link_to "Delete", board_conversation_path(@board, conversation), :confirm => 'Are you sure?', :method => :delete %>
+          <% end %>
+        </small>
+      <td><%= conversation.comments.count %></td>
+      <td class="right">
+        <%= time_ago_in_words(conversation.last_comment_at) %> ago
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p><%= button_to "New Conversation", new_board_conversation_path(@board), :class => "btn btn-primary btn-xs", method: 'get', remote: true %></p>
+<br>
+<div id="modalDiv">
+</div>

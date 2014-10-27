@@ -30,6 +30,7 @@
 #
 
 class User < ActiveRecord::Base
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -42,6 +43,8 @@ class User < ActiveRecord::Base
   # has_many :announcements, dependent: :destroy
   # has_many :notifications, dependent: :destroy
   has_many :answers, dependent: :destroy
+  has_many :conversations
+  has_many :comments
 
   enum role: [:student, :staff]
 

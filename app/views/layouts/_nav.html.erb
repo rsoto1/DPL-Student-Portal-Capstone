@@ -15,24 +15,9 @@
 
   <!-- Top navigation menu -->
   <ul class="nav navbar-right top-nav">
-
-    <!-- Announcements dropdown alerts-->
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-      <ul class="dropdown-menu alert-dropdown">
-        <li>
-          <span class="notice" class="label label-success"><%= notice %></span>
-        </li>
-        <li>
-          <span class="alert" class="label label-failure"><%= alert %></span>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="#">View All</a>
-        </li>
-      </ul>
+    <li class="navbar-brand">
+      <i class="fa fa-trophy"></i> Score:
     </li>
-
     <!-- User drowpdown menu -->
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= current_user.first_name %> <b class="caret"></b></a>

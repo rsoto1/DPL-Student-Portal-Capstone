@@ -18,4 +18,8 @@
 .idea
 .env
 coverage
-/db/schema.rb
+db/schema.rb
+config/secrets.yml
+Gemfile.lock
+.ruby-gemset
+.rspec
