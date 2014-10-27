@@ -1,0 +1,28 @@
+<%- page_header 'My To Do List' %>
+
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th>To Do</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todos.each do |todo| %>
+      <tr>
+        <td><%= todo.item %></td>
+        <td><%= "#{todo.item}" %></td>
+       
+        <td><%= link_to 'View', dashboard_todo_path(todo), class: 'btn btn-xs btn-default' %></td>
+   
+        <td><%= link_to 'Delete', dashboard_todo_path(todo), class: 'btn btn-xs btn-default', method: :delete, 
+                                            data: { 
+                                                  confirm: 'Are you sure you ' \
+                                                           'want to delete this item?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add a New To Do Item', new_dashboard_todo_path, class: 'btn btn-xs btn-primary' %>
