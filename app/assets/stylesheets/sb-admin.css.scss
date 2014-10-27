@@ -22,7 +22,7 @@ body {
 }
 
 .page-wrapper {
-    width: 100%;
+    width: 98%;
     padding: 0;
     background-color: #fff;
     min-height: 640px;
@@ -38,7 +38,7 @@ body {
 /* Content Header */
 
 .page-wrapper-header {
-    width: 100%;
+    width: 98%;
     padding: 0;
     background-color: #fff;
     h1 {
@@ -135,17 +135,17 @@ ul.alert-dropdown {
     .side-nav {
         position: fixed;
         top: 51px;
-        left: 225px;
-        width: 225px;
-        margin-left: -225px;
+        left: 220px;
+        margin-left: -220px;
         border: none;
         border-radius: 0;
         overflow-y: auto;
         background-color: #222;
+        max-width: 220px;
     }
 
     .side-nav>li>a {
-        width: 225px;
+        width: 190px;
     }
 
     .side-nav li a:hover,
@@ -241,3 +241,7 @@ ul.alert-dropdown {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+
+
+
+

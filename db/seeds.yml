@@ -49,3 +49,29 @@ cohorts:
     ends_at: 'April 30, 2015'
     location_id: 2
     course_id: 2
+
+repos:
+  repo1:
+    name: 'cmkee-dev/DPL-Student-Portal-Capstone'
+    link: 'https://github.com/cmckee-dev/DPL-Student-Portal-Capstone'
+    cohort_id: 1
+
+  repo2:
+    name: 'tjones/DPL-Blog Application'
+    link: 'https://github.com/tjones/Blog-Application'
+    cohort_id: 1
+
+assignments:
+  assignment1:
+    name: 'Game of Life'
+    category: 'Ruby'
+    description: 'Build Game of Life using Ruby'
+    due_date: 'November 4, 2014'
+    cohort_id: 1
+
+  assignment2:
+    name: 'Tic Tac Toe'
+    category: 'JavaScript'
+    description: 'Tic Tac Toe using JavaScript'
+    due_date: 'November 11, 2014'
+    cohort_id: 1

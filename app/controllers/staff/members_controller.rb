@@ -7,6 +7,12 @@ class Staff::MembersController < ApplicationController
   end
 
   def show
+   # @member = redirect_to staff_member_path(params[:id])
+   # @member = User.find(params[:id])
+  end
+
+  def profile
+    @member = current_user
   end
 
   def new
@@ -17,6 +23,7 @@ class Staff::MembersController < ApplicationController
     @member = User.build_with_temp_password(member_params)
     @member.staff!
     if @member.save
+      StudentMailer.welcome_email(@member).deliver
       redirect_to staff_base_admin_path, notice: 'Welcome to the family!'
     else
       alert_and_render('Could not save admin info', :new)

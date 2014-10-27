@@ -104,9 +104,11 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   root to: 'site#index'
   get '/about' => 'static_pages#about', as: :about
-  get '/contact' => 'static_pages#contact', as: :contact
+  get '/contacts' => 'contacts#new', as: :contact
+  resources 'contacts', only: [:new, :create]
   get '/web_resources' => 'static_pages#web_resources', as: :web_resources
-  get '/staff/base/admin'
+  get '/faq' => 'static_pages#faq'
+  get '/chart' => 'static_pages#chart'
 
   devise_for :users,
              singular: :user,
@@ -129,7 +131,6 @@ Rails.application.routes.draw do
   namespace :dashboard do
     get '/' => 'base#index'
     get '/webresources' => 'base#resources'
-    get '/FAQ' => 'base#FAQ'
     get '/profile' => 'users#profile'
     get '/calendar' => 'events#index'
 
@@ -146,6 +147,7 @@ Rails.application.routes.draw do
   namespace :staff do
     get '/' => 'base#index'
     get '/base/admin'
+    get '/profile' => 'members#profile'
     resources :locations
     resources :courses
     resources :members

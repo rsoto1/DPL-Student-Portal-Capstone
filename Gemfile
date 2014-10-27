@@ -35,6 +35,9 @@ gem 'octokit', '~> 3.0'
 gem 'httparty'
 # For handling github webhooks
 gem 'github_webhook'
+# mail form gem because there's no need to write to database for a contact form!
+gem 'mail_form'
+
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
@@ -62,6 +65,8 @@ group :test do
   gem 'shoulda-matchers'
   # Provides metrics for test coverage
   gem 'simplecov', require: false
+  # Generate test data - Easy Bake Oven Style!
+  gem 'faker'
 end
 
 group :production do

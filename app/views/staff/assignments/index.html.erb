@@ -45,5 +45,9 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to 'Add Assignment', new_staff_cohort_assignment_path(@cohort),
-                              class: 'btn btn-primary' %>
+<%= link_to 'Add Assignment', new_staff_cohort_assignment_path(@cohort), method: 'get', remote: true,
+                              class: 'btn btn-primary' %> 
+<div id='modalDiv'></div>
+
+
+

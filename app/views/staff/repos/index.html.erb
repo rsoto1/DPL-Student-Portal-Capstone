@@ -26,5 +26,6 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to 'Add Repo', new_staff_cohort_repo_path(@cohort),
+<%= link_to 'Add Repo', new_staff_cohort_repo_path(@cohort), method: 'get', remote: true,
                               class: 'btn btn-primary' %>
+ <div id='modalDiv'></div>                           
