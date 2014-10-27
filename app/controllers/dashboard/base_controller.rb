@@ -5,6 +5,8 @@ class Dashboard::BaseController < ApplicationController
 
   def index
     @assignments = @cohort.assignments.all
+    @schedules = Schedule.all
+    @schedule = Schedule.new
   end
 end
 
