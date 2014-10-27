@@ -17,7 +17,7 @@ users:
     <<: *default_passwords
     role: 1
 
-locations:  
+locations:
   slc:
     name: 'Salt Lake City'
     time_zone_name: '(GMT-07:00) Mountain Time (US & Canada)'
