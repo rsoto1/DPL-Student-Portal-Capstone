@@ -28,7 +28,7 @@ class Dashboard::TodosController < ApplicationController
 
   def destroy
     @todo.destroy
-    redirect_to dashboard_todos_path
+    redirect_to dashboard_path
   end
 
   private
