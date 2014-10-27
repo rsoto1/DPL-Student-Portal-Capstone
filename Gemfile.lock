@@ -36,11 +36,16 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
 <<<<<<< HEAD
-    ambry (0.3.1)
+<<<<<<< HEAD
 =======
+>>>>>>> master
+    ambry (0.3.1)
     annotate (2.6.5)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
     arel (5.0.1.20140414130214)
     autoprefixer-rails (3.1.2.20141016)
@@ -118,8 +123,14 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
 <<<<<<< HEAD
+<<<<<<< HEAD
     merit (2.2.0)
       ambry (~> 0.3.0)
+=======
+    mail_form (1.5.0)
+      actionmailer (>= 3.2, < 5)
+      activemodel (>= 3.2, < 5)
+>>>>>>> master
 =======
     mail_form (1.5.0)
       actionmailer (>= 3.2, < 5)
@@ -277,7 +288,11 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
 <<<<<<< HEAD
+<<<<<<< HEAD
   merit
+=======
+  mail_form
+>>>>>>> master
 =======
   mail_form
 >>>>>>> master
