@@ -38,9 +38,9 @@ body {
     line-height: normal;
 }
 
-.breadcrumb {
-  margin-bottom: 0px;
-}
+// .breadcrumb {
+//   margin-bottom: 0px;
+// }
 
 /* Content Header */
 
@@ -193,6 +193,10 @@ ul.alert-dropdown {
 
 .huge {
     font-size: 40px;
+}
+
+.panel-default > .panel-heading {
+  background-color: rgb(85, 185, 245);
 }
 
 .panel-green {
