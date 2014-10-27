@@ -3,7 +3,7 @@ class Dashboard::TodosController < ApplicationController
     before_action :set_user
 
   def new
-    @todo = user.todos.new
+    @todo = @user.todos.new
   end
 
   def create
@@ -31,7 +31,7 @@ class Dashboard::TodosController < ApplicationController
   private
 
  def set_todo
-    @todo = Todo.find(params[:id])
+    @todo = user.todos.find(params[:id])
   end
 
   def todo_params
