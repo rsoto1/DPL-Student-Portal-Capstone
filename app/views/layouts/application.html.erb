@@ -10,19 +10,19 @@
     <div id="wrapper"> <!-- body wrapper -->
       <%= render '/layouts/nav' %>
       <div class="page-wrapper-header"> <!-- Header main content wrapper -->
-        <%= render '/layouts/breadcrumbs' %>
-      </div>
-      <div class="page-wrapper"> <!-- Main content wrapper -->
-        <div class="container-fluid">
-
+        <div class='breadcrumb'>
+          <%= build_breadcrumb(request.path) %>
+        </div>
+        <div class="page-wrapper"> <!-- Main content wrapper -->
+          <div class="container-fluid">
           <%= yield %>
+          </div>
+        </div>
       </div>
-    </div>
-
       <div class="footer">
-        <p class="Copyright">&copy<%= link_to 'DevPoint Labs 2014', 'http://devpointlabs.com' %></p>
+        <p class="Copyright">&copy; DevPoint Labs 2014</p>
         <p class="Copyright"><%= link_to 'About', about_path %> | <%= link_to 'Contact', contact_path %></p>
       </div>
+    </div>
   </body>
-  
 </html>

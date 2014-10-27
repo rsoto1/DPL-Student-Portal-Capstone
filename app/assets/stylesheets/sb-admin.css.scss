@@ -22,17 +22,24 @@ body {
 }
 
 .page-wrapper {
-    width: 98%;
+    width: 100%;
     padding: 0;
     background-color: #fff;
     min-height: 640px;
-/* background: url('/assets/dark-room.jpg'); */
-/* background-position: center; */
+    background-image: image-url('stone.jpg');
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
 }
 
 .huge {
     font-size: 50px;
     line-height: normal;
+}
+
+.breadcrumb {
+  margin-bottom: 0px;
 }
 
 /* Content Header */
@@ -141,11 +148,11 @@ ul.alert-dropdown {
         border-radius: 0;
         overflow-y: auto;
         background-color: #222;
-        max-width: 220px;
+        max-width: 225px;
     }
 
     .side-nav>li>a {
-        width: 190px;
+        width: 225px;
     }
 
     .side-nav li a:hover,
@@ -241,7 +248,3 @@ ul.alert-dropdown {
 .panel-yellow a:hover {
     color: #df8a13;
 }
-
-
-
-
