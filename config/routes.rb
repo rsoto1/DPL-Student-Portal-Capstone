@@ -133,7 +133,8 @@ Rails.application.routes.draw do
     get '/webresources' => 'base#resources'
     get '/profile' => 'users#profile'
     get '/calendar' => 'events#index'
-
+    
+    resources :todos
     resources :events
     resources :assignments, path: 'coursework',
                             only: [:show, :index] do
