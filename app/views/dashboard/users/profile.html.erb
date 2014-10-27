@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-4">
     <% unless @user.github_profile.nil? || @user.github_profile.image.nil? %>
-    <%= image_tag @user.github_profile.image, { width: 200,
-                                                height: 200 } %>
+    <%= image_tag @user.github_profile.image, { width: 300,
+                                                height: 300 } %>
     <% end %>
   </div>
   <div class="col-md-8">
