@@ -12,7 +12,6 @@
     <% @todos.each do |todo| %>
       <tr>
         <td><%= todo.item %></td>
-        <td><%= "#{todo.item}" %></td>
        
         <td><%= link_to 'View', dashboard_todo_path(todo), class: 'btn btn-xs btn-default' %></td>
    
