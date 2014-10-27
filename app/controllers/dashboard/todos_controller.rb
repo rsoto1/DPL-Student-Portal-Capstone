@@ -1,6 +1,6 @@
 class Dashboard::TodosController < ApplicationController
-    before_action :set_todo, only: [:show, :edit, :update, :destroy]
     before_action :set_user
+    before_action :set_todo, only: :destroy
 
   def new
     @todo = @user.todos.new
@@ -15,14 +15,6 @@ class Dashboard::TodosController < ApplicationController
     end
   end
 
-  def update
-    if @todo.update_attributes(todo_params)
-      redirect_to root_path, notice: 'All up to date'
-    else
-      alert_and_render('There was an issue updating', :edit)
-    end
-  end
-
   def destroy
     @todo.destroy
     redirect_to dashboard_path
@@ -31,7 +23,7 @@ class Dashboard::TodosController < ApplicationController
   private
 
  def set_todo
-    @todo = user.todos.find(params[:id])
+    @todo = @user.todos.find(params[:id])
   end
 
   def todo_params
