@@ -151,6 +151,7 @@ Rails.application.routes.draw do
     resources :locations
     resources :courses
     resources :members
+    resources :schedules
     # route for handling ajax query to accept an answer
     put '/accept_answer' => 'answers#update_answer_acceptance'
     resources :cohorts do

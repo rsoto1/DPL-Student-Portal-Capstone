@@ -49,23 +49,18 @@
     </div>
   </div>
 
-  <div class="col-md-6">
+    <div class="col-md-6">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          Today's Schedule
+          Weekly Schedule
         </h3>
         </div>
-        <div class="panel-body">           
-           9:00 - 10:15  Lecture<br>
-          10:15 - 10:30  Break<br>
-          10:30 - 12:00  Lecture<br>
-          12:00 -  1:00  Lunch<br>
-           1:00 -  3:15  Lecture<br>
-           3:15 -  3:30  Break<br>
-           3:30 -  5:00  Project Time<br>
-           5:00 -  6:00  Mentors
-       <!-- This is just a placeholder  -->
+        <div class="panel-body">    
+              <% @schedules.each do |schedule| %>
+              <%= schedule.day %>
+              <%= schedule.description%><br>
+            <% end %>       
         </div>
     </div>
   </div>
