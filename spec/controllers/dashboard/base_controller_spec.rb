@@ -4,7 +4,7 @@ RSpec.describe Dashboard::BaseController, :type => :controller do
   before do
     @location = create(:location)
     @cohort = create(:cohort, location: @location)
-    @student = create(:student)
+    @student = create(:student, cohort: @cohort)
     sign_in(@student)
   end
 

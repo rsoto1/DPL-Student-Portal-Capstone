@@ -4,7 +4,7 @@ RSpec.describe Dashboard::UsersController, :type => :controller do
   before do
     @location = create(:location)
     @cohort = create(:cohort, location: @location)
-    @student = create(:student)
+    @student = create(:student, cohort: @cohort)
     sign_in(@student)
   end
 
@@ -19,7 +19,7 @@ RSpec.describe Dashboard::UsersController, :type => :controller do
 
   # describe '#update' do
   #   before do
-  #     @student = create(:student, cohort: @cohort)
+  #     # @student = create(:student, cohort: @cohort)
   #     @params = { id: @student.id,
   #                 cohort_id: @cohort.id,
   #                 user: { first_name: 'Changed',
