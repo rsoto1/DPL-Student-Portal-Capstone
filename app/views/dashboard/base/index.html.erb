@@ -39,18 +39,22 @@
         <h3 class="panel-title">
           My To Do List
         </h3>
-        </div>
+      </div>
         <div class="panel-body"> 
-        <%= link_to 'Add a New To Do Item', new_dashboard_todo_path, class: 'btn btn-xs btn-primary' %><br>
-              <% @todos.each do |todo| %><br>
-              <%= "#{todo.item}" %>
+          <%= link_to 'Add a New To Do Item', new_dashboard_todo_path, class: 'btn btn-xs btn-primary' %><br><br>
+            <ul>
+              <% @todos.each do |todo| %>
+                <li><%= todo.item %>
 
-                           
-              <%= link_to "x" , dashboard_todo_path(todo), class: "close", method: :delete, 
-                                            data: { 
-                                                  confirm: 'Are you sure you ' \
-                                                           'want to delete this item?' } %>
-            <% end %>       
+                  <span class="pull-right">
+                  <%= link_to "x" , dashboard_todo_path(todo), method: :delete, 
+                                                data: { 
+                                                        confirm: 'Are you sure you ' \
+                                                               'want to delete this item?' } %>
+                  </span>
+                </li> 
+              <% end %>
+            </ul>
         </div>
     </div>
   </div>
