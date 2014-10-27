@@ -33,4 +33,12 @@ if Rails.env.development?
   seed_data['assignments'].each do |assignment_name, assignment_data|
     Assignment.create!(assignment_data)
   end
+
+  # seed_data['todos'].each do |todos_item, todos_data|
+  #   ToDos.create!(todos_data)
+  # end
+
+  seed_data['schedules'].each do |schedule_day, schedule_data|
+    Schedule.create!(schedule_data)
+  end
 end
