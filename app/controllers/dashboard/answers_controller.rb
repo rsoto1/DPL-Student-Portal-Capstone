@@ -32,7 +32,7 @@ class Dashboard::AnswersController < ApplicationController
     @answer = @assignment.answers.build(answer_params)
     @answer.user = current_user
     if @answer.save
-      current_user.add_points(25)
+      current_user.add_points(25, category: 'Assignments')
       redirect_to dashboard_assignment_url(@assignment),
                   notice: 'Assignment was successfully created.'
     else

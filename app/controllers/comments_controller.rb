@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
     @comment = @conversation.comments.new(comment_params)
     @comment.user = current_user
     if current_user && @comment.save
-      current_user.add_points(5)
+      current_user.add_points(5, category: 'Discussions')
       @comment.update_attributes(:user_id => current_user.id)
       @conversation = Conversation.find(@comment.conversation_id)
       @conversation.update_attributes(:last_commenter_id => current_user.id,
@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    @comment.user.subtract_points(10)
+    @comment.user.subtract_points(10, category: 'Discussions')
     redirect_to board_url(@conversation.board), notice: 'Comment was successfully deleted.'
   end
 

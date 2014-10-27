@@ -20,7 +20,7 @@ class ConversationsController < ApplicationController
     @conversation = @board.conversations.new(conversation_params)
     @conversation.user = current_user
     if current_user && @conversation.save
-      current_user.add_points(10)
+      current_user.add_points(10, category: 'Discussions')
       @conversation.update_attributes(:user_id => current_user.id)
         redirect_to board_conversation_path(@conversation.board_id, @conversation.id)
     else
@@ -40,7 +40,7 @@ class ConversationsController < ApplicationController
 
   def destroy
     @conversation.destroy
-    @conversation.user.subtract_points(25)
+    @conversation.user.subtract_points(25, category: 'Discussions')
     redirect_to board_conversations_url(@board), notice:'Conversation was successfully destroyed.'
   end
 

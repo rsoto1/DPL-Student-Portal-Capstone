@@ -5,7 +5,7 @@ class Staff::AnswersController < ApplicationController
     @answer = Answer.find(params[:answer_id])
     checked = params[:accepted] || false
     @answer.update_attribute(:accepted, checked)
-    @anwser.user.add_points(25)
+    @anwser.user.add_points(25, category: 'Assignments')
     respond_to do |format|
       format.all { render nothing: true, status: 200 }
     end

@@ -1,37 +1,39 @@
 <div class="row">
 <div class="col-lg-12">
-  
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          My Merit Badges
-        </h3>
+
+
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        News
+      </h3>
       </div>
-      <div class="panel-body">           
-        Ruby Badge<br>
-        JavaScript Badge<br>
-        Rails Badge<br>
-       <!-- This is just a placeholder until we get badge info merged in -->
+      <div class="panel-body">
+        <%= link_to 'Reddit', 'http://reddit.com' %><br>
+        <%= link_to 'Tech Crunch', 'http://techcrunch.com' %><br>
+        <%= link_to 'CNET', 'http://www.cnet.com/news/' %><br>
       </div>
-    </div>
-  </div> 
+  </div>
+</div>
 
   <div class="col-md-6">
    <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          Leader Board
+          Scoreboard
         </h3>
       </div>
-      <div class="panel-body">           
-        Bill  - 500 points<br>
-        Ann - 450 points<br>
-        John 400 points<br>
-       <!-- This is just a placeholder -->
+      <div class="panel-body">
+        <p>Git and Github: </p>
+        <p>Ruby and Ruby on Rails: </p>
+        <p>Discussions: <%= current_user.points(category: 'Discussions') %></p>
+        <p>Assignments: <%= current_user.points(category: 'Assignments') %></p>
+
+        <%= link_to 'View Leaderboard', dashboard_leaderboard_path %>
       </div>
     </div>
-  </div> 
+  </div>
 
   <div class="col-md-6">
     <div class="panel panel-default">
@@ -40,7 +42,7 @@
           My Assignments
         </h3>
         </div>
-        <div class="panel-body">           
+        <div class="panel-body">
           <% @assignments.each do |assignment| %>
           <td><%= link_to assignment.name, dashboard_assignment_path(assignment) %></td>
           <td><%= assignment.category %></td>
@@ -56,7 +58,7 @@
           Today's Schedule
         </h3>
         </div>
-        <div class="panel-body">           
+        <div class="panel-body">
            9:00 - 10:15  Lecture<br>
           10:15 - 10:30  Break<br>
           10:30 - 12:00  Lecture<br>
@@ -74,36 +76,12 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          News
-        </h3>
-        </div>
-        <div class="panel-body">           
-          <%= link_to 'Reddit', 'http://reddit.com' %><br>
-          <%= link_to 'Tech Crunch', 'http://techcrunch.com' %><br>
-          <%= link_to 'CNET', 'http://www.cnet.com/news/' %><br>
-        </div>
-    </div>
-  </div>
-
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
           Calendar of Events
         </h3>
         </div>
-        <div class="panel-body1">           
-          <%= image_tag "calendar.jpg" %>  
+        <div class="panel-body1">
+          <%= image_tag "calendar.jpg" %>
           <!-- This is just a placeholder  -->
         </div>
     </div>
   </div>
-
-
-  
-
-    
-
-   
-
-  
