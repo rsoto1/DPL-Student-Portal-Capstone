@@ -10,6 +10,41 @@ users:
     cohort_id: 1
     <<: *default_passwords
     role: 0
+  lisa:
+    first_name: 'Lisa'
+    last_name: 'Smith'
+    email: 'lisa@email.com'
+    cohort_id: 1
+    <<: *default_passwords
+    role: 0
+  john:
+    first_name: 'John'
+    last_name: 'Rogers'
+    email: 'john@email.com'
+    cohort_id: 1
+    <<: *default_passwords
+    role: 0  
+  kelly:
+    first_name: 'Kelly'
+    last_name: 'Franklin'
+    email: 'kelly@email.com'
+    cohort_id: 1
+    <<: *default_passwords
+    role: 0
+  tom:
+    first_name: 'Tom'
+    last_name: 'Jones'
+    email: 'tom@email.com'
+    cohort_id: 1
+    <<: *default_passwords
+    role: 0
+  kim:
+    first_name: 'Kim'
+    last_name: 'Adams'
+    email: 'kim@email.com'
+    cohort_id: 1
+    <<: *default_passwords
+    role: 0    
   ted:
     first_name: 'Ted'
     last_name: 'Logan'
@@ -75,3 +110,80 @@ assignments:
     description: 'Tic Tac Toe using JavaScript'
     due_date: 'November 11, 2014'
     cohort_id: 1
+
+todos:
+  todo:
+    item: 'Review Learn Ruby the Hard Way'
+    user_id: 1
+
+  todo2:
+    item: 'Start rails guide - building a blog'   
+    user_id: 1
+
+  todo3:
+    item: 'Review Treehouse - JavaScript' 
+    user_id: 1
+
+schedules:
+  monday: 
+    day: 'Monday'
+    description: 'Review of Ruby basics'
+    cohort_id: 1
+
+  tuesday: 
+    day: 'Tuesday'
+    description: 'Git and GitHub'
+    cohort_id: 1
+  
+  wednesday: 
+    day: 'Wednesday'
+    description: 'Conways Game of Life - Ruby'
+    cohort_id: 1
+  
+  thursday: 
+    day: 'Thursday'
+    description: 'Introduction to JavaScript'
+    cohort_id: 1
+
+  friday: 
+    day: 'Friday'
+    description: 'Tic Tac Toe - JavaScript'
+    cohort_id: 1
+
+answers:
+  answer:
+    user_id: 1
+    assignment_id: 1
+    title: 'Game of Life'
+    body: 'My answer'
+
+  answer2:
+    user_id: 2
+    assignment_id: 2
+    title: 'Tic Tac Toe'
+    body: 'My answer'
+
+  answer3:
+    user_id: 1
+    assignment_id: 2
+    title: 'Tic Tac Toe'
+    body: 'My answer'
+
+boards:
+  board:
+    title: 'Ruby'
+
+  board2:
+    title: 'Ruby on Rails'
+
+  board3:
+    title: 'CSS'
+
+  board4:
+    title: 'HTML'
+    
+  board5:
+    title: 'JavaScript'
+
+
+
