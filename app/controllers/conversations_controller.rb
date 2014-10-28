@@ -21,7 +21,7 @@ class ConversationsController < ApplicationController
     @conversation.user = current_user
     if current_user && @conversation.save
       @conversation.update_attributes(:user_id => current_user.id)
-        redirect_to board_conversation_path(@conversation.board_id, @conversation.id)
+      redirect_to board_conversation_path(@conversation.board_id, @conversation.id)
     else
       render :new
     end
@@ -29,12 +29,12 @@ class ConversationsController < ApplicationController
 
   def update
     @conversation = Conversation.find(params[:id])
-      if @conversation.update(conversation_params)
-        @conversation.update_attributes(:user_id => current_user.id)
-        redirect_to board_conversations_path(@board), notice: 'Conversation was successfully updated.'
-      else
-        render :edit
-      end
+    if @conversation.update(conversation_params)
+      @conversation.update_attributes(:user_id => current_user.id)
+      redirect_to board_conversations_path(@board), notice: 'Conversation was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
