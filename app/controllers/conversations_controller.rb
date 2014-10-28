@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+  before_action :authenticate_user!
   before_filter :load_board
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
 
