@@ -12,7 +12,7 @@
              <%= button_to "Add Location", new_staff_location_path, method: 'get', remote: true, class: 'btn btn-primary btn-sm' %>
              <br><br>
                 <% @locations.each do |location| %>
-                <li><%= link_to "#{location.name}", staff_location_path(location) %></li>
+                <li><%= link_to location.name, staff_location_path(location) %></li>
               <% end %>
            </div>
         </div>
@@ -30,7 +30,7 @@
         <%= button_to "Add Course", new_staff_course_path, method: 'get', remote: true, class: 'btn btn-primary btn-sm' %>
           <br><br>
           <% @courses.each do |course| %>
-          <li><%= link_to "#{course.name}", staff_course_path(course) %></li>
+          <li><%= link_to course.name, staff_course_path(course) %></li>
         <% end %>
         </div>
       </div>
@@ -46,7 +46,7 @@
           <%= button_to "Add Staff", new_staff_member_path, method: 'get', remote: true, class: 'btn btn-primary btn-sm' %>
             <br><br>
             <% @members.each do |member| %>
-            <li><%= link_to "#{member.first_name}", staff_member_path(member) %></li>
+            <li><%= link_to member.first_name, staff_member_path(member) %></li>
           <% end %>
         </div>
       </div>
