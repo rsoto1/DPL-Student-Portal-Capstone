@@ -22,10 +22,9 @@ class CommentsController < ApplicationController
     @comment = @conversation.comments.new(comment_params)
     @comment.user = current_user
     if current_user && @comment.save
-      @comment.update_attributes(:user_id => current_user.id)
-      @conversation = Conversation.find(@comment.conversation_id)
-      @conversation.update_attributes(:last_commenter_id => current_user.id,
-                                      :last_comment_at => Time.now)
+      @comment.update_attributes(user_id: current_user.id)
+      @conversation.update_attributes(last_commenter_id: @comment.user.id,
+                                      last_comment_at: Time.now)
       redirect_to board_conversation_path(@conversation.board_id, @conversation.id)
     else
       render :new
@@ -35,7 +34,7 @@ class CommentsController < ApplicationController
   def update
     # @comment = Comment.find(params[:id])
     if @comment.update_attributes(comment_params)
-      @comment.conversation.update_attributes(last_commenter_id: current_user.id,
+      @comment.conversation.update_attributes(last_commenter_id: @comment.user.id,
                                               last_comment_at: Time.now)
       redirect_to board_conversation_path(@conversation.board_id, @conversation.id),
                   notice: 'Comment was successfully updated.'
