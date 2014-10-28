@@ -155,28 +155,34 @@ answers:
     user_id: 1
     assignment_id: 1
     title: 'Game of Life'
-    body: 'See github page'
+    body: 'My answer'
 
   answer2:
     user_id: 2
-    assignment_id: 1
+    assignment_id: 2
     title: 'Tic Tac Toe'
-    body: 'See github page'
+    body: 'My answer'
+
+  answer3:
+    user_id: 1
+    assignment_id: 2
+    title: 'Tic Tac Toe'
+    body: 'My answer'
 
 boards:
   board:
     title: 'Ruby'
 
-  board:
+  board2:
     title: 'Ruby on Rails'
 
-  board:
+  board3:
     title: 'CSS'
 
-  board:
+  board4:
     title: 'HTML'
     
-  board:
+  board5:
     title: 'JavaScript'
 
 
