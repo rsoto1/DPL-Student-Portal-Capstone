@@ -21,15 +21,16 @@
    <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          Scoreboard
+          Score Summary
         </h3>
       </div>
       <div class="panel-body">
-        <p>Git and Github: </p>
-        <p>Ruby and Ruby on Rails: </p>
-        <p>Discussions: <%= current_user.points(category: 'Discussions') %></p>
         <p>Assignments: <%= current_user.points(category: 'Assignments') %></p>
-
+        <p>Attendance: <%= current_user.points(category: 'Attendance') %></p>
+        <p>Discussions: <%= current_user.points(category: 'Discussions') %></p>
+        <p>Other: <%= current_user.points(category: 'Other') %></p>
+        <hr>
+        <p>Total Score: <%= current_user.points %></p>
         <%= link_to 'View Leaderboard', dashboard_leaderboard_path %>
       </div>
     </div>
