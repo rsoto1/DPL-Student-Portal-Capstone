@@ -124,7 +124,7 @@ class User < ActiveRecord::Base
     self.update_attributes(github_access_token: authorized_token,
                            github_state: 'linked',
                            provider: 'github')
-    current_user.add_points(100)
+    self.add_points(100)
   end
 
   def github_authorized?
