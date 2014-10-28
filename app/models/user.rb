@@ -30,6 +30,8 @@
 #
 
 class User < ActiveRecord::Base
+  has_merit
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -122,6 +124,7 @@ class User < ActiveRecord::Base
     self.update_attributes(github_access_token: authorized_token,
                            github_state: 'linked',
                            provider: 'github')
+    self.add_points(100)
   end
 
   def github_authorized?
