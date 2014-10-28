@@ -24,7 +24,7 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # Use AppStats gem for application stats on about page
-# gem 'app_stats', :git => 'https://github.com/vidkun/app_stats.git'
+ gem 'app_stats', :git => 'https://github.com/vidkun/app_stats.git'
 # Use Devise for user authentication and registration
 gem 'devise', '~> 3.3.0'
 # Omniauth Github support for devise
@@ -40,6 +40,8 @@ gem 'ambry'
 gem 'merit'
 # mail form gem because there's no need to write to database for a contact form!
 gem 'mail_form'
+# change out webrick webserver for puma
+gem 'puma'
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
