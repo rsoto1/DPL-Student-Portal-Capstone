@@ -3,7 +3,7 @@ class Dashboard::AnswersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cohort, :set_assignment
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @answers = @assignment.answers.order(:accepted)
   end
@@ -32,6 +32,7 @@ class Dashboard::AnswersController < ApplicationController
     @answer = @assignment.answers.build(answer_params)
     @answer.user = current_user
     if @answer.save
+      current_user.add_points(25, category: 'Assignments')
       redirect_to dashboard_assignment_url(@assignment),
                   notice: 'Assignment was successfully created.'
     else

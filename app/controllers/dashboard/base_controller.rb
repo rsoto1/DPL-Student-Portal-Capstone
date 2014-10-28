@@ -3,6 +3,7 @@ class Dashboard::BaseController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cohort
   before_action :set_user
+  before_action :leaderboard
 
   def index
     @assignments = @cohort.assignments.all
@@ -17,5 +18,8 @@ class Dashboard::BaseController < ApplicationController
   def set_user
     @user ||= current_user
   end
-end
 
+  def leaderboard
+    @leaders = Merit::Score.top_scored(cohort: @cohort.id)
+  end
+end
