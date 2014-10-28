@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/vidkun/app_stats.git
+  revision: ca54d756451b1fc30a91b1d44c6e43584dd9b881
+  specs:
+    app_stats (0.1.5)
+      rails (~> 4.1.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -155,6 +162,8 @@ GEM
       pry (>= 0.9.10, < 0.11.0)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    puma (2.9.1)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
@@ -246,6 +255,7 @@ PLATFORMS
 DEPENDENCIES
   ambry
   annotate (~> 2.6.5)
+  app_stats!
   autoprefixer-rails
   better_errors
   binding_of_caller
@@ -271,6 +281,7 @@ DEPENDENCIES
   pg
   pry-nav
   pry-rails
+  puma
   rails (= 4.1.5)
   rails_12factor
   rails_panel
