@@ -1,0 +1,19 @@
+<%- page_header 'Leaderboard' %>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Highscore</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leaders.each do |leader| %>
+      <tr>
+        <td><%= User.find_by(id: leader['user_id']).first_name %></td>
+        <td><%= leader['sum_points'] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
