@@ -42,4 +42,13 @@ if Rails.env.development?
   seed_data['schedules'].each do |schedule_name, schedule_data|
     Schedule.create!(schedule_data)
   end
+
+  seed_data['answers'].each do |answer_user_id, answer_data|
+    Answer.create!(answer_data)
+  end
+
+  seed_data['boards'].each do |board_title, board_data|
+    Board.create!(board_data)
+  end
+
 end

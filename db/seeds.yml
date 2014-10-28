@@ -150,6 +150,34 @@ schedules:
     description: 'Tic Tac Toe - JavaScript'
     cohort_id: 1
 
+answers:
+  answer:
+    user_id: 1
+    assignment_id: 1
+    title: 'Game of Life'
+    body: 'See github page'
+
+  answer2:
+    user_id: 2
+    assignment_id: 1
+    title: 'Tic Tac Toe'
+    body: 'See github page'
+
+boards:
+  board:
+    title: 'Ruby'
+
+  board:
+    title: 'Ruby on Rails'
+
+  board:
+    title: 'CSS'
+
+  board:
+    title: 'HTML'
+    
+  board:
+    title: 'JavaScript'
 
 
 
