@@ -43,7 +43,7 @@ gem 'mail_form'
 # change out webrick webserver for puma
 gem 'puma'
 # rack-timeout gem to kill hung connections
-gem 'rack-timeout'
+#gem 'rack-timeout'
 # new relic gem for performance monitoring
 gem 'newrelic_rpm'
 
