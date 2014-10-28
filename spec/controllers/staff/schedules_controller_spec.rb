@@ -36,6 +36,13 @@ RSpec.describe Staff::SchedulesController, :type => :controller do
     end
   end
 
+  describe '#new' do
+    it 'assigns the @schedule variable' do
+      get :new, cohort_id: @cohort.id
+      expect(assigns(:schedule)).to be_a_new(Schedule)
+    end
+  end
+
   describe '#create' do
     before do
       @params = { schedule: { day: 'Thursday',
