@@ -4,7 +4,8 @@ with things at places to produce functionality.</p>
 
 <h3>
   Stats About Our App
-  <%= link_to 'CSV Export', about_path(format: :csv), class: 'btn btn-xs btn-default' %>
+  <%= link_to 'CSV Export', about_path(format: :csv),
+                            class: 'btn btn-xs btn-default' unless Rails.env.production? %>
 </h3>
 <h4>Has Many Relationships</h4>
 <%= Rails.env.production? ? "Not available on Heroku" : get_has_many_assocations_formatted %>
