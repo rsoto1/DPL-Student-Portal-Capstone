@@ -34,7 +34,7 @@ if Rails.env.development? || Rails.env.production?
     Assignment.create!(assignment_data)
   end
 
-  @user = User.find_by(id: 1)
+  @user = User.first
   seed_data['todos'].each do |todo_item, todo_data|
     @user.todos.create!(todo_data)
   end
