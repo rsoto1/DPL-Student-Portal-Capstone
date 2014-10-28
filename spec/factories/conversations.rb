@@ -2,10 +2,11 @@
 
 FactoryGirl.define do
   factory :conversation do
-    board nil
-    user nil
-    title "MyString"
-    last_commenter_id 1
-    last_comment_at "2014-10-19 11:55:37"
+    board
+    user { create :student }
+    title { Faker::Lorem.sentence[0...50] }
+    description { Faker::Lorem.paragraph }
+    last_commenter_id { user.id }
+    # last_comment_at { Time.now - 1.day }
   end
 end

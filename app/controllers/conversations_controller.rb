@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+  before_action :authenticate_user!
   before_filter :load_board
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
 
@@ -22,7 +23,7 @@ class ConversationsController < ApplicationController
     if current_user && @conversation.save
       current_user.add_points(10, category: 'Discussions')
       @conversation.update_attributes(:user_id => current_user.id)
-        redirect_to board_conversation_path(@conversation.board_id, @conversation.id)
+      redirect_to board_conversation_path(@conversation.board_id, @conversation.id)
     else
       render :new
     end
@@ -30,13 +31,13 @@ class ConversationsController < ApplicationController
 
   def update
     @conversation = Conversation.find(params[:id])
-      if @conversation.update(conversation_params)
-        @conversation.update_attributes(:user_id => current_user.id)
-        redirect_to @conversations, notice:'Conversation was successfully updated.'
-      else
-        render :edit
-      end
+    if @conversation.update(conversation_params)
+      @conversation.update_attributes(:user_id => current_user.id)
+      redirect_to board_conversations_path(@board), notice: 'Conversation was successfully updated.'
+    else
+      render :edit
     end
+  end
 
   def destroy
     @conversation.destroy
