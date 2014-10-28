@@ -137,7 +137,7 @@ Rails.application.routes.draw do
 
     resources :todos
     resources :events
-    resources :assignments, path: 'coursework',
+    resources :assignments,
                             only: [:show, :index] do
       resources :answers, except: [:show]
     end
@@ -155,7 +155,7 @@ Rails.application.routes.draw do
     resources :cohorts do
       get '/students/new' => 'users#new', as: :new_student
       resources :users, path: 'students'
-      resources :assignments, path: 'coursework'
+      resources :assignments
       resources :repos
       resources :schedules
     end
