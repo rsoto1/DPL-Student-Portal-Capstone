@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :course do
-    name "MyString"
-    description "MyText"
-    duration "MyString"
-    price ""
-    price ""
+    name 'How To Be A Ninja'
+    description { Faker::Lorem.paragraph }
+    duration 11
+    duration_unit 'weeks'
+    price { Faker::Commerce.price }
   end
 end

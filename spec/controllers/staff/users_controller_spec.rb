@@ -25,6 +25,13 @@ RSpec.describe Staff::UsersController, :type => :controller do
     end
   end
 
+  describe '#new' do
+    it 'assigns the @student variable' do
+      get :new, cohort_id: @cohort.id
+      expect(assigns(:student)).to be_a_new(User)
+    end
+  end
+
   describe '#create' do
     before do
       @params = { user: { first_name: 'Student',

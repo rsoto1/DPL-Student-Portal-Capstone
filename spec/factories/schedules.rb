@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :schedule do
-    day "MyString"
-description "MyString"
+    day { %w(Monday Tuesday Wednesday Thursday Friday).sample }
+    description { Faker::Lorem.sentence }
   end
-
 end

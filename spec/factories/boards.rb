@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :board do
-    title "MyString"
+    title { Faker::Lorem.sentence[0...50] }
   end
 end
