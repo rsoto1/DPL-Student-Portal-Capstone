@@ -9,19 +9,11 @@
   </thead>
 
   <tbody>
-
-        <% @leaders.each do |leader| %>
-        <tr>
-          <td>
-            <ol>
-              <li>
-                <%= User.find_by(id: leader['user_id']).first_name %>
-              </li>
-            </ol>
-          </td>
-          <td><%= leader['sum_points'] %></td>
-        </tr>
-        <% end %>
-
+    <% @leaders.each do |leader| %>
+      <tr>
+        <td><%= User.find_by(id: leader['user_id']).first_name %></td>
+        <td><%= leader['sum_points'] %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>

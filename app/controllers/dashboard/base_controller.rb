@@ -3,6 +3,7 @@ class Dashboard::BaseController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cohort
   before_action :set_user
+  before_action :leaderboard
 
   def index
     @assignments = @cohort.assignments.all
