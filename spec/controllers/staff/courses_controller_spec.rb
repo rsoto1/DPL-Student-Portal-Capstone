@@ -32,6 +32,13 @@ RSpec.describe Staff::CoursesController, :type => :controller do
     end
   end
 
+  describe '#new' do
+    it 'assigns the @course variable' do
+      get :new
+      expect(assigns(:course)).to be_a_new(Course)
+    end
+  end
+
   describe '#create' do
     before do
       @params = { course: { name: 'Learning Stuff',

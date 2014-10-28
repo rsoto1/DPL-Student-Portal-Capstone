@@ -39,6 +39,13 @@ RSpec.describe Staff::AssignmentsController, :type => :controller do
     end
   end
 
+  describe '#new' do
+    it 'assigns the @assignment variable' do
+      get :new, cohort_id: @cohort.id
+      expect(assigns(:assignment)).to be_a_new(Assignment)
+    end
+  end
+
   describe '#create' do
     before do
       @params = { assignment: { name: 'Some Assignment',

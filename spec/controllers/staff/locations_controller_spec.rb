@@ -32,6 +32,13 @@ RSpec.describe Staff::LocationsController, :type => :controller do
     end
   end
 
+  describe '#new' do
+    it 'assigns the @location variable' do
+      get :new
+      expect(assigns(:location)).to be_a_new(Location)
+    end
+  end
+
   describe '#create' do
     before do
       @params = { location: { name: 'Somewhere',

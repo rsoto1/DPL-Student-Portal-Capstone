@@ -34,6 +34,13 @@ RSpec.describe Staff::CohortsController, :type => :controller do
     end
   end
 
+  describe '#new' do
+    it 'assigns the @cohort variable' do
+      get :new, location_id: @location.id
+      expect(assigns(:cohort)).to be_a_new(Cohort)
+    end
+  end
+
   describe '#create' do
     before do
       @params = { cohort: { name: 'Cohort 2048',

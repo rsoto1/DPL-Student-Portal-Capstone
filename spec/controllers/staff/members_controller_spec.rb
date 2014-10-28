@@ -42,6 +42,13 @@ RSpec.describe Staff::MembersController, :type => :controller do
     end
   end
 
+  describe '#new' do
+    it 'assigns the @member variable' do
+      get :new
+      expect(assigns(:member)).to be_a_new(User)
+    end
+  end
+
   describe '#create' do
     before do
       @params = { user: { first_name: 'Staff',

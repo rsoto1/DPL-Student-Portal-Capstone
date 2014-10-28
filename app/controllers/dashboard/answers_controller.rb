@@ -4,9 +4,9 @@ class Dashboard::AnswersController < ApplicationController
   before_action :set_cohort, :set_assignment
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
   
-  def index
-    @answers = @assignment.answers.order(:accepted)
-  end
+  # def index
+  #   @answers = @assignment.answers.order(:accepted)
+  # end
 
   def show
   end
