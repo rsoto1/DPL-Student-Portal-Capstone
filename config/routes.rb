@@ -133,15 +133,13 @@ Rails.application.routes.draw do
     get '/webresources' => 'base#resources'
     get '/profile' => 'users#profile'
     get '/calendar' => 'events#index'
-
+    
+    resources :todos
     resources :events
     resources :assignments, path: 'coursework',
                             only: [:show, :index] do
       resources :answers, except: [:show]
     end
-    # resources :notifications
-    # resources :attendances
-    # resources :announcements
   end
 
   namespace :staff do
@@ -158,7 +156,7 @@ Rails.application.routes.draw do
       resources :users, path: 'students'
       resources :assignments, path: 'coursework'
       resources :repos
-
+      resources :schedules
     end
   end
 

@@ -1,0 +1,11 @@
+<%- page_header @schedule.description %>
+<h4>Schedule Description</h4>
+<p><%= @schedule.description %></p>
+<br>
+<%= button_to 'Edit Schedule', edit_staff_cohort_schedule_path,
+                              class: "btn btn-primary",
+                              method: :get%>
+
+<%= button_to 'Delete Schedule', staff_cohort_schedule_path,
+                              class: "btn btn-primary",
+                              method: :delete %>

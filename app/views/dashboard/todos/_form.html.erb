@@ -1,0 +1,15 @@
+<%= form_for [:dashboard, @users, @todo] do |f| %>
+  <!-- Check if there were any errors saving location and display them if so -->
+
+
+  <!-- Begin rendering the form -->
+  <div class= 'form-group'>
+    <%= f.label :item, 'To Do Item' %><br>
+    <%= f.text_field :item, class: 'form-control' %>
+  </div>
+
+  
+  <%= f.submit 'Submit', class: 'btn btn-primary' %> 
+  
+  <%= link_to 'Back', dashboard_path, class: 'btn btn-primary' %>
+<% end %>
