@@ -1,4 +1,5 @@
 class Dashboard::TodosController < ApplicationController
+    before_action :authenticate_user!
     before_action :set_user
     before_action :set_todo, only: :destroy
 
