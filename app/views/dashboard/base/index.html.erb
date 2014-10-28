@@ -24,12 +24,12 @@
           </h3>
         </div>
         <div class="panel-body">
-          <p>Assignments: <%= current_user.points(category: 'Assignments') %></p>
-          <p>Attendance: <%= current_user.points(category: 'Attendance') %></p>
-          <p>Discussions: <%= current_user.points(category: 'Discussions') %></p>
-          <p>Other: <%= current_user.points(category: 'Other') %></p>
+          <p>Assignments: <%= @user.points(category: 'Assignments') %></p>
+          <!-- <p>Attendance: <%= @user.points(category: 'Attendance') %></p> -->
+          <p>Discussions: <%= @user.points(category: 'Discussions') %></p>
+          <p>Other: <%= @user.points(category: 'Other') %></p>
           <hr>
-          <p>Total Score: <%= current_user.points %></p>
+          <p>Total Score: <%= @user.points %></p>
           <%= link_to 'View Leaderboard', dashboard_leaderboard_path %>
         </div>
       </div>
