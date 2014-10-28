@@ -5,8 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-if Rails.env.development?
+#
+if Rails.env.development? || Rails.env.production?
   seed_file = Rails.root.join('db', 'seeds.yml')
   seed_data = YAML::load_file(seed_file)
 
@@ -34,7 +34,7 @@ if Rails.env.development?
     Assignment.create!(assignment_data)
   end
 
-  @user = User.find_by(id: 1)
+  @user = User.first
   seed_data['todos'].each do |todo_item, todo_data|
     @user.todos.create!(todo_data)
   end
