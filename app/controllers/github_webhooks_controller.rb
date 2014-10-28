@@ -1,5 +1,5 @@
 class GithubWebhooksController < ApplicationController
-  require "Octokit"
+  # require "Octokit"
   include GithubWebhook::Processor
   skip_before_filter  :verify_authenticity_token, :authenticate_user!
   before_action :build_client

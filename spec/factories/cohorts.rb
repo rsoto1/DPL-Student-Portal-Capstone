@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :cohort do
-    name "MyString"
+    name { Faker::Lorem.sentence }
     starts_at { Time.now }
     ends_at { Time.now + 11.weeks }
     location

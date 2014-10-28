@@ -1,33 +1,91 @@
 require 'rails_helper'
 
 RSpec.describe Staff::CoursesController, :type => :controller do
+  render_views
+  before do
+    @staff = create(:staff)
+    sign_in(@staff)
+  end
 
-  describe "GET index" do
-    it "returns http success" do
+  describe '#index' do
+    it 'successfully gets the index page' do
       get :index
-      expect(response).to have_http_status(:success)
+      expect(response).to be_success
+      expect(response).to render_template(:index)
+    end
+
+    it 'assigns the @courses variable' do
+      get :index
+      expect(assigns(:courses)).to eq(Course.all)
     end
   end
 
-  describe "GET edit" do
-    it "returns http success" do
-      get :edit
-      expect(response).to have_http_status(:success)
+  describe '#show' do
+    before do
+      @course = create(:course)
+    end
+    it 'renders info about a course' do
+      get :show, id: @course.id
+      expect(response).to be_success
+      expect(assigns(:course).name).to eq @course.name
+      expect(response).to render_template('show')
     end
   end
 
-  describe "GET new" do
-    it "returns http success" do
+  describe '#new' do
+    it 'assigns the @course variable' do
       get :new
-      expect(response).to have_http_status(:success)
+      expect(assigns(:course)).to be_a_new(Course)
     end
   end
 
-  describe "GET show" do
-    it "returns http success" do
-      get :show
-      expect(response).to have_http_status(:success)
+  describe '#create' do
+    before do
+      @params = { course: { name: 'Learning Stuff',
+                            description: Faker::Lorem.paragraph,
+                            duration: 21,
+                            duration_unit: 'days' }
+                }
+    end
+
+    it 'saves the course' do
+      expect {
+        post :create, @params
+      }.to change(Course, :count).by(1)
     end
   end
 
+  describe '#update' do
+    before do
+      @course = create(:course)
+      @params = { id: @course.id,
+                  course: { name: 'Learning Stuff',
+                            description: Faker::Lorem.paragraph,
+                            duration: 21,
+                            duration_unit: 'days' }
+                }
+    end
+
+    it 'updates the course' do
+      patch :update, @params
+      assert_response :redirect
+      course = Course.find(@course.id)
+      expect(course.name).to eq 'Learning Stuff'
+      expect(course.duration).to eq 21
+      expect(course.duration_unit).to eq 'days'
+    end
+  end
+
+  describe '#destroy' do
+    before do
+      @course = create(:course)
+      @params = { id: @course.id }
+    end
+
+    it 'destroys the course' do
+      expect {
+        delete :destroy, @params
+      }.to change(Course, :count).by(-1)
+    end
+  end
 end
