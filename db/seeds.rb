@@ -53,7 +53,7 @@ if Rails.env.development? || Rails.env.production?
     Board.create!(board_data)
   end
 
-  User.all.each do |user|
+  User.where(role: 0).each do |user|
     %w(Discussions Assignments Other).each do |category|
       user.add_points(Faker::Number.number(3),
                       category: category)
