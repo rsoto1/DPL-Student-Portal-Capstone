@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
+require 'Faker'
+
 if Rails.env.development? || Rails.env.production?
   seed_file = Rails.root.join('db', 'seeds.yml')
   seed_data = YAML::load_file(seed_file)
@@ -51,4 +53,10 @@ if Rails.env.development? || Rails.env.production?
     Board.create!(board_data)
   end
 
+  User.where(role: 0).each do |user|
+    %w(Discussions Assignments Other).each do |category|
+      user.add_points(Faker::Number.number(3),
+                      category: category)
+    end
+  end
 end
