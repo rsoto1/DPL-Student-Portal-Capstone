@@ -3,7 +3,6 @@
 FactoryGirl.define do
   factory :comment do
     conversation
-    board
     user { create :student }
     body { Faker::Lorem.paragraph }
   end
