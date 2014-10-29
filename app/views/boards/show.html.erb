@@ -16,7 +16,7 @@
         </small>
       <td><%= conversation.comments.count %></td>
       <td class="right">
-        <%= time_ago_in_words(conversation.last_comment_at) %> ago
+        <%= conversation.last_comment_at.nil? ? "No Comments yet." : time_ago_in_words(conversation.last_comment_at) + " ago" %> 
       </td>
     </tr>
   <% end %>
