@@ -1,5 +1,6 @@
 <%- page_header "[ID: #{@assignment.id}] #{@assignment.name}" %>
 <% content_for :title, @assignment.name %>
+<h2><%= "[ID: #{@assignment.id}] #{@assignment.name}" %></h2>
 <h5>
 Category: <%= @assignment.category %> | 
 Due: <%= @assignment.due_date.to_s(:long_ordinal) %>
