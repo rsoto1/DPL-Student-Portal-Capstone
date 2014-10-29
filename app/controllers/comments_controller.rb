@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   def new
     @comment = @conversation.comments.new
-    # @board = @conversation.board
+    @board = @conversation.board
   end
 
   def edit
@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @board = @conversation.board
     @comment = @conversation.comments.new(comment_params)
     @comment.user = current_user
     if current_user && @comment.save
@@ -27,7 +28,7 @@ class CommentsController < ApplicationController
       @comment.update_attributes(user_id: current_user.id)
       @conversation.update_attributes(last_commenter_id: @comment.user.id,
                                       last_comment_at: Time.now)
-      redirect_to board_conversation_path(@conversation.board_id, @conversation.id)
+      redirect_to board_conversation_path(@board.id, @conversation.id)
     else
       render :new
     end
@@ -66,6 +67,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:body,
                                     :user_id,
                                     :conversation_id,
+                                    :board_id,
                                     :last_comment_at,
                                     :last_commenter_id)
   end
