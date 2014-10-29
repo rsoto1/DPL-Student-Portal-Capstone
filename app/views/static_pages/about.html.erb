@@ -11,7 +11,7 @@
         <ul class="list-unstyled about-list">
           <li>
             <%= mail_to 'ryanlev@gmail.com' do %>
-              <i class="fa fa-envelope">&nbsp; ryanlev@gmail.com</i> 
+             <i class="fa fa-envelope">&nbsp; ryanlev@gmail.com</i> 
               <% end %>
           </li>
           <li>
@@ -33,7 +33,7 @@
         <%= image_tag 'Curtis.png', alt: 'Missing image', class: "img-responsive img-circle" %>
         <h3 style="text-align: center">Curtis McKee</h3>
         <p>
-         I have no bio
+         All things tech.  Gamer.  Redditor.  Metal Head.  Beer lover.  Artist.  Creative.  Game of Thrones.
         </p>
         <ul class="list-unstyled about-list">
           <li>
@@ -47,8 +47,8 @@
               <% end %>
           </li>
           <li>
-            <%= link_to 'https://linkedin.comXXXXXXX' do %>
-              <i class="fa fa-linkedin-square">&nbsp; </i> 
+            <%= link_to 'https://linkedin.com/in/cmkeedev' do %>
+              <i class="fa fa-linkedin-square">&nbsp; linkedin.com/in/cmkeedev </i> 
               <% end %>
           </li>
         </ul>  
@@ -61,7 +61,7 @@
         <%= image_tag 'Rocio.png', alt: 'Missing image', class: "img-responsive img-circle" %>
         <h3 style="text-align: center">Rocio Soto</h3>
         <p>
-          In my past life I was a Controller.  I am now hoping to leverage my financial background into a career that provides challenge, creativity and fun.  My other interests include travel, the outdoors, independent movies, Broadway shows and playing trivia.
+          In my past life I was a Controller.  I am now hoping to leverage my financial background into a career that provides challenge, creativity and fun.  My other interests include travel, the outdoors, cooking, independent movies, Broadway shows and playing trivia.
         </p>
         <ul class="list-unstyled about-list">
           <li>
@@ -115,33 +115,60 @@
 
 <hr>
 
-<div class="row-stats">
   <div class="col-lg-12">
 
 <h3>
   Stats About Our App
 </h3>
-<h4>Has Many Relationships</h4>
-  <ul>
-    <li>8 app/models/user.rb</li>
-    <li>4 app/models/cohort.rb</li>
-    <li>2 app/models/assignment.rb</li>
-    <li>1 app/models/repo.rb</li>
-    <li>1 app/models/location.rb</li>
-    <li>1 app/models/course.rb</li>
-    <li>1 app/models/conversation.rb</li>
-    <li>1 app/models/board.rb</li>
-  </ul>
-<hr>
-<h4>Total Lines of Code</h4>
-  <ul>
-    <li>6688</li>
-  </ul>
-<hr>
-  
-  <h4>Files Sorted by Lines of Code</h4>
-  <div class="sorted-loc"
-    <ul>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Has Many Relationships
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+         <ul>
+            <li>8 app/models/user.rb</li>
+            <li>4 app/models/cohort.rb</li>
+            <li>2 app/models/assignment.rb</li>
+            <li>1 app/models/repo.rb</li>
+            <li>1 app/models/location.rb</li>
+            <li>1 app/models/course.rb</li>
+            <li>1 app/models/conversation.rb</li>
+            <li>1 app/models/board.rb</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Total Lines of Code
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        6688
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Files Sorted by Lines of Code
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
       <li>295 ./db/schema.rb</li>
       <li>261 ./config/initializers/devise.rb</li>
       <li>228 ./config/routes.rb</li>
@@ -417,9 +444,13 @@
       <li>2 ./app/helpers/comments_helper.rb</li>
       <li>2 ./app/helpers/boards_helper.rb</li>
       <li>2 ./app/helpers/apis_helper.rb</li>
-    <ul>
-  </div>
+      </div>
+    </div>
   </div>
 </div>
+
+  
+  
+
 
 
