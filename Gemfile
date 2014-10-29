@@ -46,6 +46,8 @@ gem 'puma'
 #gem 'rack-timeout'
 # new relic gem for performance monitoring
 gem 'newrelic_rpm'
+# Faker gem for generating random data
+gem 'faker'
 
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
@@ -73,8 +75,6 @@ group :test do
   gem 'shoulda-matchers'
   # Provides metrics for test coverage
   gem 'simplecov', require: false
-  # Generate test data - Easy Bake Oven Style!
-  gem 'faker'
 end
 
 group :production do
