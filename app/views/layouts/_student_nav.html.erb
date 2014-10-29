@@ -4,27 +4,18 @@
   <ul class="nav navbar-nav side-nav">
     <li>
       <%=link_to content_tag(:i, nil, :class=>"fa fa-fw fa-desktop") + ' Dashboard', root_path %>
-      <!-- <a href="index.html"><i class="fa fa-fw fa-desktop"></i> Dashboard</a> -->
-    </li>
-    <li>
-      <%=link_to content_tag(:i, nil, :class=>"fa fa-fw fa-calendar") + ' Calendar', dashboard_calendar_path %>
-      <!-- <a href="index.html"><i class="fa fa-fw fa-desktop"></i> Dashboard</a> -->
     </li>
     <li>
       <%=link_to content_tag(:i, nil, :class=>"fa fa-fw fa-comments") + ' Discussion Board', boards_path %>
-      <!-- <a href="tables.html"><i class="fa fa-fw fa-comments"></i> Discussions</a> -->
     </li>
     <li>
       <%=link_to content_tag(:i, nil, :class=>"fa fa-fw fa-folder-open") + ' Assignments', dashboard_assignments_path %>
-      <!-- <a href="forms.html"><i class="fa fa-fw fa-folder-open"></i> Coursework</a> -->
     </li>
     <li>
       <%= link_to content_tag(:i, nil, :class=>"fa fa-fw fa-code") + ' Web Resources', web_resources_path %>
-      <!-- <a href=""><i class="fa fa-fw fa-code"></i> Code Resources </a> -->
     </li>
     <li>
       <%= link_to content_tag(:i, nil, :class=>"fa fa-fw fa-info-circle") + ' FAQ', faq_path %>
-      <!-- <a href=""><i class="fa fa-fw fa-code"></i> Code Resources </a> -->
     </li>
   </ul>
 </div>

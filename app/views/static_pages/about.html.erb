@@ -118,18 +118,308 @@
 <div class="row-stats">
   <div class="col-lg-12">
 
-    <h3>
-      Stats About Our App
-      <%= link_to 'CSV Export', about_path(format: :csv), class: 'btn btn-xs btn-default' %>
-    </h3>
-      <h4>Has Many Relationships</h4>
-      <%= get_has_many_assocations_formatted %>
-      <hr>
-      <h4>Total Lines of Code</h4>
-      <%= get_loc_count_formatted %>
-      <hr>
-      <h4>Files Sorted by Lines of Code</h4>
-      <%= get_loc_sorted_formatted %>
+<%- page_header 'About Page' %>
+<p>Here is some info about us and our application. We are people which did stuff
+with things at places to produce functionality.</p>
+
+<h3>
+  Stats About Our App
+</h3>
+<h4>Has Many Relationships</h4>
+  <ul>
+    <li>8 app/models/user.rb</li>
+    <li>4 app/models/cohort.rb</li>
+    <li>2 app/models/assignment.rb</li>
+    <li>1 app/models/repo.rb</li>
+    <li>1 app/models/location.rb</li>
+    <li>1 app/models/course.rb</li>
+    <li>1 app/models/conversation.rb</li>
+    <li>1 app/models/board.rb</li>
+  </ul>
+<hr>
+<h4>Total Lines of Code</h4>
+  <ul>
+    <li>6688</li>
+  </ul>
+<hr>
+<h4>Files Sorted by Lines of Code</h4>
+<ul>
+  <li>295 ./db/schema.rb</li>
+  <li>261 ./config/initializers/devise.rb</li>
+  <li>228 ./config/routes.rb</li>
+  <li>133 ./app/models/user.rb</li>
+  <li>116 ./spec/controllers/staff/schedules_controller_spec.rb</li>
+  <li>116 ./spec/controllers/staff/assignments_controller_spec.rb</li>
+  <li>107 ./spec/controllers/staff/members_controller_spec.rb</li>
+  <li>106 ./spec/controllers/staff/repos_controller_spec.rb</li>
+  <li>103 ./spec/spec_helper.rb</li>
+  <li>101 ./spec/controllers/staff/locations_controller_spec.rb</li>
+  <li>96 ./spec/controllers/comments_controller_spec.rb</li>
+  <li>93 ./spec/controllers/staff/users_controller_spec.rb</li>
+  <li>92 ./spec/controllers/staff/cohorts_controller_spec.rb</li>
+  <li>91 ./spec/models/user_spec.rb</li>
+  <li>91 ./spec/controllers/staff/courses_controller_spec.rb</li>
+  <li>91 ./config/environments/production.rb</li>
+  <li>90 ./spec/controllers/conversations_controller_spec.rb</li>
+  <li>90 ./app/controllers/github_webhooks_controller.rb</li>
+  <li>84 ./spec/controllers/boards_controller_spec.rb</li>
+  <li>72 ./app/controllers/comments_controller.rb</li>
+  <li>71 ./app/controllers/dashboard/answers_controller.rb</li>
+  <li>66 ./spec/controllers/staff/base_controller_spec.rb</li>
+  <li>66 ./app/controllers/staff/assignments_controller.rb</li>
+  <li>65 ./app/controllers/conversations_controller.rb</li>
+  <li>63 ./app/controllers/staff/repos_controller.rb</li>
+  <li>62 ./app/controllers/staff/users_controller.rb</li>
+  <li>61 ./spec/rails_helper.rb</li>
+  <li>60 ./spec/controllers/dashboard/answers_controller_spec.rb</li>
+  <li>58 ./app/controllers/staff/members_controller.rb</li>
+  <li>57 ./config/initializers/merit_scores_override.rb</li>
+  <li>56 ./app/controllers/staff/schedules_controller.rb</li>
+  <li>55 ./spec/models/assignment_spec.rb</li>
+  <li>54 ./spec/controllers/dashboard/todos_controller_spec.rb</li>
+  <li>54 ./spec/controllers/dashboard/events_controller_spec.rb</li>
+  <li>54 ./app/controllers/staff/locations_controller.rb</li>
+  <li>54 ./app/controllers/staff/courses_controller.rb</li>
+  <li>54 ./app/controllers/staff/cohorts_controller.rb</li>
+  <li>53 ./db/seeds.rb</li>
+  <li>51 ./app/helpers/application_helper.rb</li>
+  <li>49 ./spec/models/answer_spec.rb</li>
+  <li>49 ./app/controllers/boards_controller.rb</li>
+  <li>48 ./app/models/merit/badge_rules.rb</li>
+  <li>45 ./spec/controllers/contacts_controller_spec.rb</li>
+  <li>44 ./db/migrate/20140927192436_devise_create_users.rb</li>
+  <li>41 ./config/environments/development.rb</li>
+  <li>41 ./app/controllers/registrations_controller.rb</li>
+  <li>41 ./app/controllers/application_controller.rb</li>
+  <li>40 ./spec/controllers/dashboard/assignments_controller_spec.rb</li>
+  <li>40 ./app/controllers/dashboard/users_controller.rb</li>
+  <li>39 ./config/environments/test.rb</li>
+  <li>38 ./lib/apis/github.rb</li>
+  <li>37 ./spec/controllers/dashboard/users_controller_spec.rb</li>
+  <li>37 ./app/controllers/dashboard/todos_controller.rb</li>
+  <li>35 ./spec/routing/conversations_routing_spec.rb</li>
+  <li>35 ./spec/routing/comments_routing_spec.rb</li>
+  <li>35 ./spec/routing/boards_routing_spec.rb</li>
+  <li>33 ./spec/controllers/staff/answers_controller_spec.rb</li>
+  <li>33 ./spec/controllers/site_controller_spec.rb</li>
+  <li>33 ./config/initializers/merit.rb</li>
+  <li>33 ./app/models/assignment.rb</li>
+  <li>31 ./app/models/merit/rank_rules.rb</li>
+  <li>31 ./app/controllers/dashboard/assignments_controller.rb</li>
+  <li>30 ./app/models/answer.rb</li>
+  <li>30 ./app/controllers/apis_controller.rb</li>
+  <li>29 ./config/application.rb</li>
+  <li>28 ./spec/views/conversations/index.html.erb_spec.rb</li>
+  <li>28 ./spec/mailers/student_mailer_spec.rb</li>
+  <li>28 ./app/models/pull_request.rb</li>
+  <li>28 ./app/models/merit/point_rules.rb</li>
+  <li>27 ./spec/views/conversations/new.html.erb_spec.rb</li>
+  <li>27 ./spec/views/conversations/edit.html.erb_spec.rb</li>
+  <li>26 ./spec/factories/users.rb</li>
+  <li>26 ./app/controllers/contacts_controller.rb</li>
+  <li>25 ./spec/views/comments/index.html.erb_spec.rb</li>
+  <li>25 ./app/controllers/dashboard/base_controller.rb</li>
+  <li>24 ./spec/views/comments/new.html.erb_spec.rb</li>
+  <li>24 ./spec/views/comments/edit.html.erb_spec.rb</li>
+  <li>24 ./app/controllers/staff/answers_controller.rb</li>
+  <li>23 ./spec/controllers/static_pages_controller_spec.rb</li>
+  <li>23 ./spec/controllers/dashboard/base_controller_spec.rb</li>
+  <li>23 ./app/controllers/dashboard/events_controller.rb</li>
+  <li>22 ./app/models/github_profile.rb</li>
+  <li>22 ./app/models/cohort.rb</li>
+  <li>21 ./spec/models/board_spec.rb</li>
+  <li>20 ./spec/views/conversations/show.html.erb_spec.rb</li>
+  <li>20 ./db/migrate/20141027161615_create_scores_and_points.rb</li>
+  <li>19 ./spec/views/boards/index.html.erb_spec.rb</li>
+  <li>19 ./db/migrate/20141027161611_create_merit_actions.rb</li>
+  <li>19 ./db/migrate/20141012232425_create_pull_requests.rb</li>
+  <li>19 ./db/migrate/20141009004322_create_github_profiles.rb</li>
+  <li>19 ./app/controllers/site_controller.rb</li>
+  <li>18 ./spec/views/comments/show.html.erb_spec.rb</li>
+  <li>18 ./spec/views/boards/new.html.erb_spec.rb</li>
+  <li>18 ./spec/views/boards/edit.html.erb_spec.rb</li>
+  <li>18 ./config/puma.rb</li>
+  <li>18 ./app/models/repo.rb</li>
+  <li>18 ./app/models/event.rb</li>
+  <li>17 ./spec/factories/github_profiles.rb</li>
+  <li>17 ./app/models/course.rb</li>
+  <li>17 ./app/controllers/staff/base_controller.rb</li>
+  <li>16 ./spec/support/controller_macros.rb</li>
+  <li>16 ./spec/factories/pull_requests.rb</li>
+  <li>16 ./db/migrate/20141027161614_create_badges_sashes.rb</li>
+  <li>16 ./config/initializers/inflections.rb</li>
+  <li>16 ./app/controllers/static_pages_controller.rb</li>
+  <li>15 ./spec/helpers/static_pages_helper_spec.rb</li>
+  <li>15 ./spec/helpers/staff/users_helper_spec.rb</li>
+  <li>15 ./spec/helpers/staff/schedules_helper_spec.rb</li>
+  <li>15 ./spec/helpers/staff/repos_helper_spec.rb</li>
+  <li>15 ./spec/helpers/staff/members_helper_spec.rb</li>
+  <li>15 ./spec/helpers/staff/locations_helper_spec.rb</li>
+  <li>15 ./spec/helpers/staff/courses_helper_spec.rb</li>
+  <li>15 ./spec/helpers/staff/cohorts_helper_spec.rb</li>
+  <li>15 ./spec/helpers/staff/base_helper_spec.rb</li>
+  <li>15 ./spec/helpers/staff/assignments_helper_spec.rb</li>
+  <li>15 ./spec/helpers/staff/answers_helper_spec.rb</li>
+  <li>15 ./spec/helpers/site_helper_spec.rb</li>
+  <li>15 ./spec/helpers/registrations_helper_spec.rb</li>
+  <li>15 ./spec/helpers/github_webhooks_helper_spec.rb</li>
+  <li>15 ./spec/helpers/dashboard_helper_spec.rb</li>
+  <li>15 ./spec/helpers/dashboard/users_helper_spec.rb</li>
+  <li>15 ./spec/helpers/dashboard/todos_helper_spec.rb</li>
+  <li>15 ./spec/helpers/dashboard/events_helper_spec.rb</li>
+  <li>15 ./spec/helpers/dashboard/base_helper_spec.rb</li>
+  <li>15 ./spec/helpers/dashboard/assignments_helper_spec.rb</li>
+  <li>15 ./spec/helpers/dashboard/answers_helper_spec.rb</li>
+  <li>15 ./spec/helpers/conversations_helper_spec.rb</li>
+  <li>15 ./spec/helpers/contacts_helper_spec.rb</li>
+  <li>15 ./spec/helpers/comments_helper_spec.rb</li>
+  <li>15 ./spec/helpers/boards_helper_spec.rb</li>
+  <li>15 ./spec/helpers/apis_helper_spec.rb</li>
+  <li>15 ./db/migrate/20141027161612_create_merit_activity_logs.rb</li>
+  <li>15 ./app/models/location.rb</li>
+  <li>14 ./spec/views/boards/show.html.erb_spec.rb</li>
+  <li>14 ./db/migrate/20140930034704_create_events.rb</li>
+  <li>14 ./config/initializers/wrap_parameters.rb</li>
+  <li>14 ./app/models/contact.rb</li>
+  <li>13 ./db/migrate/20141019175537_create_conversations.rb</li>
+  <li>13 ./db/migrate/20141012045209_create_answers.rb</li>
+  <li>13 ./db/migrate/20141005225605_create_courses.rb</li>
+  <li>13 ./db/migrate/20140930035857_create_notifications.rb</li>
+  <li>13 ./db/migrate/20140930035401_create_assignments.rb</li>
+  <li>13 ./app/controllers/concerns/set_cohort.rb</li>
+  <li>12 ./spec/factories/conversations.rb</li>
+  <li>12 ./db/migrate/20140929202644_create_cohorts.rb</li>
+  <li>11 ./spec/models/location_spec.rb</li>
+  <li>11 ./spec/factories/courses.rb</li>
+  <li>11 ./spec/factories/assignments.rb</li>
+  <li>11 ./db/migrate/20141027161628_add_fields_to_users.rb</li>
+  <li>11 ./db/migrate/20141027161613_create_sashes.rb</li>
+  <li>11 ./db/migrate/20141027160302_create_schedules.rb</li>
+  <li>11 ./db/migrate/20141013225209_create_repos.rb</li>
+  <li>11 ./app/models/project_manager.rb</li>
+  <li>11 ./app/helpers/navigation_helper.rb</li>
+  <li>10 ./test/test_helper.rb</li>
+  <li>10 ./spec/requests/conversations_spec.rb</li>
+  <li>10 ./spec/requests/comments_spec.rb</li>
+  <li>10 ./spec/requests/boards_spec.rb</li>
+  <li>10 ./spec/factories/cohorts.rb</li>
+  <li>10 ./spec/factories/answers.rb</li>
+  <li>10 ./db/migrate/20141027172259_create_todos.rb</li>
+  <li>10 ./db/migrate/20141019175726_create_comments.rb</li>
+  <li>10 ./db/migrate/20140930035133_create_announcements.rb</li>
+  <li>10 ./db/migrate/20140929194518_create_locations.rb</li>
+  <li>10 ./app/mailers/student_mailer.rb</li>
+  <li>9 ./spec/factories/repos.rb</li>
+  <li>9 ./spec/factories/comments.rb</li>
+  <li>9 ./db/migrate/20140930035606_create_attendances.rb</li>
+  <li>8 ./spec/factories/locations.rb</li>
+  <li>8 ./db/migrate/20141019175257_create_boards.rb</li>
+  <li>8 ./db/migrate/20140930040726_create_project_managers.rb</li>
+  <li>8 ./config/initializers/assets.rb</li>
+  <li>8 ./app/models/conversation.rb</li>
+  <li>8 ./app/models/board.rb</li>
+  <li>7 ./test/models/user_test.rb</li>
+  <li>7 ./test/controllers/registrations_controller_test.rb</li>
+  <li>7 ./spec/support/feature_support.rb</li>
+  <li>7 ./spec/factories/boards.rb</li>
+  <li>7 ./db/migrate/20140930174633_add_role_to_users.rb</li>
+  <li>7 ./config/initializers/backtrace_silencers.rb</li>
+  <li>6 ./spec/factories/schedules.rb</li>
+  <li>6 ./db/migrate/20141006221537_add_github_token_columns_to_user.rb</li>
+  <li>6 ./db/migrate/20141006215908_add_github_o_auth_columns_to_user.rb</li>
+  <li>5 ./spec/views/static_pages/contact.html.erb_spec.rb</li>
+  <li>5 ./spec/views/static_pages/about.html.erb_spec.rb</li>
+  <li>5 ./spec/views/staff/members/show.html.erb_spec.rb</li>
+  <li>5 ./spec/views/staff/members/new.html.erb_spec.rb</li>
+  <li>5 ./spec/views/staff/members/index.html.erb_spec.rb</li>
+  <li>5 ./spec/views/staff/members/edit.html.erb_spec.rb</li>
+  <li>5 ./spec/views/staff/courses/show.html.erb_spec.rb</li>
+  <li>5 ./spec/views/staff/courses/new.html.erb_spec.rb</li>
+  <li>5 ./spec/views/staff/courses/index.html.erb_spec.rb</li>
+  <li>5 ./spec/views/staff/courses/edit.html.erb_spec.rb</li>
+  <li>5 ./spec/views/staff/base/index.html.erb_spec.rb</li>
+  <li>5 ./spec/views/site/index.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/show.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/new.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/index.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/events/update.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/events/show.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/events/new.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/events/index.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/events/edit.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/events/destroy.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/events/create.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/edit.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/base/index.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/assignments/update.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/assignments/show.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/assignments/new.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/assignments/index.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/assignments/edit.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/assignments/destroy.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/assignments/create.html.erb_spec.rb</li>
+  <li>5 ./spec/views/dashboard/Assignments.html.erb_spec.rb</li>
+  <li>5 ./spec/models/todo_spec.rb</li>
+  <li>5 ./spec/models/schedule_spec.rb</li>
+  <li>5 ./spec/models/repo_spec.rb</li>
+  <li>5 ./spec/models/pull_request_spec.rb</li>
+  <li>5 ./spec/models/github_profile_spec.rb</li>
+  <li>5 ./spec/models/course_spec.rb</li>
+  <li>5 ./spec/models/conversation_spec.rb</li>
+  <li>5 ./spec/models/comment_spec.rb</li>
+  <li>5 ./spec/models/cohort_spec.rb</li>
+  <li>5 ./spec/factories/todos.rb</li>
+  <li>5 ./spec/controllers/github_webhooks_controller_spec.rb</li>
+  <li>5 ./spec/controllers/apis_controller_spec.rb</li>
+  <li>5 ./db/migrate/20141014022940_rename_column_in_pull_request.rb</li>
+  <li>5 ./db/migrate/20141014011910_add_repo_to_pull_request.rb</li>
+  <li>5 ./db/migrate/20141013212050_add_column_to_pull_requests.rb</li>
+  <li>5 ./db/migrate/20141013210358_add_columns_to_answers.rb</li>
+  <li>5 ./db/migrate/20141012040950_rename_column_in_assignment.rb</li>
+  <li>5 ./db/migrate/20141008212718_add_github_email_to_users.rb</li>
+  <li>5 ./db/migrate/20141006015342_rename_column_on_cohorts.rb</li>
+  <li>5 ./db/migrate/20141005230635_add_course_id_to_cohort.rb</li>
+  <li>5 ./db/migrate/20141003023047_add_temp_password_to_user.rb</li>
+  <li>5 ./db/migrate/20140930175818_add_last_name_to_users.rb</li>
+  <li>5 ./db/migrate/20140930175615_fix_column_name_in_users.rb</li>
+  <li>5 ./db/migrate/20140929205427_add_cohort_to_users.rb</li>
+  <li>5 ./config/environment.rb</li>
+  <li>5 ./app/models/comment.rb</li>
+  <li>4 ./test/helpers/registrations_helper_test.rb</li>
+  <li>4 ./config/initializers/mime_types.rb</li>
+  <li>4 ./config/initializers/filter_parameter_logging.rb</li>
+  <li>4 ./config/boot.rb</li>
+  <li>4 ./app/models/todo.rb</li>
+  <li>4 ./app/models/schedule.rb</li>
+  <li>3 ./config/initializers/session_store.rb</li>
+  <li>2 ./config/initializers/cookies_serializer.rb</li>
+  <li>2 ./app/helpers/static_pages_helper.rb</li>
+  <li>2 ./app/helpers/staff/users_helper.rb
+  <li>2 ./app/helpers/staff/schedules_helper.rb</li>
+  <li>2 ./app/helpers/staff/repos_helper.rb</li>
+  <li>2 ./app/helpers/staff/members_helper.rb</li>
+  <li>2 ./app/helpers/staff/locations_helper.rb</li>
+  <li>2 ./app/helpers/staff/courses_helper.rb</li>
+  <li>2 ./app/helpers/staff/cohorts_helper.rb</li>
+  <li>2 ./app/helpers/staff/base_helper.rb</li>
+  <li>2 ./app/helpers/staff/assignments_helper.rb</li>
+  <li>2 ./app/helpers/staff/answers_helper.rb</li>
+  <li>2 ./app/helpers/site_helper.rb</li>
+  <li>2 ./app/helpers/registrations_helper.rb</li>
+  <li>2 ./app/helpers/github_webhooks_helper.rb</li>
+  <li>2 ./app/helpers/dashboard_helper.rb</li>
+  <li>2 ./app/helpers/dashboard/users_helper.rb</li>
+  <li>2 ./app/helpers/dashboard/todos_helper.rb</li>
+  <li>2 ./app/helpers/dashboard/events_helper.rb</li>
+  <li>2 ./app/helpers/dashboard/base_helper.rb</li>
+  <li>2 ./app/helpers/dashboard/assignments_helper.rb</li>
+  <li>2 ./app/helpers/dashboard/answers_helper.rb</li>
+  <li>2 ./app/helpers/conversations_helper.rb</li>
+  <li>2 ./app/helpers/contacts_helper.rb</li>
+  <li>2 ./app/helpers/comments_helper.rb</li>
+  <li>2 ./app/helpers/boards_helper.rb</li>
+  <li>2 ./app/helpers/apis_helper.rb</li>
+<ul>
   </div>
 </div>
 
