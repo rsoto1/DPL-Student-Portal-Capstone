@@ -60,25 +60,24 @@ Phase 1 - Oct 8th (project basics setup):
 - [✓] Heroku app setup
 
 Phase 2 - Oct 22nd (MVP project features):
-- [] Oauth integration
-- [] Look into API integration
-- [] Coursework and assignments framework/functionallity
-- [] Project Manager
-- [] Github API integration
-- [] Gamification  
+- [✓] Oauth integration
+- [✓] Look into API integration
+- [✓] Assignments framework/functionallity
+- [✓] Github API integration
+- [✓] Gamification  
 
 Phase 3 - Oct 30th (Extras):
-- [] Refactoring code
-- [] Testing
+- [✓] Refactoring code
+- [✓] Testing
 - [] Adding extras
   - [] Slack API
   - [] Google API
-  - [] UI theming conventions
+  - [✓] UI theming conventions
   - [] File upload manager
-  - [] Discussion board
-  - [] Web resources
+  - [✓] Discussion board
+  - [✓] Web resources
   - [] Finance payment portal
-  - [] Statistics on students and classes
+  - [✓] Statistics on students and classes
   - [] Social networking aspect
   - [] Mentor sign-up sheet
   - [] Internal SEO
