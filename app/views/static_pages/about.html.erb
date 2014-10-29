@@ -1,5 +1,7 @@
- <div class="row">
-    <div class="col-sm-2">
+<div class="row">
+  <div class="col-lg-12">
+
+    <div class="col-md-3">
       <div class="about-photo">
         <%= image_tag 'Ryan.png', alt: 'Missing image', class: "img-responsive img-circle" %>
         <h3 style="text-align: center">Ryan LeViseur</h3>
@@ -26,8 +28,7 @@
       </div>
     </div>
 
-  <div class="row">
-    <div class="col-sm-2">
+    <div class="col-md-3">
       <div class="about-photo">
         <%= image_tag 'Curtis.png', alt: 'Missing image', class: "img-responsive img-circle" %>
         <h3 style="text-align: center">Curtis McKee</h3>
@@ -47,15 +48,15 @@
           </li>
           <li>
             <%= link_to 'https://linkedin.comXXXXXXX' do %>
-              <i class="fa fa-linkedin-square">&nbsp; PLACEHOLDER</i> 
+              <i class="fa fa-linkedin-square">&nbsp; </i> 
               <% end %>
           </li>
         </ul>  
       </div>
     </div>
 
-  <div class="row">
-    <div class="col-sm-2">
+
+    <div class="col-md-3">
       <div class="about-photo">
         <%= image_tag 'Rocio.png', alt: 'Missing image', class: "img-responsive img-circle" %>
         <h3 style="text-align: center">Rocio Soto</h3>
@@ -82,8 +83,7 @@
       </div>
     </div>
 
-  <div class="row">
-    <div class="col-sm-2">
+    <div class="col-md-3">
       <div class="about-photo">
         <%= image_tag 'Alex.png', alt: 'Missing image', class: "img-responsive img-circle" %>
         <h3 style="text-align: center">Alex Burton</h3>
@@ -102,18 +102,22 @@
               <% end %>
           </li>
           <li>
-            <%= link_to 'https://linkedin.comXXXXXXX' do %>
-              <i class="fa fa-linkedin-square">&nbsp; PLACEHOLDER</i> 
+            <%= link_to 'https://linkedin.com/in/alexand3rsc0tt' do %>
+              <i class="fa fa-linkedin-square">&nbsp; linkedin.com/in/alexand3rsc0tt</i> 
               <% end %>
           </li>
         </ul>  
       </div>
     </div>
+  
+  </div>
+</div>
 
+<hr>
 
+<div class="row-stats">
+  <div class="col-lg-12">
 
-
-  <div class="col-sm-12">
     <h3>
       Stats About Our App
       <%= link_to 'CSV Export', about_path(format: :csv), class: 'btn btn-xs btn-default' %>
@@ -121,11 +125,12 @@
       <h4>Has Many Relationships</h4>
       <%= get_has_many_assocations_formatted %>
       <hr>
-        <h4>Total Lines of Code</h4>
-        <%= get_loc_count_formatted %>
-        <hr>
-          <h4>Files Sorted by Lines of Code</h4>
-          <%= get_loc_sorted_formatted %>
-
+      <h4>Total Lines of Code</h4>
+      <%= get_loc_count_formatted %>
+      <hr>
+      <h4>Files Sorted by Lines of Code</h4>
+      <%= get_loc_sorted_formatted %>
+  </div>
+</div>
 
 
