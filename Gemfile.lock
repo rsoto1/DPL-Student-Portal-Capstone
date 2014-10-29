@@ -130,7 +130,6 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    newrelic_rpm (3.9.6.257)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     oauth2 (1.0.0)
@@ -277,7 +276,6 @@ DEPENDENCIES
   mail_form
   merit
   meta_request
-  newrelic_rpm
   octokit (~> 3.0)
   omniauth-github
   pg

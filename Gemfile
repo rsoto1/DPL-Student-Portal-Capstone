@@ -45,7 +45,7 @@ gem 'puma'
 # rack-timeout gem to kill hung connections
 #gem 'rack-timeout'
 # new relic gem for performance monitoring
-gem 'newrelic_rpm'
+#gem 'newrelic_rpm'
 # Faker gem for generating random data
 gem 'faker'
 
